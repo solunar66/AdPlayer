@@ -35,8 +35,6 @@ namespace PLAY
         {
             InitializeComponent();
 
-            this.Text = "广告播放系统";
-
             // 读取配置
             XMLInfo xml = new XMLInfo(@"config\play.xml");
             xml.ReadPlayConfig(out config);
@@ -51,7 +49,7 @@ namespace PLAY
             label_title.Location = new Point(0, label_title.Location.Y);
             label_title.Text = "notice";
             label_title.Visible = false;
-
+            
             // 播放器设置
             axWindowsMediaPlayer1.uiMode = "none";
             axWindowsMediaPlayer1.stretchToFit = true;
@@ -72,7 +70,7 @@ namespace PLAY
             //label1.Text = axWindowsMediaPlayer1.currentMedia.name;
             //axWindowsMediaPlayer1.Ctlcontrols.stop();
             label_title.Location = new Point(label_title.Location.X - 5, this.Height - label_title.Height);
-            if (label_title.Width + label_title.Location.X < 0)
+            if (label_title.Width + label_title.Location.X < 0) 
             {
                 label_title.Location = new Point(this.Width, label_title.Location.Y);
             }
@@ -83,7 +81,7 @@ namespace PLAY
         {
             string state;
             bool goon = false;
-            switch (e.newState)
+            switch(e.newState)
             {
                 case 1:
                     state = "Stopped";
@@ -150,15 +148,6 @@ namespace PLAY
                         this.label_title.Visible = false;
                         break;
 
-                    case WM_DESTROY:
-                        IntPtr ptr1 = Msg.FindWindow(null, "系统服务");
-                        if (IntPtr.Zero != ptr1)
-                        {
-                            Msg.My_lParam_Notice mm = new Msg.My_lParam_Notice();
-                            Msg.PostMessage(ptr1, WM_DESTROY, 0, ref mm);
-                        }
-                        break;
-
                     default:
                         break;
                 }
@@ -180,8 +169,8 @@ namespace PLAY
                 this.FormBorderStyle = FormBorderStyle.FixedSingle;
                 this.WindowState = FormWindowState.Normal;
                 axWindowsMediaPlayer1.Dock = DockStyle.None;
-                axWindowsMediaPlayer1.Size = new Size(496,431);
-                axWindowsMediaPlayer1.Location = new Point(12,3);
+                axWindowsMediaPlayer1.Size = new Size(320, 240);
+                axWindowsMediaPlayer1.Location = new Point(30, 30);
                 axWindowsMediaPlayer1.Ctlcontrols.pause();
                 panel1.Visible = true;
             }
@@ -199,7 +188,7 @@ namespace PLAY
 
             if (axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPaused)
             {
-                axWindowsMediaPlayer1.Ctlcontrols.play();
+                axWindowsMediaPlayer1.Ctlcontrols.play();                
             }
             else
             {
@@ -221,13 +210,13 @@ namespace PLAY
                     bool weekday = false;
                     switch (now.DayOfWeek)
                     {
-                        case DayOfWeek.Monday: weekday = datesheet.Mon; break;
-                        case DayOfWeek.Tuesday: weekday = datesheet.Tus; break;
-                        case DayOfWeek.Wednesday: weekday = datesheet.Wed; break;
-                        case DayOfWeek.Thursday: weekday = datesheet.Thu; break;
-                        case DayOfWeek.Friday: weekday = datesheet.Fri; break;
-                        case DayOfWeek.Saturday: weekday = datesheet.Sat; break;
-                        case DayOfWeek.Sunday: weekday = datesheet.Sun; break;
+                        case DayOfWeek.Monday:      weekday = datesheet.Mon; break;
+                        case DayOfWeek.Tuesday:     weekday = datesheet.Tus; break;
+                        case DayOfWeek.Wednesday:   weekday = datesheet.Wed; break;
+                        case DayOfWeek.Thursday:    weekday = datesheet.Thu; break;
+                        case DayOfWeek.Friday:      weekday = datesheet.Fri; break;
+                        case DayOfWeek.Saturday:    weekday = datesheet.Sat; break;
+                        case DayOfWeek.Sunday:      weekday = datesheet.Sun; break;
                         default: break;
                     }
                     if (weekday)
@@ -295,22 +284,13 @@ namespace PLAY
         // 退出
         private void Exit_Click(object sender, EventArgs e)
         {
-            IntPtr ptr1 = Msg.FindWindow(null, "系统服务");
+            IntPtr ptr = Msg.FindWindow(null, "系统服务");
 
-            if (IntPtr.Zero != ptr1)
+            if (IntPtr.Zero != ptr)
             {
                 Msg.My_lParam_Notice m = new Msg.My_lParam_Notice();
-                Msg.PostMessage(ptr1, WM_DESTROY, 0, ref m);
+                Msg.PostMessage(ptr, WM_DESTROY, 0, ref m);
             }
-
-            IntPtr ptr2 = Msg.FindWindow(null, "系统升级守护进程");
-
-            if (IntPtr.Zero != ptr2)
-            {
-                Msg.My_lParam_Notice m = new Msg.My_lParam_Notice();
-                Msg.PostMessage(ptr2, WM_DESTROY, 0, ref m);
-            }
-
             this.Dispose();
         }
 

@@ -15,14 +15,16 @@ namespace ROUTER
         {
             InitializeComponent();
 
-            //System.Diagnostics.Process.Start(@"..\..\..\..\PLAY\PLAY\bin\Debug\MediaPlay.exe");
-            //System.Diagnostics.Process.Start(@"..\..\..\..\UPDATER\bin\Debug\Updater.exe");
-            
-            PLAY.Form_Play play = new PLAY.Form_Play();
-            play.Show();
+            this.Text = "系统服务";
 
-            UPD.Form_Updater updater = new UPD.Form_Updater();
-            updater.Show();
+            System.Diagnostics.Process.Start("MediaPlayer.exe");
+            System.Diagnostics.Process.Start("Updater.exe");
+            
+            //PLAY.Form_Play play = new PLAY.Form_Play();
+            //play.Show();
+
+            //UPD.Form_Updater updater = new UPD.Form_Updater();
+            //updater.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)

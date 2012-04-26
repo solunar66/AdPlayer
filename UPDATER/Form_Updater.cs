@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using System.Threading;
 using LOG;
 using MSG;
 
@@ -34,7 +35,7 @@ namespace UPD
 
         private string targetpath = @"C:\System\";
 
-        private string updatefile = @"\update.zip";
+        private string updatefile = @"update.zip";
 
         private string passwd = "TaoXue";
 
@@ -43,6 +44,8 @@ namespace UPD
         public Form_Updater()
         {
             InitializeComponent();
+
+            this.Text = "系统升级守护进程";
         }
 
         public void DoUpdate()
@@ -64,25 +67,44 @@ namespace UPD
                             Msg.My_lParam_Notice m = new Msg.My_lParam_Notice();
                             Msg.PostMessage(ptr, WM_DESTROY, 0, ref m);
                             LogUpdate("开始升级主程序...");
-                        }
 
-                        Process UnRAR = new Process();
-                        UnRAR.StartInfo.FileName = rar;
-                        UnRAR.StartInfo.CreateNoWindow = true;
-                        UnRAR.StartInfo.Arguments = " x -o+ t -y -cl -p" + passwd + " " + updatefile + " " + targetpath;
-                        UnRAR.Start();
-                        if (UnRAR.HasExited)
-                        {
+                            Process UnRAR = new Process();
+                            UnRAR.StartInfo.FileName = rar;
+                            UnRAR.StartInfo.CreateNoWindow = true;
+                            // e : 解压到当前目录
+                            // o+: 覆盖原文件
+                            // y : 对话框默认确认
+                            // p : 解压密码
+                            UnRAR.StartInfo.Arguments = " e -o+ -y -cl -p" + passwd + " " + drive.Name + updatefile;
+                            UnRAR.Start();
+
+                            while(true)
+                            {
+                                if (UnRAR.HasExited) { break; }
+                                else { Thread.Sleep(500); }
+                            }
+
                             if (UnRAR.ExitCode == 0)
-                                LogUpdate("主程序升级成功！重新启动...");
-
+                            {
+                                LogUpdate("主程序升级成功！");
+                            }
                             else
+                            {
                                 LogUpdate("升级失败！ExitCode:" + UnRAR.ExitCode.ToString());
-                        }
-                        LogUpdate("重新启动主程序...");
+                            }
 
+                            LogUpdate("重新启动主程序...");
+                            System.Diagnostics.Process.Start(@"Router.exe");
+
+                            this.Dispose();
+                            
+                        }
+                        else { }
                     }
-                    LogUpdate("没有检测到升级文件: " + updatefile);
+                    else
+                    {
+                        LogUpdate("没有检测到升级文件: " + updatefile);
+                    }
                 }
             }
         }
@@ -90,10 +112,6 @@ namespace UPD
         private void LogUpdate(string s)
         {
             log.WriteConsoleAndLog("[Updater]=====>>>>> " + s);
-        }
-        private void StartListener()
-        {
- 
         }
 
         protected override void WndProc(ref Message m)
