@@ -9,6 +9,7 @@ namespace XML
 
     public struct Config
     {
+        public int scr;
         public Notice notice;
         public List<DateSheet> datesheets;
     }

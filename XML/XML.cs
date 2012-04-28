@@ -104,7 +104,8 @@ namespace XML
             {
                 XmlDocument doc = new XmlDocument();
                 doc.Load(path);
-                XmlNode xn = doc.SelectSingleNode(node);
+                XmlNode system = doc.SelectSingleNode("system");
+                XmlNode xn = system.SelectSingleNode(node);
                 XmlElement xe = (XmlElement)xn;
                 if (attribute.Equals(""))
                     xe.InnerText = value;
@@ -144,34 +145,6 @@ namespace XML
         }
 
         /// <summary>
-        /// 获取颜色配置
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        private Color GetColorFromName(string name)
-        {
-            if (name.Equals("black")) { return Color.Black; }
-
-            if (name.Equals("red")) { return Color.Red; }
-
-            if (name.Equals("blue")) { return Color.Blue; }
-
-            if (name.Equals("yellow")) { return Color.Yellow; }
-
-            if (name.Equals("green")) { return Color.Green; }
-
-            if (name.Equals("brown")) { return Color.Brown; }
-
-            if (name.Equals("white")) { return Color.White; }
-
-            if (name.Equals("pink")) { return Color.Pink; }
-
-            if (name.Equals("purple")) { return Color.Purple; }
-
-            return Color.Transparent;
-        }
-
-        /// <summary>
         /// 读取播放配置
         /// </summary>
         /// <returns></returns>
@@ -186,11 +159,14 @@ namespace XML
 
                 XmlNode system = doc.SelectSingleNode("system");
 
+                XmlNode screen = system.SelectSingleNode("screen");
+                config.scr = int.Parse(screen.Attributes["index"].Value);
+
                 XmlNode notice = system.SelectSingleNode("notice");
                 config.notice.bold = notice.Attributes["bold"].Value == "0" ? false : true;
-                config.notice.color = GetColorFromName(notice.Attributes["color"].Value);
-                config.notice.bgcolor = GetColorFromName(notice.Attributes["color"].Value);
-                config.notice.font = notice.Attributes["font"].Value;
+                config.notice.color = Color.FromName(notice.Attributes["color"].Value);
+                config.notice.bgcolor = Color.FromName(notice.Attributes["bgcolor"].Value);
+                config.notice.font = notice.Attributes["fontname"].Value;
                 config.notice.size = int.Parse(notice.Attributes["size"].Value);
                 config.notice.interval = int.Parse(notice.Attributes["speed"].Value);
 

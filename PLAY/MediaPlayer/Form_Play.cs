@@ -23,6 +23,8 @@ namespace PLAY
 
         private string curDir = System.IO.Directory.GetCurrentDirectory().ToString();
 
+        private XMLInfo xml = new XMLInfo(@"config\play.xml");
+
         private LogInfo log = LogInfo.GetInstance;
 
         private Config config;
@@ -38,32 +40,14 @@ namespace PLAY
             this.Text = "广告播放系统";
 
             // 读取配置
-            XMLInfo xml = new XMLInfo(@"config\play.xml");
             xml.ReadPlayConfig(out config);
-
-            // 字幕滚动速度
-            timer_title.Interval = config.notice.interval;
-            timer_title.Stop();
-
-            // 字幕字体
-            label_title.BackColor = config.notice.bgcolor;
-            label_title.Font = new Font(config.notice.font, config.notice.size);
-            label_title.Location = new Point(0, label_title.Location.Y);
-            label_title.Text = "notice";
-            label_title.Visible = false;
+            numericUpDown2.Value = config.notice.interval;
 
             // 播放器设置
             axWindowsMediaPlayer1.uiMode = "none";
             axWindowsMediaPlayer1.stretchToFit = true;
             axWindowsMediaPlayer1.Ctlenabled = true;
             axWindowsMediaPlayer1.settings.setMode("loop", true);// 循环
-
-            // 多屏显示
-            Screen[] scr = Screen.AllScreens;
-            if (scr.Length > 1)
-            {
-                this.Location = scr[0].WorkingArea.Location;
-            }
         }
 
         // 字幕滚动
@@ -141,6 +125,14 @@ namespace PLAY
                         break;
 
                     case Msg.EXT_MSG_PlayNotice:
+                        // 字幕字体
+                        label_title.BackColor = config.notice.bgcolor;
+                        label_title.Font = new Font(config.notice.font, config.notice.size);
+                        label_title.Location = new Point(0, label_title.Location.Y);
+                        label_title.Text = "notice";
+                        label_title.Visible = false;
+
+                        this.timer_title.Interval = config.notice.interval;
                         this.timer_title.Start();
                         this.label_title.Visible = true;
                         break;
@@ -191,11 +183,21 @@ namespace PLAY
         // 防止意外退出全屏模式
         public void Play_Click(object sender, EventArgs e)
         {
+            // 读取配置
+            xml.ReadPlayConfig(out config);
+
             Cursor.Hide();
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             axWindowsMediaPlayer1.Dock = DockStyle.Fill;
             panel1.Visible = false;
+
+            // 多屏显示
+            Screen[] scr = Screen.AllScreens;
+            if (scr.Length > 1)
+            {
+                this.Location = scr[config.scr].WorkingArea.Location;
+            }
 
             if (axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPaused)
             {
@@ -288,7 +290,14 @@ namespace PLAY
         {
             OperatePPT ppt = new OperatePPT();
             string pathfile = content.file.IndexOf(":") == -1 ? curDir + "\\" + content.file : content.file;
-            ppt.PPTAuto(pathfile, content.duration);
+            if (numericUpDown1.Enabled)
+            {
+                ppt.PPTAuto(pathfile, int.Parse(numericUpDown1.Value.ToString()));
+            }
+            else
+            {
+                ppt.PPTAuto(pathfile, content.duration);
+            }
             LogPlay("当前文件:\"" + pathfile + "\"" + ", 播放状态:PowerPoint放映中");
         }
 
@@ -322,6 +331,48 @@ namespace PLAY
         private void button_Config_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("notepad.exe", @"config\play.xml");
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            numericUpDown1.Enabled = checkBox1.CheckState == CheckState.Checked ? false : true;
+            label2.Enabled = numericUpDown1.Enabled;
+            label3.Enabled = numericUpDown1.Enabled;
+
+            checkBox1.ForeColor = 
+                (checkBox1.CheckState == CheckState.Checked) ? 
+                Color.FromKnownColor(System.Drawing.KnownColor.ControlText) :
+                Color.FromKnownColor(System.Drawing.KnownColor.InactiveCaption);
+        }
+
+        private void button_Font_Click(object sender, EventArgs e)
+        {
+            Font font = new Font(config.notice.font, 
+                                config.notice.size, 
+                                config.notice.bold ? FontStyle.Bold : FontStyle.Regular);            
+            fontDialog1.Color = config.notice.color;
+            fontDialog1.Font = font;
+            if (fontDialog1.ShowDialog() == DialogResult.OK)
+            {
+                xml.Update("notice", "font", fontDialog1.Font.FontFamily.Name);
+                xml.Update("notice", "bold", fontDialog1.Font.Bold ? "1" : "0");
+                xml.Update("notice", "size", fontDialog1.Font.Size.ToString());
+                xml.Update("notice", "color", fontDialog1.Color.Name.ToString());
+            }
+        }
+
+        private void button_fontbg_Click(object sender, EventArgs e)
+        {
+            colorDialog1.Color = config.notice.bgcolor;
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                xml.Update("notice", "bgcolor", colorDialog1.Color.Name.ToString());
+            }
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            xml.Update("notice", "speed", numericUpDown2.Value.ToString());
         }
     }
 }

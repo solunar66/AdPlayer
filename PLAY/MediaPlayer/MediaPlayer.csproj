@@ -46,6 +46,8 @@
     <Compile Include="Form_Play.Designer.cs">
       <DependentUpon>Form_Play.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hook.cs">
+    </Compile>
     <Compile Include="ppt.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

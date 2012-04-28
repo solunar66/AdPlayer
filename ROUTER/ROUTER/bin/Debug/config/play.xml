@@ -1,6 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <system>
-  <notice font="宋体" color="red" bgcolor="white" size="28" bold="1" speed="100" />
+  <screen index="0" />
+  <notice fontname="SimHei" color="Red" bgcolor="Yellow" size="18" bold="1" speed="100" />
   <period start="2012-03-01" end="2012-03-29" mon="0" tus="0" wed="0" thu="0" fri="0" sat="0" sun="0">
     <time start="00:30:00" end="15:00:00" mode="sequencial">
       <item type="ppt" src="media\example_ppt.ppt" duration="1" />
@@ -13,7 +14,7 @@
   </period>
   <period start="2012-03-29" end="2012-04-30" mon="1" tus="1" wed="1" thu="1" fri="1" sat="1" sun="1">
     <time start="09:00:00" end="18:00:00" mode="sequencial">
-      <item type="dir" src="media\example_dir" duration="0" />
+      <item type="dir" src="media\example_dir" duration="1" />
     </time>
   </period>
 </system>

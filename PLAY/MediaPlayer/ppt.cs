@@ -5,6 +5,7 @@ using System.Diagnostics;
 using OFFICECORE = Microsoft.Office.Core;
 using POWERPOINT = Microsoft.Office.Interop.PowerPoint;
 using MSG;
+using PLAY;
 
 namespace PPT
 {
@@ -21,10 +22,13 @@ namespace PPT
         bool bAssistantOn;
         int iSlideIndex = 0;
         int iSlideShowTime = 0;
+        Hook hook;
         #endregion
 
         public OperatePPT()
-        { }
+        {
+            hook = new Hook();
+        }
 
         #region===========操作方法==============
 
@@ -61,10 +65,12 @@ namespace PPT
                 objSSS.StartingSlide = 1;
                 objSSS.EndingSlide = Slides;
                 objApp.SlideShowNextSlide += new POWERPOINT.EApplication_SlideShowNextSlideEventHandler(objApp_SlideShowNextSlide);
+                hook.Hook_Start();
                 objSSS.Run();
             }
             catch (Exception ex)
             {
+                hook.Hook_Clear();
                 this.objApp.Quit();
             }
         }
@@ -130,6 +136,7 @@ namespace PPT
                 iSlideIndex = 0;
 
                 PPTClose();
+                hook.Hook_Clear();
                 //等待进程退出
                 System.Threading.Thread.Sleep(500);
 
