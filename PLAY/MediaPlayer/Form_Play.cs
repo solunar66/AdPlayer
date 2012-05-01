@@ -328,7 +328,7 @@ namespace PLAY
             log.WriteConsoleAndLog("[MediaPlayer]=====>>>>> " + s);
         }
 
-        private void button_Config_Click(object sender, EventArgs e)
+        private void button_Configfile_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("notepad.exe", @"config\play.xml");
         }
@@ -347,6 +347,8 @@ namespace PLAY
 
         private void button_Font_Click(object sender, EventArgs e)
         {
+            xml.ReadPlayConfig(out config);
+
             Font font = new Font(config.notice.font, 
                                 config.notice.size, 
                                 config.notice.bold ? FontStyle.Bold : FontStyle.Regular);            
@@ -373,6 +375,14 @@ namespace PLAY
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
             xml.Update("notice", "speed", numericUpDown2.Value.ToString());
+        }
+
+        private void button_Config_Click(object sender, EventArgs e)
+        {
+            xml.ReadPlayConfig(out config);
+
+            Form_Config cfg = new Form_Config(config);
+            cfg.ShowDialog();
         }
     }
 }

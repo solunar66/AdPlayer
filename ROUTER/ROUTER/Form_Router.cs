@@ -17,11 +17,11 @@ namespace ROUTER
 
             this.Text = "系统服务";
 
-            System.Diagnostics.Process.Start("MediaPlayer.exe");
+            //System.Diagnostics.Process.Start("MediaPlayer.exe");
             System.Diagnostics.Process.Start("Updater.exe");
             
-            //PLAY.Form_Play play = new PLAY.Form_Play();
-            //play.Show();
+            PLAY.Form_Play play = new PLAY.Form_Play();
+            play.Show();
 
             //UPD.Form_Updater updater = new UPD.Form_Updater();
             //updater.Show();
