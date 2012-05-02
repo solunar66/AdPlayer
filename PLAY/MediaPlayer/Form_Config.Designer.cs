@@ -42,7 +42,7 @@
             // 
             // button_ok
             // 
-            this.button_ok.Location = new System.Drawing.Point(612, 327);
+            this.button_ok.Location = new System.Drawing.Point(476, 406);
             this.button_ok.Name = "button_ok";
             this.button_ok.Size = new System.Drawing.Size(75, 23);
             this.button_ok.TabIndex = 0;
@@ -53,7 +53,7 @@
             // button_cancel
             // 
             this.button_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_cancel.Location = new System.Drawing.Point(693, 327);
+            this.button_cancel.Location = new System.Drawing.Point(557, 406);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(75, 23);
             this.button_cancel.TabIndex = 0;
@@ -71,22 +71,26 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.Location = new System.Drawing.Point(0, 247);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(784, 74);
+            this.dataGridView1.Size = new System.Drawing.Size(644, 154);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellLeave);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
             // 
             // treeView1
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(784, 241);
+            this.treeView1.Size = new System.Drawing.Size(644, 241);
             this.treeView1.TabIndex = 2;
             this.treeView1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseDoubleClick);
             // 
             // button_add
             // 
-            this.button_add.Location = new System.Drawing.Point(12, 327);
+            this.button_add.Location = new System.Drawing.Point(12, 406);
             this.button_add.Name = "button_add";
             this.button_add.Size = new System.Drawing.Size(75, 23);
             this.button_add.TabIndex = 3;
@@ -96,7 +100,7 @@
             // 
             // button_delete
             // 
-            this.button_delete.Location = new System.Drawing.Point(174, 327);
+            this.button_delete.Location = new System.Drawing.Point(174, 406);
             this.button_delete.Name = "button_delete";
             this.button_delete.Size = new System.Drawing.Size(75, 23);
             this.button_delete.TabIndex = 4;
@@ -106,7 +110,7 @@
             // 
             // button_update
             // 
-            this.button_update.Location = new System.Drawing.Point(93, 327);
+            this.button_update.Location = new System.Drawing.Point(93, 406);
             this.button_update.Name = "button_update";
             this.button_update.Size = new System.Drawing.Size(75, 23);
             this.button_update.TabIndex = 5;
@@ -121,7 +125,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 321);
+            this.panel1.Size = new System.Drawing.Size(644, 401);
             this.panel1.TabIndex = 6;
             // 
             // Form_Config
@@ -130,7 +134,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button_cancel;
-            this.ClientSize = new System.Drawing.Size(784, 362);
+            this.ClientSize = new System.Drawing.Size(644, 439);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button_update);

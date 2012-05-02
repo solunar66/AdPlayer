@@ -33,6 +33,9 @@
             this.timer_title = new System.Windows.Forms.Timer(this.components);
             this.label_title = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button_Config = new System.Windows.Forms.Button();
+            this.button_configfile = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button_fontbg = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,19 +50,16 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.button_Exit = new System.Windows.Forms.Button();
             this.button_Play = new System.Windows.Forms.Button();
-            this.button_configfile = new System.Windows.Forms.Button();
-            this.button_Config = new System.Windows.Forms.Button();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label_title
@@ -84,6 +84,36 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(268, 431);
             this.panel1.TabIndex = 3;
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.button_Config);
+            this.panel4.Controls.Add(this.button_configfile);
+            this.panel4.Location = new System.Drawing.Point(3, 55);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(260, 31);
+            this.panel4.TabIndex = 5;
+            // 
+            // button_Config
+            // 
+            this.button_Config.Location = new System.Drawing.Point(3, 3);
+            this.button_Config.Name = "button_Config";
+            this.button_Config.Size = new System.Drawing.Size(154, 23);
+            this.button_Config.TabIndex = 1;
+            this.button_Config.Text = "修改播放配置";
+            this.button_Config.UseVisualStyleBackColor = true;
+            this.button_Config.Click += new System.EventHandler(this.button_Config_Click);
+            // 
+            // button_configfile
+            // 
+            this.button_configfile.Location = new System.Drawing.Point(163, 3);
+            this.button_configfile.Name = "button_configfile";
+            this.button_configfile.Size = new System.Drawing.Size(94, 23);
+            this.button_configfile.TabIndex = 1;
+            this.button_configfile.Text = "打开配置文件";
+            this.button_configfile.UseVisualStyleBackColor = true;
+            this.button_configfile.Click += new System.EventHandler(this.button_Configfile_Click);
             // 
             // panel3
             // 
@@ -256,26 +286,6 @@
             this.button_Play.UseVisualStyleBackColor = true;
             this.button_Play.Click += new System.EventHandler(this.Play_Click);
             // 
-            // button_configfile
-            // 
-            this.button_configfile.Location = new System.Drawing.Point(163, 3);
-            this.button_configfile.Name = "button_configfile";
-            this.button_configfile.Size = new System.Drawing.Size(94, 23);
-            this.button_configfile.TabIndex = 1;
-            this.button_configfile.Text = "打开配置文件";
-            this.button_configfile.UseVisualStyleBackColor = true;
-            this.button_configfile.Click += new System.EventHandler(this.button_Configfile_Click);
-            // 
-            // button_Config
-            // 
-            this.button_Config.Location = new System.Drawing.Point(3, 3);
-            this.button_Config.Name = "button_Config";
-            this.button_Config.Size = new System.Drawing.Size(154, 23);
-            this.button_Config.TabIndex = 1;
-            this.button_Config.Text = "修改播放配置";
-            this.button_Config.UseVisualStyleBackColor = true;
-            this.button_Config.Click += new System.EventHandler(this.button_Config_Click);
-            // 
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
@@ -291,16 +301,6 @@
             // 
             this.fontDialog1.ShowColor = true;
             // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.button_Config);
-            this.panel4.Controls.Add(this.button_configfile);
-            this.panel4.Location = new System.Drawing.Point(3, 55);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(260, 31);
-            this.panel4.TabIndex = 5;
-            // 
             // Form_Play
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -315,13 +315,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "广告播放系统";
             this.panel1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
-            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
