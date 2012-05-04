@@ -33,6 +33,13 @@ namespace PLAY
         private Content content;
         private PlayMode mode;
 
+        private Hook hook;
+
+        private WMPLib.WMPPlayState prev_state;
+
+        private bool wait;
+        private bool log_wait;
+
         public Form_Play()
         {
             InitializeComponent();
@@ -48,6 +55,8 @@ namespace PLAY
             axWindowsMediaPlayer1.stretchToFit = true;
             axWindowsMediaPlayer1.Ctlenabled = true;
             axWindowsMediaPlayer1.settings.setMode("loop", true);// 循环
+
+            hook = new Hook();
         }
 
         // 字幕滚动
@@ -60,43 +69,6 @@ namespace PLAY
             {
                 label_title.Location = new Point(this.Width, label_title.Location.Y);
             }
-        }
-
-        // 播放器状态
-        private void axWindowsMediaPlayer1_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
-        {
-            string state;
-            bool goon = false;
-            switch (e.newState)
-            {
-                case 1:
-                    state = "Stopped";
-                    goon = true;
-                    break;
-                case 2:
-                    state = "Paused";
-                    break;
-                case 3:
-                    state = "Playing";
-                    break;
-                case 6:
-                    state = "Buffering";
-                    break;
-                case 9:
-                    state = "Transitioning";
-                    break;
-                case 10:
-                    state = "Ready";
-                    goon = true;
-                    break;
-                default:
-                    state = e.newState.ToString();
-                    break;
-            }
-
-            LogPlay("当前文件:\"" + axWindowsMediaPlayer1.currentMedia.name + "\", 播放状态:" + state);
-
-            if (goon && axWindowsMediaPlayer1.Dock == DockStyle.Fill) DoPlay();
         }
 
         // 消息响应
@@ -121,7 +93,7 @@ namespace PLAY
                         //Type t = param.GetType();
                         //param = (Msg.My_lParam)m.GetLParam(t);
                         //MessageBox.Show("收到命令: " + param.s);
-                        DoPlay();
+                        if (axWindowsMediaPlayer1.Dock == DockStyle.Fill) DoPlay();
                         break;
 
                     case Msg.EXT_MSG_PlayNotice:
@@ -173,13 +145,15 @@ namespace PLAY
         {
             if (axWindowsMediaPlayer1.Dock == DockStyle.Fill)
             {
+                hook.Hook_Clear();
                 Cursor.Show();
                 this.FormBorderStyle = FormBorderStyle.FixedSingle;
                 this.WindowState = FormWindowState.Normal;
                 axWindowsMediaPlayer1.Dock = DockStyle.None;
                 axWindowsMediaPlayer1.Size = new Size(496, 431);
                 axWindowsMediaPlayer1.Location = new Point(12, 3);
-                axWindowsMediaPlayer1.Ctlcontrols.pause();
+                if (axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPlaying)
+                { axWindowsMediaPlayer1.Ctlcontrols.pause(); }
                 panel1.Visible = true;
             }
         }
@@ -196,6 +170,9 @@ namespace PLAY
             this.WindowState = FormWindowState.Maximized;
             axWindowsMediaPlayer1.Dock = DockStyle.Fill;
             panel1.Visible = false;
+
+            hook.Hook_Clear();
+            hook.Hook_Start();
 
             // 多屏显示
             Screen[] scr = Screen.AllScreens;
@@ -246,6 +223,7 @@ namespace PLAY
                             {
                                 playlist = timesheet.contents;
                                 mode = timesheet.mode;
+                                wait = false;
                             }
                         }
                     }
@@ -256,7 +234,11 @@ namespace PLAY
         public void DoPlay()
         {
             CheckPlayList();
-            if (playlist == null) timer_monitor.Enabled = true;
+            if (playlist == null)
+            {
+                wait = true;
+                return;
+            }
 
             switch (mode)
             {
@@ -394,8 +376,58 @@ namespace PLAY
 
         private void timer_monitor_Tick(object sender, EventArgs e)
         {
-            DoPlay();
-            timer_monitor.Enabled = false;
+            axWindowsMediaPlayer1_PlayStateChange();
+
+            if (wait)
+            {
+                //LogPlay("当前时间段无播放配置信息，等待中...");
+                DoPlay();
+            }
+        }
+
+        private void axWindowsMediaPlayer1_PlayStateChange()
+        {
+            WMPLib.WMPPlayState cur_state = axWindowsMediaPlayer1.playState;
+            if (cur_state == prev_state) return;
+            else prev_state = cur_state;
+
+            bool goon = false;
+            string state;
+            switch (cur_state)
+            {
+                case WMPLib.WMPPlayState.wmppsStopped:
+                    state = "Stopped";
+                    goon = true;
+                    break;
+                case WMPLib.WMPPlayState.wmppsPaused:
+                    state = "Paused";
+                    break;
+                case WMPLib.WMPPlayState.wmppsPlaying:
+                    state = "Playing";
+                    break;
+                case WMPLib.WMPPlayState.wmppsBuffering:
+                    state = "Buffering";
+                    break;
+                case WMPLib.WMPPlayState.wmppsTransitioning:
+                    state = "Transitioning";
+                    break;
+                case WMPLib.WMPPlayState.wmppsReady:
+                    state = "Ready";
+                    goon = true;
+                    break;
+                default:
+                    state = axWindowsMediaPlayer1.playState.ToString();
+                    break;
+            }
+
+            string cur_media = axWindowsMediaPlayer1.currentMedia == null ? "null" : axWindowsMediaPlayer1.currentMedia.name;
+
+            LogPlay("当前文件:\"" + cur_media + "\", 播放状态:" + state);
+
+            if (goon && axWindowsMediaPlayer1.Dock == DockStyle.Fill)
+            {
+                DoPlay();
+            }
         }
     }
 }

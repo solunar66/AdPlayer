@@ -65,7 +65,10 @@ namespace PPT
                 objSSS.StartingSlide = 1;
                 objSSS.EndingSlide = Slides;
                 objApp.SlideShowNextSlide += new POWERPOINT.EApplication_SlideShowNextSlideEventHandler(objApp_SlideShowNextSlide);
+                
+                hook.Hook_Clear();
                 hook.Hook_Start();
+                
                 objSSS.Run();
             }
             catch

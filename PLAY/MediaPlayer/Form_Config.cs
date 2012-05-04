@@ -20,6 +20,8 @@ namespace PLAY
         private ComboBox cb_type;
         private NumericUpDown nu;
 
+        private int cur_level, cur_index;
+
 #endregion
 
 #region constructor
@@ -77,6 +79,8 @@ namespace PLAY
 
         private void button_update_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.Rows.Count == 0) return;
+
 
         }
 
@@ -209,6 +213,12 @@ namespace PLAY
             }
         }
 
+        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (e.Node.Level == cur_level && e.Node.Index == cur_index) return;
+            else clear();
+        }
+
 #endregion
 
 #region datagridview events handler
@@ -328,8 +338,7 @@ namespace PLAY
 #endregion
 
 #region functions
-
-
+        
         private void XML2Tree()
         {
             for (int i = 0; i < config.datesheets.Count; i++)
@@ -396,12 +405,20 @@ namespace PLAY
                 default:
                     break;
             }
+
+            cur_level = node.Level;
+            cur_index = node.Index;
+        }
+
+        private void clear()
+        { 
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
         }
 
         private void CreateDataGridView(int index)
         {
-            dataGridView1.Rows.Clear();
-            dataGridView1.Columns.Clear();
+            clear();
 
             switch (index)
             {
@@ -469,6 +486,8 @@ namespace PLAY
         }
 
 #endregion
+
+
     }
 
     #region customize datagridviewcell
