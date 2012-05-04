@@ -11,11 +11,18 @@ namespace PLAY
 {
     public partial class Form_Config : Form
     {
+
+#region fields
+
         private Config config;
         private DateTimePicker dp;
         private ComboBox cb_mode;
         private ComboBox cb_type;
         private NumericUpDown nu;
+
+#endregion
+
+#region constructor
 
         public Form_Config(Config cfg)
         {
@@ -52,19 +59,20 @@ namespace PLAY
             XML2Tree();
         }
 
+#endregion
+
+#region form events handler
+
         private void button_ok_Click(object sender, EventArgs e)
         {
+
             this.Close();
         }
 
         private void button_cancel_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button_add_Click(object sender, EventArgs e)
-        {
-
+            if (MessageBox.Show("确认不保存退出？", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.OK)
+                this.Close();
         }
 
         private void button_update_Click(object sender, EventArgs e)
@@ -72,138 +80,138 @@ namespace PLAY
 
         }
 
-        private void button_delete_Click(object sender, EventArgs e)
-        {
+#endregion
 
-        }
-
-        private void XML2Tree()
-        {
-            for (int i = 0; i < config.datesheets.Count; i++)
-            {
-                DateSheet datesheet = config.datesheets[i];
-
-                TreeNode rootnode = new TreeNode();
-                rootnode.Name = i.ToString();
-                rootnode.Text = "日期: " + datesheet.startDate.ToShortDateString() + " 至 " + datesheet.endDate.ToShortDateString();
-                treeView1.Nodes.Add(rootnode);
-                for (int j = 0; j < datesheet.timesheets.Count; j++)
-                {
-                    TimeSheet timesheet = datesheet.timesheets[j];
-
-                    TreeNode subnode = new TreeNode();
-                    subnode.Name = j.ToString();
-                    subnode.Text = "时间: " + timesheet.startTime.ToShortTimeString() + " 至 " + timesheet.endTime.ToShortTimeString();
-                    rootnode.Nodes.Add(subnode);
-                    for (int k = 0; k < timesheet.contents.Count; k++)
-                    {
-                        Content content = timesheet.contents[k];
-
-                        TreeNode itemnode = new TreeNode();
-                        itemnode.Name = k.ToString();
-                        itemnode.Text = "文件: 类型:" + content.type.ToString() + ", 停留: " + content.duration.ToString() + ", 名称: " + content.file;
-                        subnode.Nodes.Add(itemnode);
-                    }
-                }
-            }
-        }
-
-        private void display(TreeNode node)
-        {
-            dataGridView1.Rows.Clear();
-            dataGridView1.Columns.Clear();
-
-            switch (node.Level)
-            {
-                case 0:
-                    dataGridView1.Columns.Add("startdate", "起始日期");
-                    dataGridView1.Columns.Add("enddate", "终止日期");
-                    DataGridViewCheckBoxColumn colMon = new DataGridViewCheckBoxColumn();
-                    colMon.Name = "mon";
-                    colMon.Width = 50;
-                    colMon.HeaderText = "周一";
-                    dataGridView1.Columns.Add(colMon);
-                    DataGridViewCheckBoxColumn colTue = new DataGridViewCheckBoxColumn();
-                    colTue.Name = "tue";
-                    colTue.Width = 50;
-                    colTue.HeaderText = "周二";
-                    dataGridView1.Columns.Add(colTue);
-                    DataGridViewCheckBoxColumn colWed = new DataGridViewCheckBoxColumn();
-                    colWed.Name = "wed";
-                    colWed.Width = 50;
-                    colWed.HeaderText = "周三";
-                    dataGridView1.Columns.Add(colWed);
-                    DataGridViewCheckBoxColumn colThus = new DataGridViewCheckBoxColumn();
-                    colThus.Name = "thu";
-                    colThus.Width = 50;
-                    colThus.HeaderText = "周四";
-                    dataGridView1.Columns.Add(colThus);
-                    DataGridViewCheckBoxColumn colFri = new DataGridViewCheckBoxColumn();
-                    colFri.Name = "fri";
-                    colFri.Width = 50;
-                    colFri.HeaderText = "周五";
-                    dataGridView1.Columns.Add(colFri);
-                    DataGridViewCheckBoxColumn colSat = new DataGridViewCheckBoxColumn();
-                    colSat.Name = "sat";
-                    colSat.Width = 50;
-                    colSat.HeaderText = "周六";
-                    dataGridView1.Columns.Add(colSat);
-                    DataGridViewCheckBoxColumn colSun = new DataGridViewCheckBoxColumn();
-                    colSun.Name = "sun";
-                    colSun.Width = 50;
-                    colSun.HeaderText = "周日";
-                    dataGridView1.Columns.Add(colSun);
-
-                    dataGridView1.Rows.Add();
-                    dataGridView1.Rows[0].Cells[0].Value = config.datesheets[node.Index].startDate.ToShortDateString();
-                    dataGridView1.Rows[0].Cells[0].ToolTipText = "cc";
-                    dataGridView1.Rows[0].Cells[1].Value = config.datesheets[node.Index].endDate.ToShortDateString();
-                    dataGridView1.Rows[0].Cells[1].ToolTipText = "cc";
-                    dataGridView1.Rows[0].Cells[2].Value = config.datesheets[node.Index].Mon;
-                    dataGridView1.Rows[0].Cells[3].Value = config.datesheets[node.Index].Tus;
-                    dataGridView1.Rows[0].Cells[4].Value = config.datesheets[node.Index].Wed;
-                    dataGridView1.Rows[0].Cells[5].Value = config.datesheets[node.Index].Thu;
-                    dataGridView1.Rows[0].Cells[6].Value = config.datesheets[node.Index].Fri;
-                    dataGridView1.Rows[0].Cells[7].Value = config.datesheets[node.Index].Sat;
-                    dataGridView1.Rows[0].Cells[8].Value = config.datesheets[node.Index].Sun;
-                    break;
-
-                case 1:
-                    dataGridView1.Columns.Add("starttime", "起始时间");
-                    dataGridView1.Columns[0].Width = 150;
-                    dataGridView1.Columns.Add("endtime", "终止时间");
-                    dataGridView1.Columns[1].Width = 150;
-                    dataGridView1.Columns.Add("mode", "播放模式");
-
-                    dataGridView1.Rows.Add();
-                    dataGridView1.Rows[0].Cells[0].Value = config.datesheets[node.Parent.Index].timesheets[node.Index].startTime.ToShortTimeString();
-                    dataGridView1.Rows[0].Cells[1].Value = config.datesheets[node.Parent.Index].timesheets[node.Index].endTime.ToShortTimeString();
-                    dataGridView1.Rows[0].Cells[2].Value = config.datesheets[node.Parent.Index].timesheets[node.Index].mode.ToString();
-                    break;
-
-                case 2:
-                    dataGridView1.Columns.Add("type", "媒体类型");
-                    dataGridView1.Columns[0].Width = 80;
-                    dataGridView1.Columns.Add("intv", "幻灯页间隔(秒)");
-                    dataGridView1.Columns[1].Width = 80;
-                    dataGridView1.Columns.Add("file", "媒体文件");
-                    dataGridView1.Columns[2].Width = 300;
-
-                    dataGridView1.Rows.Add();
-                    dataGridView1.Rows[0].Cells[0].Value = config.datesheets[node.Parent.Parent.Index].timesheets[node.Parent.Index].contents[node.Index].type.ToString();
-                    dataGridView1.Rows[0].Cells[1].Value = config.datesheets[node.Parent.Parent.Index].timesheets[node.Parent.Index].contents[node.Index].duration.ToString();
-                    dataGridView1.Rows[0].Cells[2].Value = config.datesheets[node.Parent.Parent.Index].timesheets[node.Parent.Index].contents[node.Index].file;
-                    break;
-                
-                default:
-                    break;
-            }
-        }
+#region treeview events handler
 
         private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             display(e.Node);
         }
+
+        private void treeView1_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                TreeNode node = treeView1.GetNodeAt(e.X, e.Y);
+                if (node != null)
+                {
+                    treeView1.SelectedNode = node;
+                    contextMenuStrip1.Show(treeView1, e.X, e.Y);
+                }
+            }
+        }
+
+        private void toolStripMenuItem_MoveUp_Click(object sender, EventArgs e)
+        {
+            TreeNode node = treeView1.SelectedNode;
+            if (node.Index == 0) return;
+
+            TreeNode cloneNode = (TreeNode)node.Clone();
+
+            switch (node.Level)
+            {
+                case 0:
+                    config.datesheets.Reverse(node.Index - 1, 2);
+                    treeView1.Nodes.Remove(node);
+                    treeView1.Nodes.Insert(cloneNode.Index - 1, cloneNode);
+                    break;
+                case 1:
+                    config.datesheets[node.Parent.Index].timesheets.Reverse(node.Index - 1, 2);
+                    node.Parent.Nodes.Insert(node.Index - 1, cloneNode);
+                    node.Parent.Nodes.Remove(node);
+                    break;
+                case 2:
+                    config.datesheets[node.Parent.Parent.Index].timesheets[node.Parent.Index].contents.Reverse(node.Index - 1, 2);
+                    node.Parent.Nodes.Insert(node.Index - 1, cloneNode);
+                    node.Parent.Nodes.Remove(node);
+                    break;
+            }
+        }
+
+        private void toolStripMenuItem_MoveDown_Click(object sender, EventArgs e)
+        {
+            TreeNode node = treeView1.SelectedNode;
+            if (node.NextNode == null) return;
+
+            TreeNode cloneNode = (TreeNode)node.Clone();
+
+            switch (node.Level)
+            {
+                case 0:
+                    config.datesheets.Reverse(node.Index, 2);
+                    treeView1.Nodes.Insert(node.Index + 2, cloneNode);
+                    treeView1.Nodes.Remove(node);
+                    break;
+                case 1:
+                    config.datesheets[node.Parent.Index].timesheets.Reverse(node.Index, 2);
+                    node.Parent.Nodes.Insert(node.Index + 2, cloneNode);
+                    node.Parent.Nodes.Remove(node);
+                    break;
+                case 2:
+                    config.datesheets[node.Parent.Parent.Index].timesheets[node.Parent.Index].contents.Reverse(node.Index, 2);
+                    node.Parent.Nodes.Insert(node.Index + 2, cloneNode);
+                    node.Parent.Nodes.Remove(node);
+                    break;
+                default:
+                    throw new Exception();
+            }
+        }
+
+        private void ToolStripMenuItem_Add_Click(object sender, EventArgs e)
+        {
+            TreeNode node = treeView1.SelectedNode;
+            TreeNode newNode;
+
+            switch (node.Level)
+            {
+                case 0:
+                    config.datesheets.Insert(node.Index, new DateSheet());
+                    newNode = treeView1.Nodes.Insert(node.Index, "New Node");
+                    break;
+                case 1:
+                    config.datesheets[node.Parent.Index].timesheets.Insert(node.Index, new TimeSheet());
+                    newNode = node.Parent.Nodes.Insert(node.Index, "New Node");
+                    break;
+                case 2:
+                    config.datesheets[node.Parent.Parent.Index].timesheets[node.Parent.Index].contents.Insert(node.Index, new Content());
+                    newNode = node.Parent.Nodes.Insert(node.Index, "New Node");
+                    break;
+                default:
+                    throw new Exception();
+            }
+            treeView1.SelectedNode = newNode;
+
+            CreateDataGridView(newNode.Level);
+        }
+
+        private void toolStripMenuItem_Delete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("确认删除该项？", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                TreeNode node = treeView1.SelectedNode;
+
+                switch (node.Level)
+                {
+                    case 0:
+                        config.datesheets.RemoveAt(node.Index);
+                        break;
+                    case 1:
+                        config.datesheets[node.Parent.Index].timesheets.RemoveAt(node.Index);
+                        break;
+                    case 2:
+                        config.datesheets[node.Parent.Parent.Index].timesheets[node.Parent.Index].contents.RemoveAt(node.Index);
+                        break;
+                    default:
+                        throw new Exception();
+                }
+                treeView1.SelectedNode.Remove();
+            }
+        }
+
+#endregion
+
+#region datagridview events handler
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -316,5 +324,161 @@ namespace PLAY
             m.Dispose();
             m = null;
         }
+
+#endregion
+
+#region functions
+
+
+        private void XML2Tree()
+        {
+            for (int i = 0; i < config.datesheets.Count; i++)
+            {
+                DateSheet datesheet = config.datesheets[i];
+
+                TreeNode rootnode = new TreeNode();
+                rootnode.Name = i.ToString();
+                rootnode.Text = "日期: " + datesheet.startDate.ToShortDateString() + " 至 " + datesheet.endDate.ToShortDateString();
+                treeView1.Nodes.Add(rootnode);
+                for (int j = 0; j < datesheet.timesheets.Count; j++)
+                {
+                    TimeSheet timesheet = datesheet.timesheets[j];
+
+                    TreeNode subnode = new TreeNode();
+                    subnode.Name = j.ToString();
+                    subnode.Text = "时间: " + timesheet.startTime.ToShortTimeString() + " 至 " + timesheet.endTime.ToShortTimeString();
+                    rootnode.Nodes.Add(subnode);
+                    for (int k = 0; k < timesheet.contents.Count; k++)
+                    {
+                        Content content = timesheet.contents[k];
+
+                        TreeNode itemnode = new TreeNode();
+                        itemnode.Name = k.ToString();
+                        itemnode.Text = "文件: 类型:" + content.type.ToString() + ", 停留: " + content.duration.ToString() + ", 名称: " + content.file;
+                        subnode.Nodes.Add(itemnode);
+                    }
+                }
+            }
+        }
+
+        private void display(TreeNode node)
+        {
+            CreateDataGridView(node.Level);
+
+            switch (node.Level)
+            {
+                case 0:
+                    dataGridView1.Rows[0].Cells[0].Value = config.datesheets[node.Index].startDate.ToShortDateString();
+                    dataGridView1.Rows[0].Cells[0].ToolTipText = "cc";
+                    dataGridView1.Rows[0].Cells[1].Value = config.datesheets[node.Index].endDate.ToShortDateString();
+                    dataGridView1.Rows[0].Cells[1].ToolTipText = "cc";
+                    dataGridView1.Rows[0].Cells[2].Value = config.datesheets[node.Index].Mon;
+                    dataGridView1.Rows[0].Cells[3].Value = config.datesheets[node.Index].Tus;
+                    dataGridView1.Rows[0].Cells[4].Value = config.datesheets[node.Index].Wed;
+                    dataGridView1.Rows[0].Cells[5].Value = config.datesheets[node.Index].Thu;
+                    dataGridView1.Rows[0].Cells[6].Value = config.datesheets[node.Index].Fri;
+                    dataGridView1.Rows[0].Cells[7].Value = config.datesheets[node.Index].Sat;
+                    dataGridView1.Rows[0].Cells[8].Value = config.datesheets[node.Index].Sun;
+                    break;
+
+                case 1:
+                    dataGridView1.Rows[0].Cells[0].Value = config.datesheets[node.Parent.Index].timesheets[node.Index].startTime.ToShortTimeString();
+                    dataGridView1.Rows[0].Cells[1].Value = config.datesheets[node.Parent.Index].timesheets[node.Index].endTime.ToShortTimeString();
+                    dataGridView1.Rows[0].Cells[2].Value = config.datesheets[node.Parent.Index].timesheets[node.Index].mode.ToString();
+                    break;
+
+                case 2:
+                    dataGridView1.Rows[0].Cells[0].Value = config.datesheets[node.Parent.Parent.Index].timesheets[node.Parent.Index].contents[node.Index].type.ToString();
+                    dataGridView1.Rows[0].Cells[1].Value = config.datesheets[node.Parent.Parent.Index].timesheets[node.Parent.Index].contents[node.Index].duration.ToString();
+                    dataGridView1.Rows[0].Cells[2].Value = config.datesheets[node.Parent.Parent.Index].timesheets[node.Parent.Index].contents[node.Index].file;
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        private void CreateDataGridView(int index)
+        {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
+
+            switch (index)
+            {
+                case 0:
+                    dataGridView1.Columns.Add("startdate", "起始日期");
+                    dataGridView1.Columns.Add("enddate", "终止日期");
+                    DataGridViewCheckBoxColumn colMon = new DataGridViewCheckBoxColumn();
+                    colMon.Name = "mon";
+                    colMon.Width = 50;
+                    colMon.HeaderText = "周一";
+                    dataGridView1.Columns.Add(colMon);
+                    DataGridViewCheckBoxColumn colTue = new DataGridViewCheckBoxColumn();
+                    colTue.Name = "tue";
+                    colTue.Width = 50;
+                    colTue.HeaderText = "周二";
+                    dataGridView1.Columns.Add(colTue);
+                    DataGridViewCheckBoxColumn colWed = new DataGridViewCheckBoxColumn();
+                    colWed.Name = "wed";
+                    colWed.Width = 50;
+                    colWed.HeaderText = "周三";
+                    dataGridView1.Columns.Add(colWed);
+                    DataGridViewCheckBoxColumn colThus = new DataGridViewCheckBoxColumn();
+                    colThus.Name = "thu";
+                    colThus.Width = 50;
+                    colThus.HeaderText = "周四";
+                    dataGridView1.Columns.Add(colThus);
+                    DataGridViewCheckBoxColumn colFri = new DataGridViewCheckBoxColumn();
+                    colFri.Name = "fri";
+                    colFri.Width = 50;
+                    colFri.HeaderText = "周五";
+                    dataGridView1.Columns.Add(colFri);
+                    DataGridViewCheckBoxColumn colSat = new DataGridViewCheckBoxColumn();
+                    colSat.Name = "sat";
+                    colSat.Width = 50;
+                    colSat.HeaderText = "周六";
+                    dataGridView1.Columns.Add(colSat);
+                    DataGridViewCheckBoxColumn colSun = new DataGridViewCheckBoxColumn();
+                    colSun.Name = "sun";
+                    colSun.Width = 50;
+                    colSun.HeaderText = "周日";
+                    dataGridView1.Columns.Add(colSun);
+                    break;
+
+                case 1:
+                    dataGridView1.Columns.Add("starttime", "起始时间");
+                    dataGridView1.Columns[0].Width = 150;
+                    dataGridView1.Columns.Add("endtime", "终止时间");
+                    dataGridView1.Columns[1].Width = 150;
+                    dataGridView1.Columns.Add("mode", "播放模式");
+                    break;
+
+                case 2:
+                    dataGridView1.Columns.Add("type", "媒体类型");
+                    dataGridView1.Columns[0].Width = 80;
+                    dataGridView1.Columns.Add("intv", "幻灯页间隔(秒)");
+                    dataGridView1.Columns[1].Width = 80;
+                    dataGridView1.Columns.Add("file", "媒体文件");
+                    dataGridView1.Columns[2].Width = 300;
+                    break;
+
+                default:
+                    break;
+            }
+            dataGridView1.Rows.Add();
+        }
+
+#endregion
     }
+
+    #region customize datagridviewcell
+    class CalenderCell : MonthCalendar
+    {
+        public DataGridViewCell cell = null;
+        public CalenderCell(DataGridViewCell c)
+        {
+            cell = c;
+        }
+    }
+    #endregion
 }

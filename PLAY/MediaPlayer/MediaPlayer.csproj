@@ -40,9 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DateTimeCell.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Form_Config.cs">
       <SubType>Form</SubType>
     </Compile>

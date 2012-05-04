@@ -112,7 +112,7 @@ namespace PLAY
                             IntPtr ptr = Msg.FindWindow(null, "系统升级守护进程");
                             if (IntPtr.Zero == ptr) return;
                             Msg.My_lParam_Notice myM = new Msg.My_lParam_Notice();
-                            Msg.PostMessage(ptr, Msg.INT_MSG_UPDATE, 1, ref myM);
+                            Msg.PostMessage(ptr, Msg.INT_MSG_Update, 1, ref myM);
                         }
                         break;
 
@@ -142,6 +142,10 @@ namespace PLAY
                         this.label_title.Visible = false;
                         break;
 
+                    case Msg.INT_MSG_Window:
+                        EscKeyPressEvent();
+                        break;
+
                     case WM_DESTROY:
                         IntPtr ptr1 = Msg.FindWindow(null, "系统服务");
                         if (IntPtr.Zero != ptr1)
@@ -157,6 +161,7 @@ namespace PLAY
             }
             catch (Exception ex)
             {
+                LogPlay("WndProc Exception: " + ex.Message);
                 //MessageBox.Show(ex.Message);
             }
 
@@ -164,16 +169,16 @@ namespace PLAY
         }
 
         // ESC 返回管理界面
-        private void axWindowsMediaPlayer1_KeyPressEvent(object sender, AxWMPLib._WMPOCXEvents_KeyPressEvent e)
+        private void EscKeyPressEvent()
         {
-            if (e.nKeyAscii == KeyESC)
+            if (axWindowsMediaPlayer1.Dock == DockStyle.Fill)
             {
                 Cursor.Show();
                 this.FormBorderStyle = FormBorderStyle.FixedSingle;
                 this.WindowState = FormWindowState.Normal;
                 axWindowsMediaPlayer1.Dock = DockStyle.None;
-                axWindowsMediaPlayer1.Size = new Size(496,431);
-                axWindowsMediaPlayer1.Location = new Point(12,3);
+                axWindowsMediaPlayer1.Size = new Size(496, 431);
+                axWindowsMediaPlayer1.Location = new Point(12, 3);
                 axWindowsMediaPlayer1.Ctlcontrols.pause();
                 panel1.Visible = true;
             }
@@ -250,7 +255,9 @@ namespace PLAY
 
         public void DoPlay()
         {
-            if (playlist == null) return;
+            CheckPlayList();
+            if (playlist == null) timer_monitor.Enabled = true;
+
             switch (mode)
             {
                 case PlayMode.random:
@@ -383,6 +390,12 @@ namespace PLAY
 
             Form_Config cfg = new Form_Config(config);
             cfg.ShowDialog();
+        }
+
+        private void timer_monitor_Tick(object sender, EventArgs e)
+        {
+            DoPlay();
+            timer_monitor.Enabled = false;
         }
     }
 }

@@ -17,7 +17,9 @@ namespace MSG
 
         public const int EXT_MSG_StopNotice = USER + 3;
 
-        public const int INT_MSG_UPDATE = USER + 4;
+        public const int INT_MSG_Update = USER + 4;
+
+        public const int INT_MSG_Window = USER + 5;
 
         public struct My_lParam_Notice
         {

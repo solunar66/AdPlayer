@@ -107,13 +107,18 @@ namespace PLAY
         //这里可以添加自己想要的信息处理 
         public static int KeyBoardHookProc(int nCode, int wParam, IntPtr lParam)
         {
-            return 1;
             if (nCode >= 0)
             {
                 KeyBoardHookStruct kbh = (KeyBoardHookStruct)Marshal.PtrToStructure(lParam, typeof(KeyBoardHookStruct));
 
                 if (kbh.vkCode == (int)Keys.Escape)// 截获Esc
                 {
+                    IntPtr ptr1 = MSG.Msg.FindWindow(null, "广告播放系统");
+                    if (IntPtr.Zero != ptr1)
+                    {
+                        MSG.Msg.My_lParam_Notice m = new MSG.Msg.My_lParam_Notice();
+                        MSG.Msg.PostMessage(ptr1, MSG.Msg.INT_MSG_Window, 0, ref m);
+                    }
                     return 1;
                 }
                 if (kbh.vkCode == 91)  // 截获左win(开始菜单键)
@@ -130,7 +135,7 @@ namespace PLAY
                 }
                 if (kbh.vkCode == (int)Keys.F4 && (int)Control.ModifierKeys == (int)Keys.Alt)  //截获alt+f4
                 {
-                    return 1;
+                    //return 1;
                 }
                 if (kbh.vkCode == (int)Keys.Tab && (int)Control.ModifierKeys == (int)Keys.Alt) //截获alt+tab
                 {
@@ -150,7 +155,7 @@ namespace PLAY
                 }
                 if ((int)Control.ModifierKeys == (int)Keys.Control + (int)Keys.Alt + (int)Keys.Delete) //截获Ctrl+Alt+Delete 
                 {
-                    return 1;
+                    //return 1;
                 }
                 if ((int)Control.ModifierKeys == (int)Keys.Control + (int)Keys.Shift) //截获Ctrl+Shift 
                 {

@@ -33,8 +33,6 @@ namespace UPD
 
         private string rar = @"rar\WinRAR.exe";
 
-        private string targetpath = @"C:\System\";
-
         private string updatefile = @"update.zip";
 
         private string passwd = "TaoXue";
@@ -116,7 +114,7 @@ namespace UPD
 
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == MSG.Msg.INT_MSG_UPDATE)
+            if (m.Msg == MSG.Msg.INT_MSG_Update)
             {
                 DoUpdate();
             }

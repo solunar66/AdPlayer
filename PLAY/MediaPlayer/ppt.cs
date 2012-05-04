@@ -14,7 +14,7 @@ namespace PPT
         #region=========基本的参数信息=======
         POWERPOINT.Application objApp = null;
         POWERPOINT.Presentation objPresSet = null;
-        POWERPOINT.SlideShowWindows objSSWs;
+        //POWERPOINT.SlideShowWindows objSSWs;
         POWERPOINT.SlideShowTransition objSST;
         POWERPOINT.SlideShowSettings objSSS;
         POWERPOINT.SlideRange objSldRng;
@@ -68,7 +68,7 @@ namespace PPT
                 hook.Hook_Start();
                 objSSS.Run();
             }
-            catch (Exception ex)
+            catch
             {
                 hook.Hook_Clear();
                 this.objApp.Quit();
