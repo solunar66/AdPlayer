@@ -355,7 +355,7 @@ namespace PLAY
 
                     TreeNode subnode = new TreeNode();
                     subnode.Name = j.ToString();
-                    subnode.Text = "时间: " + timesheet.startTime.ToShortTimeString() + " 至 " + timesheet.endTime.ToShortTimeString();
+                    subnode.Text = "时间: " + timesheet.startTime.ToShortTimeString() + " 至 " + timesheet.endTime.ToShortTimeString() + ", 播放模式: " + timesheet.mode.ToString();
                     rootnode.Nodes.Add(subnode);
                     for (int k = 0; k < timesheet.contents.Count; k++)
                     {
