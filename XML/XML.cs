@@ -20,6 +20,7 @@ namespace XML
             log = LOG.LogInfo.GetInstance;
         }
 
+        #region left funcs
         /// <summary>
         /// 读取数据
         /// </summary>
@@ -143,12 +144,18 @@ namespace XML
             }
             catch { }
         }
+        #endregion
+
+        public bool ReadPlayConfig(out Config config)
+        {
+            return ReadPlayConfig(out config, true);
+        }
 
         /// <summary>
         /// 读取播放配置
         /// </summary>
         /// <returns></returns>
-        public bool ReadPlayConfig(out Config config)
+        public bool ReadPlayConfig(out Config config, bool expendDir)
         {
             config = new Config();
 
@@ -177,11 +184,11 @@ namespace XML
                 {
                     DateSheet datesheets = new DateSheet();
 
-                    datesheets.startDate = DateTime.Parse(period.Attributes["start"].Value);
-                    datesheets.endDate = DateTime.Parse(period.Attributes["end"].Value + " 23:59:59");
+                    datesheets.startDate = DateTime.Parse(period.Attributes["startdate"].Value);
+                    datesheets.endDate = DateTime.Parse(period.Attributes["enddate"].Value + " 23:59:59");
 
                     datesheets.Mon = period.Attributes["mon"].Value.Equals("1") ? true : false;
-                    datesheets.Tus = period.Attributes["tus"].Value.Equals("1") ? true : false;
+                    datesheets.Tue = period.Attributes["tue"].Value.Equals("1") ? true : false;
                     datesheets.Wed = period.Attributes["wed"].Value.Equals("1") ? true : false;
                     datesheets.Thu = period.Attributes["thu"].Value.Equals("1") ? true : false;
                     datesheets.Fri = period.Attributes["fri"].Value.Equals("1") ? true : false;
@@ -193,8 +200,8 @@ namespace XML
                     foreach (XmlNode timewindow in timelist)
                     {
                         TimeSheet timesheets = new TimeSheet();
-                        timesheets.startTime = DateTime.Parse(timewindow.Attributes["start"].Value);
-                        timesheets.endTime = DateTime.Parse(timewindow.Attributes["end"].Value);
+                        timesheets.startTime = DateTime.Parse(timewindow.Attributes["starttime"].Value);
+                        timesheets.endTime = DateTime.Parse(timewindow.Attributes["endtime"].Value);
                         string mode = timewindow.Attributes["mode"].Value;
                         if (mode.Equals("sequencial")) { timesheets.mode = PlayMode.sequencial; }
                         if (mode.Equals("random")) { timesheets.mode = PlayMode.random; }
@@ -204,16 +211,14 @@ namespace XML
                         foreach (XmlNode item in timewindow)
                         {
                             string type = item.Attributes["type"].Value;
-                            if (type.Equals("dir"))
+                            if (type.Equals("dir") && expendDir)
                             {
                                 DirectoryInfo dir = new DirectoryInfo(item.Attributes["src"].Value);
                                 foreach (FileInfo file in dir.GetFiles())
                                 {
                                     Content content = new Content();
-                                    if (file.Extension.Contains("ppt"))
-                                    { content.type = ContentType.powerpoint; }
-                                    else
-                                    { content.type = ContentType.video; }
+                                    if (file.Extension.Contains("ppt")) { content.type = ContentType.powerpoint; }
+                                    else { content.type = ContentType.video; }
                                     content.duration = int.Parse(item.Attributes["duration"].Value);
                                     content.file = file.FullName;
                                     timesheets.contents.Add(content);
@@ -223,9 +228,10 @@ namespace XML
                             {
                                 Content content = new Content();
                                 content.duration = int.Parse(item.Attributes["duration"].Value);
-                                content.file = item.Attributes["src"].Value;                                
+                                content.file = item.Attributes["src"].Value;
+                                if (type.Equals("dir")) { content.type = ContentType.dir; }
                                 if (type.Equals("video")) { content.type = ContentType.video; }
-                                if (type.Equals("ppt")) { content.type = ContentType.powerpoint; }
+                                if (type.Equals("powerpoint")) { content.type = ContentType.powerpoint; }
                                 timesheets.contents.Add(content);
                             }
                         }
@@ -242,6 +248,66 @@ namespace XML
             {
                 LogXML(e.Message);
                 return false; 
+            }
+        }
+
+        /// <summary>
+        /// 保存播放配置
+        /// </summary>
+        /// <param name="config"></param>
+        /// <returns></returns>
+        public bool SavePlayConfig(Config config)
+        {
+            try
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(path);
+
+                XmlNode system = doc.SelectSingleNode("system");
+
+                XmlNodeList periods = system.SelectNodes("period");
+                foreach (XmlNode period in periods)
+                    system.RemoveChild(period);
+
+                foreach (DateSheet datesheet in config.datesheets)
+                {
+                    XmlElement date = doc.CreateElement("period");
+                    date.SetAttribute("startdate", datesheet.startDate.ToShortDateString());
+                    date.SetAttribute("enddate", datesheet.endDate.ToShortDateString());
+                    date.SetAttribute("mon", datesheet.Mon ? "1" : "0");
+                    date.SetAttribute("tue", datesheet.Tue ? "1" : "0");
+                    date.SetAttribute("wed", datesheet.Wed ? "1" : "0");
+                    date.SetAttribute("thu", datesheet.Thu ? "1" : "0");
+                    date.SetAttribute("fri", datesheet.Fri ? "1" : "0");
+                    date.SetAttribute("sat", datesheet.Sat ? "1" : "0");
+                    date.SetAttribute("sun", datesheet.Sun ? "1" : "0");
+                    foreach (TimeSheet timesheet in datesheet.timesheets)
+                    {
+                        XmlElement time = doc.CreateElement("time");
+                        time.SetAttribute("starttime", timesheet.startTime.ToShortTimeString());
+                        time.SetAttribute("endtime", timesheet.endTime.ToShortTimeString());
+                        time.SetAttribute("mode", timesheet.mode.ToString());
+                        foreach (Content content in timesheet.contents)
+                        {
+                            XmlElement item = doc.CreateElement("item");
+                            item.SetAttribute("type", content.type.ToString());
+                            item.SetAttribute("src", content.file.ToString());
+                            item.SetAttribute("duration", content.duration.ToString());
+                            time.AppendChild(item);
+                        }
+                        date.AppendChild(time);
+                    }
+                    system.AppendChild(date);
+                }
+
+                doc.Save(path);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                LogXML(e.Message);
+                return false;
             }
         }
 

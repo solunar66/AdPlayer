@@ -28,7 +28,7 @@ namespace XML
     {
         public DateTime startDate;
         public DateTime endDate;
-        public bool Mon, Tus, Wed, Thu, Fri, Sat, Sun;
+        public bool Mon, Tue, Wed, Thu, Fri, Sat, Sun;
         public List<TimeSheet> timesheets;
     }
 

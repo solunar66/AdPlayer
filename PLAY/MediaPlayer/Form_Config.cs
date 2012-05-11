@@ -14,6 +14,7 @@ namespace PLAY
 
 #region fields
 
+        private XMLInfo xml;
         private Config config;
         private DateTimePicker dp;
         private ComboBox cb_mode;
@@ -26,11 +27,12 @@ namespace PLAY
 
 #region constructor
 
-        public Form_Config(Config cfg)
+        public Form_Config(XMLInfo x)
         {
             InitializeComponent();
 
-            config = cfg;
+            xml = x;
+            xml.ReadPlayConfig(out config, false);
 
             dp = new DateTimePicker();
             dp.Format = DateTimePickerFormat.Custom;
@@ -67,8 +69,15 @@ namespace PLAY
 
         private void button_ok_Click(object sender, EventArgs e)
         {
-
-            this.Close();
+            if (xml.SavePlayConfig(config))
+            {
+                MessageBox.Show("保存配置成功！", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("保存配置失败！", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button_cancel_Click(object sender, EventArgs e)
@@ -80,8 +89,49 @@ namespace PLAY
         private void button_update_Click(object sender, EventArgs e)
         {
             if (dataGridView1.Rows.Count == 0) return;
+            
+            TreeNode node = treeView1.SelectedNode;
+            switch (node.Level)
+            {
+                case 0:
+                    DateSheet dt = new DateSheet();
+                    dt.startDate = DateTime.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString());
+                    dt.endDate = DateTime.Parse(dataGridView1.Rows[0].Cells[1].Value.ToString());
+                    dt.Mon = (bool)dataGridView1.Rows[0].Cells[2].Value;
+                    dt.Tue = (bool)dataGridView1.Rows[0].Cells[3].Value;
+                    dt.Wed = (bool)dataGridView1.Rows[0].Cells[4].Value;
+                    dt.Thu = (bool)dataGridView1.Rows[0].Cells[5].Value;
+                    dt.Fri = (bool)dataGridView1.Rows[0].Cells[6].Value;
+                    dt.Sat = (bool)dataGridView1.Rows[0].Cells[7].Value;
+                    dt.Sun = (bool)dataGridView1.Rows[0].Cells[8].Value;
+                    dt.timesheets = config.datesheets[node.Index].timesheets;
+                    config.datesheets[node.Index] = dt;
+                    break;
 
+                case 1:
+                    TimeSheet ts = new TimeSheet();
+                    ts.startTime = DateTime.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString());
+                    ts.endTime = DateTime.Parse(dataGridView1.Rows[0].Cells[1].Value.ToString());
+                    ts.mode = dataGridView1.Rows[0].Cells[2].Value.ToString() == "random" ? PlayMode.random : PlayMode.sequencial;
+                    ts.contents = config.datesheets[node.Parent.Index].timesheets[node.Index].contents;
+                    config.datesheets[node.Parent.Index].timesheets[node.Index] = ts;
+                    break;
 
+                case 2:
+                    Content ct = new Content();
+                    if (dataGridView1.Rows[0].Cells[0].Value.ToString().Equals("dir")) ct.type = ContentType.dir;
+                    if (dataGridView1.Rows[0].Cells[0].Value.ToString().Equals("powerpoint")) ct.type = ContentType.powerpoint;
+                    if (dataGridView1.Rows[0].Cells[0].Value.ToString().Equals("video")) ct.type = ContentType.video;
+                    ct.duration = int.Parse(dataGridView1.Rows[0].Cells[1].Value.ToString());
+                    ct.file = dataGridView1.Rows[0].Cells[2].Value.ToString();
+                    config.datesheets[node.Parent.Parent.Index].timesheets[node.Parent.Index].contents[node.Index] = ct;
+                    break;
+
+                default:
+                    break;
+            }
+
+            label_update_ok.Visible = true;
         }
 
 #endregion
@@ -215,8 +265,13 @@ namespace PLAY
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if (e.Node.Level == cur_level && e.Node.Index == cur_index) return;
-            else clear();
+            if (e.Node.Level == cur_level && e.Node.Index == cur_index)
+            { }
+            else
+            {
+                label_update_ok.Visible = false;
+                clear();
+            }            
         }
 
 #endregion
@@ -262,8 +317,8 @@ namespace PLAY
                 nu.Visible = true;
                 nu.Value = decimal.Parse(cell.Value.ToString());
             }
-            else 
-            { }
+            else
+            { cell.ReadOnly = false; }
         }
 
         private void dataGridView1_CellLeave(object sender, DataGridViewCellEventArgs e)
@@ -309,10 +364,22 @@ namespace PLAY
             }
             else if (cell.OwningColumn.Name == "file")
             {
-                OpenFileDialog ofd = new OpenFileDialog();
-                if (ofd.ShowDialog() == DialogResult.OK)
+                if (dataGridView1[e.ColumnIndex - 2, e.RowIndex].Value.ToString().Equals("dir"))
                 {
-                    cell.Value = ofd.FileName;
+                    FolderBrowserDialog fbd = new FolderBrowserDialog();
+                    if (fbd.ShowDialog() == DialogResult.OK)
+                    {
+                        cell.Value = fbd.SelectedPath;
+                    }
+                    
+                }
+                else
+                {
+                    OpenFileDialog ofd = new OpenFileDialog();
+                    if (ofd.ShowDialog() == DialogResult.OK)
+                    {
+                        cell.Value = ofd.FileName;
+                    }
                 }
             }
             else
@@ -333,6 +400,13 @@ namespace PLAY
             dataGridView1.Refresh();
             m.Dispose();
             m = null;
+        }
+
+        private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            DataGridView dgv = (DataGridView)sender;
+            if (dgv.Columns[e.ColumnIndex].Name.Length == 3) { }
+            else { e.Cancel = true; }
         }
 
 #endregion
@@ -382,7 +456,7 @@ namespace PLAY
                     dataGridView1.Rows[0].Cells[1].Value = config.datesheets[node.Index].endDate.ToShortDateString();
                     dataGridView1.Rows[0].Cells[1].ToolTipText = "cc";
                     dataGridView1.Rows[0].Cells[2].Value = config.datesheets[node.Index].Mon;
-                    dataGridView1.Rows[0].Cells[3].Value = config.datesheets[node.Index].Tus;
+                    dataGridView1.Rows[0].Cells[3].Value = config.datesheets[node.Index].Tue;
                     dataGridView1.Rows[0].Cells[4].Value = config.datesheets[node.Index].Wed;
                     dataGridView1.Rows[0].Cells[5].Value = config.datesheets[node.Index].Thu;
                     dataGridView1.Rows[0].Cells[6].Value = config.datesheets[node.Index].Fri;
@@ -486,11 +560,10 @@ namespace PLAY
         }
 
 #endregion
-
-
+        
     }
 
-    #region customize datagridviewcell
+#region customize datagridviewcell
     class CalenderCell : MonthCalendar
     {
         public DataGridViewCell cell = null;
@@ -499,5 +572,5 @@ namespace PLAY
             cell = c;
         }
     }
-    #endregion
+#endregion
 }

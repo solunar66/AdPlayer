@@ -38,7 +38,6 @@ namespace PLAY
         private WMPLib.WMPPlayState prev_state;
 
         private bool wait;
-        private bool log_wait;
 
         public Form_Play()
         {
@@ -56,6 +55,18 @@ namespace PLAY
             axWindowsMediaPlayer1.Ctlenabled = true;
             axWindowsMediaPlayer1.settings.setMode("loop", true);// 循环
 
+            Screen[] scr = Screen.AllScreens;
+            if (scr.Length > 1)
+            {
+                label8.ForeColor = Color.FromKnownColor(System.Drawing.KnownColor.ControlText);
+                comboBox_scr.Enabled = true;
+                for (int i = 0; i < scr.Length; i++)
+                {
+                    comboBox_scr.Items.Add(scr[i].DeviceName);
+                }
+                if (config.scr <= scr.Length) comboBox_scr.SelectedIndex = config.scr - 1;
+            }
+            
             hook = new Hook();
         }
 
@@ -206,7 +217,7 @@ namespace PLAY
                     switch (now.DayOfWeek)
                     {
                         case DayOfWeek.Monday: weekday = datesheet.Mon; break;
-                        case DayOfWeek.Tuesday: weekday = datesheet.Tus; break;
+                        case DayOfWeek.Tuesday: weekday = datesheet.Tue; break;
                         case DayOfWeek.Wednesday: weekday = datesheet.Wed; break;
                         case DayOfWeek.Thursday: weekday = datesheet.Thu; break;
                         case DayOfWeek.Friday: weekday = datesheet.Fri; break;
@@ -370,7 +381,7 @@ namespace PLAY
         {
             xml.ReadPlayConfig(out config);
 
-            Form_Config cfg = new Form_Config(config);
+            Form_Config cfg = new Form_Config(xml);
             cfg.ShowDialog();
         }
 
@@ -428,6 +439,11 @@ namespace PLAY
             {
                 DoPlay();
             }
+        }
+
+        private void comboBox_scr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            xml.Update("screen", "index", (comboBox_scr.SelectedIndex + 1).ToString());
         }
     }
 }

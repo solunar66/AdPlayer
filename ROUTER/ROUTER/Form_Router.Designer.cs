@@ -33,20 +33,20 @@
             this.button1 = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.系统服务ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button_quit = new System.Windows.Forms.Button();
             this.button_ok = new System.Windows.Forms.Button();
-            this.系统服务ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(197, 11);
+            this.button1.Location = new System.Drawing.Point(197, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 25);
             this.button1.TabIndex = 0;
             this.button1.Text = "发送命令";
             this.button1.UseVisualStyleBackColor = true;
@@ -69,27 +69,39 @@
             this.配置ToolStripMenuItem,
             this.退出ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(119, 76);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(123, 76);
+            // 
+            // 系统服务ToolStripMenuItem
+            // 
+            this.系统服务ToolStripMenuItem.Enabled = false;
+            this.系统服务ToolStripMenuItem.Name = "系统服务ToolStripMenuItem";
+            this.系统服务ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.系统服务ToolStripMenuItem.Text = "系统服务";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(119, 6);
             // 
             // 配置ToolStripMenuItem
             // 
             this.配置ToolStripMenuItem.Name = "配置ToolStripMenuItem";
-            this.配置ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.配置ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.配置ToolStripMenuItem.Text = "配置";
             this.配置ToolStripMenuItem.Click += new System.EventHandler(this.配置ToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
             // button_quit
             // 
-            this.button_quit.Location = new System.Drawing.Point(197, 230);
+            this.button_quit.Location = new System.Drawing.Point(197, 249);
             this.button_quit.Name = "button_quit";
-            this.button_quit.Size = new System.Drawing.Size(75, 21);
+            this.button_quit.Size = new System.Drawing.Size(75, 23);
             this.button_quit.TabIndex = 2;
             this.button_quit.Text = "退出";
             this.button_quit.UseVisualStyleBackColor = true;
@@ -97,34 +109,23 @@
             // 
             // button_ok
             // 
-            this.button_ok.Location = new System.Drawing.Point(12, 230);
+            this.button_ok.Location = new System.Drawing.Point(12, 249);
             this.button_ok.Name = "button_ok";
-            this.button_ok.Size = new System.Drawing.Size(75, 21);
+            this.button_ok.Size = new System.Drawing.Size(75, 23);
             this.button_ok.TabIndex = 2;
             this.button_ok.Text = "保存";
             this.button_ok.UseVisualStyleBackColor = true;
             this.button_ok.Click += new System.EventHandler(this.button_ok_Click);
             // 
-            // 系统服务ToolStripMenuItem
-            // 
-            this.系统服务ToolStripMenuItem.Enabled = false;
-            this.系统服务ToolStripMenuItem.Name = "系统服务ToolStripMenuItem";
-            this.系统服务ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.系统服务ToolStripMenuItem.Text = "系统服务";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(115, 6);
-            // 
             // Form_Router
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(284, 284);
             this.Controls.Add(this.button_quit);
             this.Controls.Add(this.button_ok);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Router";
             this.ShowInTaskbar = false;
             this.Text = "系统服务";

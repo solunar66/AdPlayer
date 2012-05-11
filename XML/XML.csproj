@@ -43,9 +43,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="template.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\LOG\LogInfo.csproj">
       <Project>{CA5BE391-8A42-497D-8C21-B3527CD16D56}</Project>
       <Name>LogInfo</Name>

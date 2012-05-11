@@ -41,6 +41,7 @@
             this.toolStripMenuItem_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button_update = new System.Windows.Forms.Button();
+            this.label_update_ok = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -48,9 +49,9 @@
             // 
             // button_ok
             // 
-            this.button_ok.Location = new System.Drawing.Point(427, 406);
+            this.button_ok.Location = new System.Drawing.Point(427, 440);
             this.button_ok.Name = "button_ok";
-            this.button_ok.Size = new System.Drawing.Size(124, 23);
+            this.button_ok.Size = new System.Drawing.Size(124, 25);
             this.button_ok.TabIndex = 0;
             this.button_ok.Text = "写入配置文件";
             this.button_ok.UseVisualStyleBackColor = true;
@@ -59,9 +60,9 @@
             // button_cancel
             // 
             this.button_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_cancel.Location = new System.Drawing.Point(557, 406);
+            this.button_cancel.Location = new System.Drawing.Point(557, 440);
             this.button_cancel.Name = "button_cancel";
-            this.button_cancel.Size = new System.Drawing.Size(75, 23);
+            this.button_cancel.Size = new System.Drawing.Size(75, 25);
             this.button_cancel.TabIndex = 0;
             this.button_cancel.Text = "退出";
             this.button_cancel.UseVisualStyleBackColor = true;
@@ -75,12 +76,12 @@
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 247);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 267);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(644, 154);
+            this.dataGridView1.Size = new System.Drawing.Size(644, 167);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
             this.dataGridView1.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellLeave);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
@@ -90,7 +91,7 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(644, 241);
+            this.treeView1.Size = new System.Drawing.Size(644, 261);
             this.treeView1.TabIndex = 2;
             this.treeView1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseDoubleClick);
             this.treeView1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseUp);
@@ -147,25 +148,37 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(644, 401);
+            this.panel1.Size = new System.Drawing.Size(644, 434);
             this.panel1.TabIndex = 6;
             // 
             // button_update
             // 
-            this.button_update.Location = new System.Drawing.Point(12, 406);
+            this.button_update.Location = new System.Drawing.Point(12, 440);
             this.button_update.Name = "button_update";
-            this.button_update.Size = new System.Drawing.Size(75, 23);
+            this.button_update.Size = new System.Drawing.Size(75, 25);
             this.button_update.TabIndex = 5;
             this.button_update.Text = "保存";
             this.button_update.UseVisualStyleBackColor = true;
             this.button_update.Click += new System.EventHandler(this.button_update_Click);
             // 
+            // label_update_ok
+            // 
+            this.label_update_ok.AutoSize = true;
+            this.label_update_ok.ForeColor = System.Drawing.Color.Red;
+            this.label_update_ok.Location = new System.Drawing.Point(104, 446);
+            this.label_update_ok.Name = "label_update_ok";
+            this.label_update_ok.Size = new System.Drawing.Size(67, 13);
+            this.label_update_ok.TabIndex = 7;
+            this.label_update_ok.Text = "更新成功！";
+            this.label_update_ok.Visible = false;
+            // 
             // Form_Config
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(644, 439);
+            this.ClientSize = new System.Drawing.Size(644, 479);
             this.ControlBox = false;
+            this.Controls.Add(this.label_update_ok);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.button_update);
@@ -179,6 +192,7 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -196,5 +210,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Delete;
         private System.Windows.Forms.Button button_update;
+        private System.Windows.Forms.Label label_update_ok;
     }
 }

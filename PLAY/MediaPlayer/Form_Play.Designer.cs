@@ -42,6 +42,9 @@
             this.button_Font = new System.Windows.Forms.Button();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.comboBox_scr = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -58,6 +61,7 @@
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
@@ -66,9 +70,9 @@
             // label_title
             // 
             this.label_title.AutoSize = true;
-            this.label_title.Location = new System.Drawing.Point(10, 425);
+            this.label_title.Location = new System.Drawing.Point(10, 460);
             this.label_title.Name = "label_title";
-            this.label_title.Size = new System.Drawing.Size(41, 12);
+            this.label_title.Size = new System.Drawing.Size(35, 13);
             this.label_title.TabIndex = 2;
             this.label_title.Text = "label1";
             this.label_title.Visible = false;
@@ -78,12 +82,13 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.button_Exit);
             this.panel1.Controls.Add(this.button_Play);
             this.panel1.Location = new System.Drawing.Point(514, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(268, 431);
+            this.panel1.Size = new System.Drawing.Size(268, 467);
             this.panel1.TabIndex = 3;
             // 
             // panel4
@@ -91,16 +96,16 @@
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.button_Config);
             this.panel4.Controls.Add(this.button_configfile);
-            this.panel4.Location = new System.Drawing.Point(3, 55);
+            this.panel4.Location = new System.Drawing.Point(3, 60);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(260, 31);
+            this.panel4.Size = new System.Drawing.Size(260, 33);
             this.panel4.TabIndex = 5;
             // 
             // button_Config
             // 
             this.button_Config.Location = new System.Drawing.Point(3, 3);
             this.button_Config.Name = "button_Config";
-            this.button_Config.Size = new System.Drawing.Size(154, 23);
+            this.button_Config.Size = new System.Drawing.Size(154, 25);
             this.button_Config.TabIndex = 1;
             this.button_Config.Text = "修改播放配置";
             this.button_Config.UseVisualStyleBackColor = true;
@@ -110,7 +115,7 @@
             // 
             this.button_configfile.Location = new System.Drawing.Point(163, 3);
             this.button_configfile.Name = "button_configfile";
-            this.button_configfile.Size = new System.Drawing.Size(94, 23);
+            this.button_configfile.Size = new System.Drawing.Size(94, 25);
             this.button_configfile.TabIndex = 1;
             this.button_configfile.Text = "打开配置文件";
             this.button_configfile.UseVisualStyleBackColor = true;
@@ -124,16 +129,16 @@
             this.panel3.Controls.Add(this.button_Font);
             this.panel3.Controls.Add(this.numericUpDown2);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(3, 92);
+            this.panel3.Location = new System.Drawing.Point(3, 100);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(260, 59);
+            this.panel3.Size = new System.Drawing.Size(260, 64);
             this.panel3.TabIndex = 4;
             // 
             // button_fontbg
             // 
-            this.button_fontbg.Location = new System.Drawing.Point(6, 31);
+            this.button_fontbg.Location = new System.Drawing.Point(6, 34);
             this.button_fontbg.Name = "button_fontbg";
-            this.button_fontbg.Size = new System.Drawing.Size(102, 21);
+            this.button_fontbg.Size = new System.Drawing.Size(102, 23);
             this.button_fontbg.TabIndex = 6;
             this.button_fontbg.Text = "修改通知背景";
             this.button_fontbg.UseVisualStyleBackColor = true;
@@ -141,9 +146,9 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(114, 9);
+            this.label5.Location = new System.Drawing.Point(114, 10);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 17);
+            this.label5.Size = new System.Drawing.Size(57, 18);
             this.label5.TabIndex = 5;
             this.label5.Text = "滚动速度";
             // 
@@ -151,7 +156,7 @@
             // 
             this.button_Font.Location = new System.Drawing.Point(6, 5);
             this.button_Font.Name = "button_Font";
-            this.button_Font.Size = new System.Drawing.Size(102, 21);
+            this.button_Font.Size = new System.Drawing.Size(102, 23);
             this.button_Font.TabIndex = 0;
             this.button_Font.Text = "修改通知字体";
             this.button_Font.UseVisualStyleBackColor = true;
@@ -160,7 +165,7 @@
             // numericUpDown2
             // 
             this.numericUpDown2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.numericUpDown2.Location = new System.Drawing.Point(171, 6);
+            this.numericUpDown2.Location = new System.Drawing.Point(171, 7);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -173,7 +178,7 @@
             0});
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.ReadOnly = true;
-            this.numericUpDown2.Size = new System.Drawing.Size(55, 21);
+            this.numericUpDown2.Size = new System.Drawing.Size(55, 20);
             this.numericUpDown2.TabIndex = 2;
             this.numericUpDown2.Value = new decimal(new int[] {
             10,
@@ -184,11 +189,44 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(227, 7);
+            this.label4.Location = new System.Drawing.Point(227, 8);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 17);
+            this.label4.Size = new System.Drawing.Size(31, 18);
             this.label4.TabIndex = 3;
             this.label4.Text = "豪秒";
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.comboBox_scr);
+            this.panel5.Controls.Add(this.label8);
+            this.panel5.Location = new System.Drawing.Point(3, 230);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(260, 36);
+            this.panel5.TabIndex = 3;
+            // 
+            // comboBox_scr
+            // 
+            this.comboBox_scr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_scr.Enabled = false;
+            this.comboBox_scr.FormattingEnabled = true;
+            this.comboBox_scr.Location = new System.Drawing.Point(83, 8);
+            this.comboBox_scr.Name = "comboBox_scr";
+            this.comboBox_scr.Size = new System.Drawing.Size(164, 21);
+            this.comboBox_scr.TabIndex = 4;
+            this.comboBox_scr.SelectedIndexChanged += new System.EventHandler(this.comboBox_scr_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.label8.Location = new System.Drawing.Point(10, 11);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(67, 13);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "显示屏选择";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -198,16 +236,16 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.numericUpDown1);
-            this.panel2.Location = new System.Drawing.Point(3, 157);
+            this.panel2.Location = new System.Drawing.Point(3, 170);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(260, 50);
+            this.panel2.Size = new System.Drawing.Size(260, 54);
             this.panel2.TabIndex = 3;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(114, 27);
+            this.label2.Location = new System.Drawing.Point(114, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 17);
+            this.label2.Size = new System.Drawing.Size(57, 18);
             this.label2.TabIndex = 5;
             this.label2.Text = "手动设置";
             // 
@@ -217,9 +255,9 @@
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox1.Location = new System.Drawing.Point(13, 25);
+            this.checkBox1.Location = new System.Drawing.Point(13, 27);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(96, 16);
+            this.checkBox1.Size = new System.Drawing.Size(98, 17);
             this.checkBox1.TabIndex = 4;
             this.checkBox1.Text = "采用系统配置";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -228,9 +266,9 @@
             // label3
             // 
             this.label3.Enabled = false;
-            this.label3.Location = new System.Drawing.Point(232, 25);
+            this.label3.Location = new System.Drawing.Point(232, 27);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(15, 17);
+            this.label3.Size = new System.Drawing.Size(15, 18);
             this.label3.TabIndex = 3;
             this.label3.Text = "秒";
             // 
@@ -238,9 +276,9 @@
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Location = new System.Drawing.Point(3, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(252, 14);
+            this.label1.Size = new System.Drawing.Size(252, 15);
             this.label1.TabIndex = 3;
             this.label1.Text = "幻灯片每页停留时间";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -249,7 +287,7 @@
             // 
             this.numericUpDown1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.numericUpDown1.Enabled = false;
-            this.numericUpDown1.Location = new System.Drawing.Point(171, 23);
+            this.numericUpDown1.Location = new System.Drawing.Point(171, 25);
             this.numericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,
@@ -257,7 +295,7 @@
             0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.ReadOnly = true;
-            this.numericUpDown1.Size = new System.Drawing.Size(61, 21);
+            this.numericUpDown1.Size = new System.Drawing.Size(61, 20);
             this.numericUpDown1.TabIndex = 2;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
@@ -268,9 +306,9 @@
             // button_Exit
             // 
             this.button_Exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_Exit.Location = new System.Drawing.Point(3, 401);
+            this.button_Exit.Location = new System.Drawing.Point(3, 434);
             this.button_Exit.Name = "button_Exit";
-            this.button_Exit.Size = new System.Drawing.Size(260, 23);
+            this.button_Exit.Size = new System.Drawing.Size(260, 25);
             this.button_Exit.TabIndex = 2;
             this.button_Exit.Text = "退出系统";
             this.button_Exit.UseVisualStyleBackColor = true;
@@ -281,7 +319,7 @@
             this.button_Play.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_Play.Location = new System.Drawing.Point(3, 3);
             this.button_Play.Name = "button_Play";
-            this.button_Play.Size = new System.Drawing.Size(260, 46);
+            this.button_Play.Size = new System.Drawing.Size(260, 50);
             this.button_Play.TabIndex = 0;
             this.button_Play.Text = "播放广告";
             this.button_Play.UseVisualStyleBackColor = true;
@@ -308,9 +346,9 @@
             // 
             // Form_Play
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 438);
+            this.ClientSize = new System.Drawing.Size(794, 475);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label_title);
@@ -323,6 +361,8 @@
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -358,6 +398,9 @@
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Timer timer_monitor;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.ComboBox comboBox_scr;
+        private System.Windows.Forms.Label label8;
     }
 }
 
