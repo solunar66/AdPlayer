@@ -169,6 +169,19 @@ namespace XML
                 XmlNode screen = system.SelectSingleNode("screen");
                 config.scr = int.Parse(screen.Attributes["index"].Value);
 
+                XmlNode idle = system.SelectSingleNode("idle");
+                config.idle = new Content();
+                string idletype = idle.Attributes["type"].Value;
+                if (idletype.Equals("video")) { config.idle.type = ContentType.video; }
+                if (idletype.Equals("powerpoint")) { config.idle.type = ContentType.powerpoint; }
+                config.idle.file = idle.Attributes["src"].Value;
+                config.idle.duration = int.Parse(idle.Attributes["duration"].Value);
+
+                XmlNode sleep = system.SelectSingleNode("sleep");
+                config.sleep = new TimeSheet();
+                config.sleep.startTime = DateTime.Parse(sleep.Attributes["starttime"].Value);
+                config.sleep.endTime = DateTime.Parse(sleep.Attributes["endtime"].Value);
+
                 XmlNode notice = system.SelectSingleNode("notice");
                 config.notice.bold = notice.Attributes["bold"].Value == "0" ? false : true;
                 config.notice.color = Color.FromName(notice.Attributes["color"].Value);
@@ -247,7 +260,88 @@ namespace XML
             catch (Exception e) 
             {
                 LogXML(e.Message);
-                return false; 
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 保存播放配置
+        /// </summary>
+        /// <param name="config"></param>
+        /// <returns>error message</returns>
+        public string SavePlayConfig(Config config)
+        {
+            string err = string.Empty;
+
+            for (int i = 1; i < config.datesheets.Count; i++)
+            {
+                DateSheet ds = config.datesheets[i];
+                DateSheet prevds = config.datesheets[i - 1];
+                if (ds.startDate.Date < prevds.endDate.Date)
+                {
+                    return "时间段起始日期：" + ds.startDate.ToShortDateString() + "早于上一时间段终止日期：" + prevds.endDate.ToShortDateString();
+                }
+                for (int j = 1; j < ds.timesheets.Count; j++)
+                {
+                    TimeSheet ts = ds.timesheets[j];
+                    TimeSheet prevts = ds.timesheets[j - 1];
+                    if (ts.startTime.TimeOfDay < prevts.endTime.TimeOfDay)
+                    {
+                        return "时间段起始时间：" + ts.startTime.ToLongTimeString() + "早于上一时间段终止时间：" + prevts.endTime.ToLongTimeString();
+                    }
+                }
+            }
+
+            try
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(path);
+
+                XmlNode system = doc.SelectSingleNode("system");
+
+                XmlNodeList periods = system.SelectNodes("period");
+                foreach (XmlNode period in periods)
+                    system.RemoveChild(period);
+
+                foreach (DateSheet datesheet in config.datesheets)
+                {
+                    XmlElement date = doc.CreateElement("period");
+                    date.SetAttribute("startdate", datesheet.startDate.ToShortDateString());
+                    date.SetAttribute("enddate", datesheet.endDate.ToShortDateString());
+                    date.SetAttribute("mon", datesheet.Mon ? "1" : "0");
+                    date.SetAttribute("tue", datesheet.Tue ? "1" : "0");
+                    date.SetAttribute("wed", datesheet.Wed ? "1" : "0");
+                    date.SetAttribute("thu", datesheet.Thu ? "1" : "0");
+                    date.SetAttribute("fri", datesheet.Fri ? "1" : "0");
+                    date.SetAttribute("sat", datesheet.Sat ? "1" : "0");
+                    date.SetAttribute("sun", datesheet.Sun ? "1" : "0");
+                    foreach (TimeSheet timesheet in datesheet.timesheets)
+                    {
+                        XmlElement time = doc.CreateElement("time");
+                        time.SetAttribute("starttime", timesheet.startTime.ToLongTimeString());
+                        time.SetAttribute("endtime", timesheet.endTime.ToLongTimeString());
+                        time.SetAttribute("mode", timesheet.mode.ToString());
+                        foreach (Content content in timesheet.contents)
+                        {
+                            XmlElement item = doc.CreateElement("item");
+                            item.SetAttribute("type", content.type.ToString());
+                            item.SetAttribute("src", content.file.ToString());
+                            item.SetAttribute("duration", content.duration.ToString());
+                            time.AppendChild(item);
+                        }
+                        date.AppendChild(time);
+                    }
+                    system.AppendChild(date);
+                }
+
+                doc.Save(path);
+
+                return err;
+            }
+            catch (Exception e)
+            {
+                LogXML(e.Message);
+                return e.Message;
             }
         }
 

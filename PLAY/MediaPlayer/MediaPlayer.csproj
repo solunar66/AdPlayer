@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PowerManage.cs" />
     <Compile Include="Form_Config.cs">
       <SubType>Form</SubType>
     </Compile>

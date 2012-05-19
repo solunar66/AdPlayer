@@ -33,11 +33,11 @@ namespace PLAY
         private Content content;
         private PlayMode mode;
 
+        private bool monitorON = true;
+
         private Hook hook;
 
         private WMPLib.WMPPlayState prev_state;
-
-        private bool wait;
 
         public Form_Play()
         {
@@ -66,6 +66,15 @@ namespace PLAY
                 }
                 if (config.scr <= scr.Length) comboBox_scr.SelectedIndex = config.scr - 1;
             }
+
+            comboBox_idle.Items.Add(ContentType.video);
+            comboBox_idle.Items.Add(ContentType.powerpoint);
+            comboBox_idle.SelectedIndex = (int)(config.idle.type) - 1;
+            numericUpDown_idle.Value = (decimal)config.idle.duration;
+            label_idle.Text = config.idle.file;
+
+            dateTimePicker_sleepStart.Value = config.sleep.startTime;
+            dateTimePicker_sleepEnd.Value = config.sleep.endTime;
             
             hook = new Hook();
         }
@@ -234,7 +243,7 @@ namespace PLAY
                             {
                                 playlist = timesheet.contents;
                                 mode = timesheet.mode;
-                                wait = false;
+                                return;
                             }
                         }
                     }
@@ -245,17 +254,26 @@ namespace PLAY
         public void DoPlay()
         {
             CheckPlayList();
-            if (playlist == null)
+            if (playlist == null || playlist.Count == 0)
             {
-                wait = true;
+                PlayIdle();
                 return;
             }
+
+            Msg.ShutMonitor(-1);
 
             switch (mode)
             {
                 case PlayMode.random:
-                    Random rdm = new Random();
-                    content = playlist[rdm.Next(playlist.Count - 1)];
+                    if (playlist.Count == 1)
+                    {
+                        content = playlist[0];
+                    }
+                    else
+                    {
+                        Random rdm = new Random();
+                        content = playlist[rdm.Next(playlist.Count - 1)];
+                    }
                     break;
                 case PlayMode.sequencial:
                     int index = playlist.IndexOf(content);
@@ -276,6 +294,13 @@ namespace PLAY
                 default:
                     break;
             }
+        }
+
+        // 空闲播放
+        private void PlayIdle()
+        {
+            axWindowsMediaPlayer1.URL = config.idle.file.IndexOf(":") == -1 ? curDir + "\\" + config.idle.file : config.idle.file;
+            axWindowsMediaPlayer1.Ctlcontrols.play();
         }
 
         // 播放视频
@@ -389,10 +414,34 @@ namespace PLAY
         {
             axWindowsMediaPlayer1_PlayStateChange();
 
-            if (wait)
+            if (axWindowsMediaPlayer1.Dock == DockStyle.Fill)
             {
-                //LogPlay("当前时间段无播放配置信息，等待中...");
-                DoPlay();
+                if (DateTime.Now.TimeOfDay >= config.sleep.startTime.TimeOfDay && DateTime.Now.TimeOfDay <= config.sleep.endTime.TimeOfDay)
+                {
+                    if (axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPlaying)
+                    {
+                        axWindowsMediaPlayer1.Ctlcontrols.pause();
+                    }
+                    if (monitorON)
+                    {
+                        monitorON = false;
+                        Msg.ShutMonitor(2);
+                        LogPlay("关闭显示器");
+                    }
+                }
+                else
+                {
+                    if (axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPaused)
+                    {
+                        axWindowsMediaPlayer1.Ctlcontrols.play();
+                    }
+                    if (!monitorON)
+                    {
+                        monitorON = true;
+                        Msg.ShutMonitor(-1);
+                        LogPlay("打开显示器");
+                    }
+                }
             }
         }
 
@@ -444,6 +493,46 @@ namespace PLAY
         private void comboBox_scr_SelectedIndexChanged(object sender, EventArgs e)
         {
             xml.Update("screen", "index", (comboBox_scr.SelectedIndex + 1).ToString());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                label_idle.Text = ofd.FileName;
+                xml.Update("idle", "src", ofd.FileName);
+            }
+        }
+
+        private void numericUpDown_idle_ValueChanged(object sender, EventArgs e)
+        {
+            xml.Update("idle", "duration", numericUpDown_idle.Value.ToString());
+        }
+
+        private void comboBox_idle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            xml.Update("idle", "type", ((ContentType)(comboBox_idle.SelectedIndex + 1)).ToString());
+        }
+
+        private void dateTimePicker_sleepStart_Leave(object sender, EventArgs e)
+        {
+            if (dateTimePicker_sleepStart.Value >= dateTimePicker_sleepEnd.Value)
+            {
+                MessageBox.Show("起始时间不能晚于(等于)终止时间！", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dateTimePicker_sleepStart.Select();
+            }
+            xml.Update("sleep", "starttime", dateTimePicker_sleepStart.Value.ToLongTimeString());
+        }
+
+        private void dateTimePicker_sleepEnd_Leave(object sender, EventArgs e)
+        {
+            if (dateTimePicker_sleepStart.Value >= dateTimePicker_sleepEnd.Value)
+            {
+                MessageBox.Show("终止时间不能早于(等于)起始时间！", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dateTimePicker_sleepEnd.Select();
+            }
+            xml.Update("sleep", "endtime", dateTimePicker_sleepEnd.Value.ToLongTimeString());
         }
     }
 }

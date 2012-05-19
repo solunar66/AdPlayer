@@ -42,8 +42,10 @@ namespace PLAY
             dataGridView1.Controls.Add(dp);
 
             cb_mode = new ComboBox();
-            cb_mode.Items.Add(PlayMode.sequencial);
-            cb_mode.Items.Add(PlayMode.random);
+            //cb_mode.Items.Add(PlayMode.sequencial);
+            //cb_mode.Items.Add(PlayMode.random);
+            cb_mode.Items.Add("顺序播放");
+            cb_mode.Items.Add("随机播放");
             cb_mode.Visible = false;
             dataGridView1.Controls.Add(cb_mode);
 
@@ -69,14 +71,15 @@ namespace PLAY
 
         private void button_ok_Click(object sender, EventArgs e)
         {
-            if (xml.SavePlayConfig(config))
+            string err = xml.SavePlayConfig(config);
+            if (err.Equals(string.Empty))
             {
                 MessageBox.Show("保存配置成功！", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             else
             {
-                MessageBox.Show("保存配置失败！", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("保存配置失败！\r\n" + err, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -112,7 +115,7 @@ namespace PLAY
                     TimeSheet ts = new TimeSheet();
                     ts.startTime = DateTime.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString());
                     ts.endTime = DateTime.Parse(dataGridView1.Rows[0].Cells[1].Value.ToString());
-                    ts.mode = dataGridView1.Rows[0].Cells[2].Value.ToString() == "random" ? PlayMode.random : PlayMode.sequencial;
+                    ts.mode = dataGridView1.Rows[0].Cells[2].Value.ToString() == "随机播放" ? PlayMode.random : PlayMode.sequencial;
                     ts.contents = config.datesheets[node.Parent.Index].timesheets[node.Index].contents;
                     config.datesheets[node.Parent.Index].timesheets[node.Index] = ts;
                     break;
@@ -236,7 +239,8 @@ namespace PLAY
             }
             treeView1.SelectedNode = newNode;
 
-            CreateDataGridView(newNode.Level);
+            //CreateDataGridView(newNode.Level);
+            display(newNode);
         }
 
         private void toolStripMenuItem_Delete_Click(object sender, EventArgs e)
@@ -327,7 +331,7 @@ namespace PLAY
             if (cell.Value == null) return;
             if (cell.OwningColumn.Name == "starttime" || cell.OwningColumn.Name == "endtime")
             {
-                cell.Value = dp.Value.ToShortTimeString();
+                cell.Value = dp.Value.ToLongTimeString();
                 dp.Visible = false;
             }
             else if (cell.OwningColumn.Name == "mode")
@@ -429,7 +433,8 @@ namespace PLAY
 
                     TreeNode subnode = new TreeNode();
                     subnode.Name = j.ToString();
-                    subnode.Text = "时间: " + timesheet.startTime.ToShortTimeString() + " 至 " + timesheet.endTime.ToShortTimeString() + ", 播放模式: " + timesheet.mode.ToString();
+                    string mode = timesheet.mode == PlayMode.random ? "随机播放" : "顺序播放";
+                    subnode.Text = "时间: " + timesheet.startTime.ToLongTimeString() + " 至 " + timesheet.endTime.ToLongTimeString() + ", 播放模式: " + mode;
                     rootnode.Nodes.Add(subnode);
                     for (int k = 0; k < timesheet.contents.Count; k++)
                     {
@@ -452,9 +457,7 @@ namespace PLAY
             {
                 case 0:
                     dataGridView1.Rows[0].Cells[0].Value = config.datesheets[node.Index].startDate.ToShortDateString();
-                    dataGridView1.Rows[0].Cells[0].ToolTipText = "cc";
                     dataGridView1.Rows[0].Cells[1].Value = config.datesheets[node.Index].endDate.ToShortDateString();
-                    dataGridView1.Rows[0].Cells[1].ToolTipText = "cc";
                     dataGridView1.Rows[0].Cells[2].Value = config.datesheets[node.Index].Mon;
                     dataGridView1.Rows[0].Cells[3].Value = config.datesheets[node.Index].Tue;
                     dataGridView1.Rows[0].Cells[4].Value = config.datesheets[node.Index].Wed;
@@ -465,9 +468,9 @@ namespace PLAY
                     break;
 
                 case 1:
-                    dataGridView1.Rows[0].Cells[0].Value = config.datesheets[node.Parent.Index].timesheets[node.Index].startTime.ToShortTimeString();
-                    dataGridView1.Rows[0].Cells[1].Value = config.datesheets[node.Parent.Index].timesheets[node.Index].endTime.ToShortTimeString();
-                    dataGridView1.Rows[0].Cells[2].Value = config.datesheets[node.Parent.Index].timesheets[node.Index].mode.ToString();
+                    dataGridView1.Rows[0].Cells[0].Value = config.datesheets[node.Parent.Index].timesheets[node.Index].startTime.ToLongTimeString();
+                    dataGridView1.Rows[0].Cells[1].Value = config.datesheets[node.Parent.Index].timesheets[node.Index].endTime.ToLongTimeString();
+                    dataGridView1.Rows[0].Cells[2].Value = config.datesheets[node.Parent.Index].timesheets[node.Index].mode == PlayMode.random ? "随机播放" : "顺序播放";
                     break;
 
                 case 2:

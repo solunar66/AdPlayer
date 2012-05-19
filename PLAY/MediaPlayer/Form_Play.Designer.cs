@@ -33,6 +33,15 @@
             this.timer_title = new System.Windows.Forms.Timer(this.components);
             this.label_title = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBox_idle = new System.Windows.Forms.ComboBox();
+            this.label_idle = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.numericUpDown_idle = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button_Config = new System.Windows.Forms.Button();
             this.button_configfile = new System.Windows.Forms.Button();
@@ -45,6 +54,11 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.comboBox_scr = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dateTimePicker_sleepEnd = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_sleepStart = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -58,10 +72,13 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.timer_monitor = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_idle)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.panel5.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
@@ -80,9 +97,11 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel5);
+            this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.button_Exit);
             this.panel1.Controls.Add(this.button_Play);
@@ -90,6 +109,104 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(268, 467);
             this.panel1.TabIndex = 3;
+            // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.button1);
+            this.panel6.Controls.Add(this.comboBox_idle);
+            this.panel6.Controls.Add(this.label_idle);
+            this.panel6.Controls.Add(this.label10);
+            this.panel6.Controls.Add(this.label7);
+            this.panel6.Controls.Add(this.label9);
+            this.panel6.Controls.Add(this.numericUpDown_idle);
+            this.panel6.Controls.Add(this.label6);
+            this.panel6.Location = new System.Drawing.Point(3, 272);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(260, 88);
+            this.panel6.TabIndex = 6;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(13, 52);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "媒体文件选择";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // comboBox_idle
+            // 
+            this.comboBox_idle.FormattingEnabled = true;
+            this.comboBox_idle.Location = new System.Drawing.Point(67, 25);
+            this.comboBox_idle.Name = "comboBox_idle";
+            this.comboBox_idle.Size = new System.Drawing.Size(67, 21);
+            this.comboBox_idle.TabIndex = 6;
+            this.comboBox_idle.SelectedIndexChanged += new System.EventHandler(this.comboBox_idle_SelectedIndexChanged);
+            // 
+            // label_idle
+            // 
+            this.label_idle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_idle.Location = new System.Drawing.Point(111, 55);
+            this.label_idle.Name = "label_idle";
+            this.label_idle.Size = new System.Drawing.Size(136, 18);
+            this.label_idle.TabIndex = 5;
+            // 
+            // label10
+            // 
+            this.label10.Location = new System.Drawing.Point(11, 29);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(55, 18);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "媒体类型";
+            // 
+            // label7
+            // 
+            this.label7.Location = new System.Drawing.Point(156, 29);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(32, 18);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "停留";
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label9.Location = new System.Drawing.Point(3, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(252, 15);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "空闲时段播放内容";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // numericUpDown_idle
+            // 
+            this.numericUpDown_idle.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.numericUpDown_idle.Location = new System.Drawing.Point(190, 25);
+            this.numericUpDown_idle.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_idle.Name = "numericUpDown_idle";
+            this.numericUpDown_idle.ReadOnly = true;
+            this.numericUpDown_idle.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDown_idle.TabIndex = 2;
+            this.numericUpDown_idle.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_idle.ValueChanged += new System.EventHandler(this.numericUpDown_idle_ValueChanged);
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(232, 27);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(15, 18);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "秒";
             // 
             // panel4
             // 
@@ -150,7 +267,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 18);
             this.label5.TabIndex = 5;
-            this.label5.Text = "滚动速度";
+            this.label5.Text = "滚动间隔";
             // 
             // button_Font
             // 
@@ -193,7 +310,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 18);
             this.label4.TabIndex = 3;
-            this.label4.Text = "豪秒";
+            this.label4.Text = "毫秒";
             // 
             // panel5
             // 
@@ -227,6 +344,60 @@
             this.label8.TabIndex = 3;
             this.label8.Text = "显示屏选择";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel7
+            // 
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Controls.Add(this.label11);
+            this.panel7.Controls.Add(this.dateTimePicker_sleepEnd);
+            this.panel7.Controls.Add(this.dateTimePicker_sleepStart);
+            this.panel7.Controls.Add(this.label13);
+            this.panel7.Location = new System.Drawing.Point(3, 366);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(260, 54);
+            this.panel7.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(119, 29);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(19, 13);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "到";
+            // 
+            // dateTimePicker_sleepEnd
+            // 
+            this.dateTimePicker_sleepEnd.CustomFormat = "HH 时 mm 分 ss 秒";
+            this.dateTimePicker_sleepEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_sleepEnd.Location = new System.Drawing.Point(142, 25);
+            this.dateTimePicker_sleepEnd.Name = "dateTimePicker_sleepEnd";
+            this.dateTimePicker_sleepEnd.ShowUpDown = true;
+            this.dateTimePicker_sleepEnd.Size = new System.Drawing.Size(110, 20);
+            this.dateTimePicker_sleepEnd.TabIndex = 4;
+            this.dateTimePicker_sleepEnd.Leave += new System.EventHandler(this.dateTimePicker_sleepEnd_Leave);
+            // 
+            // dateTimePicker_sleepStart
+            // 
+            this.dateTimePicker_sleepStart.CustomFormat = "HH 时 mm 分 ss 秒";
+            this.dateTimePicker_sleepStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_sleepStart.Location = new System.Drawing.Point(6, 25);
+            this.dateTimePicker_sleepStart.Name = "dateTimePicker_sleepStart";
+            this.dateTimePicker_sleepStart.ShowUpDown = true;
+            this.dateTimePicker_sleepStart.Size = new System.Drawing.Size(110, 20);
+            this.dateTimePicker_sleepStart.TabIndex = 4;
+            this.dateTimePicker_sleepStart.Leave += new System.EventHandler(this.dateTimePicker_sleepStart_Leave);
+            // 
+            // label13
+            // 
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label13.Location = new System.Drawing.Point(3, 7);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(252, 15);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "屏幕休眠时间段";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -358,11 +529,15 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "广告播放系统";
             this.panel1.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_idle)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -401,6 +576,20 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.ComboBox comboBox_scr;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox_idle;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NumericUpDown numericUpDown_idle;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label_idle;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_sleepEnd;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_sleepStart;
+        private System.Windows.Forms.Label label13;
     }
 }
 

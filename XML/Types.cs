@@ -10,6 +10,8 @@ namespace XML
     public struct Config
     {
         public int scr;
+        public Content idle;
+        public TimeSheet sleep;
         public Notice notice;
         public List<DateSheet> datesheets;
     }
