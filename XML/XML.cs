@@ -345,66 +345,6 @@ namespace XML
             }
         }
 
-        /// <summary>
-        /// 保存播放配置
-        /// </summary>
-        /// <param name="config"></param>
-        /// <returns></returns>
-        public bool SavePlayConfig(Config config)
-        {
-            try
-            {
-                XmlDocument doc = new XmlDocument();
-                doc.Load(path);
-
-                XmlNode system = doc.SelectSingleNode("system");
-
-                XmlNodeList periods = system.SelectNodes("period");
-                foreach (XmlNode period in periods)
-                    system.RemoveChild(period);
-
-                foreach (DateSheet datesheet in config.datesheets)
-                {
-                    XmlElement date = doc.CreateElement("period");
-                    date.SetAttribute("startdate", datesheet.startDate.ToShortDateString());
-                    date.SetAttribute("enddate", datesheet.endDate.ToShortDateString());
-                    date.SetAttribute("mon", datesheet.Mon ? "1" : "0");
-                    date.SetAttribute("tue", datesheet.Tue ? "1" : "0");
-                    date.SetAttribute("wed", datesheet.Wed ? "1" : "0");
-                    date.SetAttribute("thu", datesheet.Thu ? "1" : "0");
-                    date.SetAttribute("fri", datesheet.Fri ? "1" : "0");
-                    date.SetAttribute("sat", datesheet.Sat ? "1" : "0");
-                    date.SetAttribute("sun", datesheet.Sun ? "1" : "0");
-                    foreach (TimeSheet timesheet in datesheet.timesheets)
-                    {
-                        XmlElement time = doc.CreateElement("time");
-                        time.SetAttribute("starttime", timesheet.startTime.ToShortTimeString());
-                        time.SetAttribute("endtime", timesheet.endTime.ToShortTimeString());
-                        time.SetAttribute("mode", timesheet.mode.ToString());
-                        foreach (Content content in timesheet.contents)
-                        {
-                            XmlElement item = doc.CreateElement("item");
-                            item.SetAttribute("type", content.type.ToString());
-                            item.SetAttribute("src", content.file.ToString());
-                            item.SetAttribute("duration", content.duration.ToString());
-                            time.AppendChild(item);
-                        }
-                        date.AppendChild(time);
-                    }
-                    system.AppendChild(date);
-                }
-
-                doc.Save(path);
-
-                return true;
-            }
-            catch (Exception e)
-            {
-                LogXML(e.Message);
-                return false;
-            }
-        }
-
         private void LogXML(string s)
         {
             log.WriteConsoleAndLog("[XML]=====>>>>> " + s);
