@@ -18,7 +18,7 @@ namespace ROUTER
             this.Text = "系统服务";
 
             //System.Diagnostics.Process.Start("MediaPlayer.exe");
-            System.Diagnostics.Process.Start("Updater.exe");
+            System.Diagnostics.Process.Start("Updater.exe", "-f");
             
             PLAY.Form_Play play = new PLAY.Form_Play();
             play.Show();

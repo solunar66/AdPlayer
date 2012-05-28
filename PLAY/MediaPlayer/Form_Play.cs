@@ -175,6 +175,8 @@ namespace PLAY
                 if (axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPlaying)
                 { axWindowsMediaPlayer1.Ctlcontrols.pause(); }
                 panel1.Visible = true;
+                button_about.Visible = true;
+                button_help.Visible = true;
             }
         }
 
@@ -190,6 +192,8 @@ namespace PLAY
             this.WindowState = FormWindowState.Maximized;
             axWindowsMediaPlayer1.Dock = DockStyle.Fill;
             panel1.Visible = false;
+            button_about.Visible = false;
+            button_help.Visible = false;
 
             hook.Hook_Clear();
             hook.Hook_Start();
@@ -203,13 +207,14 @@ namespace PLAY
 
             if (axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPaused)
             {
-                axWindowsMediaPlayer1.Ctlcontrols.play();
+                if (DialogResult.Yes == MessageBox.Show("是否继续播放当前广告？\r\n\n选择\"否\"将重新开始播放", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    axWindowsMediaPlayer1.Ctlcontrols.play();
+                    return;
+                }
             }
-            else
-            {
-                CheckPlayList();
-                DoPlay();
-            }
+            CheckPlayList();
+            DoPlay();
         }
 
         private void CheckPlayList()
@@ -217,6 +222,7 @@ namespace PLAY
             DateTime now = DateTime.Now;
             playlist = null;
 
+            if (config.datesheets == null) return;
             for (int i = 0; i < config.datesheets.Count; i++)
             {
                 DateSheet datesheet = config.datesheets[i];
@@ -533,6 +539,41 @@ namespace PLAY
                 dateTimePicker_sleepEnd.Select();
             }
             xml.Update("sleep", "endtime", dateTimePicker_sleepEnd.Value.ToLongTimeString());
+        }
+
+        private void 退出全屏ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EscKeyPressEvent();
+        }
+
+        private void axWindowsMediaPlayer1_MouseDownEvent(object sender, AxWMPLib._WMPOCXEvents_MouseDownEvent e)
+        {
+            if (e.nButton == 2 && axWindowsMediaPlayer1.Dock == DockStyle.Fill)
+            {
+                Cursor.Show();
+                if (DialogResult.Yes == MessageBox.Show("退出全屏？", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    EscKeyPressEvent();
+                }
+                else
+                {
+                    Cursor.Hide();
+                }
+            }
+        }
+
+        private void button_help_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("manual.docx");
+            }
+            catch { }
+        }
+
+        private void button_about_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("版权所有: 程漱铭\r\nCopyright © 2012 Samuel.CHENG\nAll rights reserved\r\n\n技术支持: +86 1381***5709", "版权所有", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
     }
 }

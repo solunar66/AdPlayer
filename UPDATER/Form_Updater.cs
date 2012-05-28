@@ -44,6 +44,7 @@ namespace UPD
             InitializeComponent();
 
             this.Text = "系统升级守护进程";
+            this.Visible = false;
         }
 
         public void DoUpdate()

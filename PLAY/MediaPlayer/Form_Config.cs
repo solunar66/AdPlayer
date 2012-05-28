@@ -97,9 +97,16 @@ namespace PLAY
             switch (node.Level)
             {
                 case 0:
+                    DateTime startDate = DateTime.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString());
+                    DateTime endDate = DateTime.Parse(dataGridView1.Rows[0].Cells[1].Value.ToString());
+                    if (startDate.Date >= endDate.Date)
+                    {
+                        MessageBox.Show("起始日期须早于终止日期！请检查输入！", "日期校验异常", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     DateSheet dt = new DateSheet();
-                    dt.startDate = DateTime.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString());
-                    dt.endDate = DateTime.Parse(dataGridView1.Rows[0].Cells[1].Value.ToString());
+                    dt.startDate = startDate;
+                    dt.endDate = endDate;
                     dt.Mon = (bool)dataGridView1.Rows[0].Cells[2].Value;
                     dt.Tue = (bool)dataGridView1.Rows[0].Cells[3].Value;
                     dt.Wed = (bool)dataGridView1.Rows[0].Cells[4].Value;
@@ -112,9 +119,16 @@ namespace PLAY
                     break;
 
                 case 1:
+                    DateTime startTime = DateTime.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString());
+                    DateTime endTime = DateTime.Parse(dataGridView1.Rows[0].Cells[1].Value.ToString());
+                    if (startTime.TimeOfDay >= endTime.TimeOfDay)
+                    {
+                        MessageBox.Show("起始时间须早于终止时间！请检查输入！", "时间校验异常", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     TimeSheet ts = new TimeSheet();
-                    ts.startTime = DateTime.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString());
-                    ts.endTime = DateTime.Parse(dataGridView1.Rows[0].Cells[1].Value.ToString());
+                    ts.startTime = startTime;
+                    ts.endTime = endTime;
                     ts.mode = dataGridView1.Rows[0].Cells[2].Value.ToString() == "随机播放" ? PlayMode.random : PlayMode.sequencial;
                     ts.contents = config.datesheets[node.Parent.Index].timesheets[node.Index].contents;
                     config.datesheets[node.Parent.Index].timesheets[node.Index] = ts;
@@ -300,8 +314,8 @@ namespace PLAY
                 cb_mode.Size = new Size(_Rectangle.Width, _Rectangle.Height);
                 cb_mode.Location = new Point(_Rectangle.X, _Rectangle.Y);
                 cb_mode.Visible = true;
-                if (cell.Value.ToString() == PlayMode.random.ToString()) cb_mode.SelectedIndex = (int)PlayMode.random;
-                if (cell.Value.ToString() == PlayMode.sequencial.ToString()) cb_mode.SelectedIndex = (int)PlayMode.sequencial;
+                if (cell.Value.ToString() == "随机播放") cb_mode.SelectedIndex = (int)PlayMode.random;
+                if (cell.Value.ToString() == "顺序播放") cb_mode.SelectedIndex = (int)PlayMode.sequencial;
             }
             else if (cell.OwningColumn.Name == "type")
             {
