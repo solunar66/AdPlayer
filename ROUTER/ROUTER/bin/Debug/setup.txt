@@ -1,0 +1,18 @@
+AdPlayer广告播放终端系统使用说明书
+
+1. 安装
+本软件为绿色版，不需安装，直接解压至任意目录。
+
+2. 依赖
+本软件基于微软.net框架开发，需要.net framework 2.0或更高版本运行库支持。
+2.0版本下载地址：http://www.microsoft.com/downloads/zh-cn/details.aspx?FamilyID=0856eacb-4362-4b0d-8edd-aab15c5e04f5&displaylang=zh-cn
+
+3. 视频解码器
+如需扩展本软件所支持的视频格式，需要安装相应解码器。
+可安装K-Lite code Mega Code Pack解码器，下载地址：http://www.onlinedown.net/soft/15531.htm
+
+4. 升级更新
+本软件支持优盘直插自动更新。将升级文件update.zip（由官方提供，已加密）保存到任意优盘、移动硬盘根目录中，在软件运行过程中插入连接主机，待升级完成后软件会自动重启，如需继续播放需人工操作。
+
+5. 支持的媒体文件格式
+本软件通过安装相应的解码器，可支持大部分视频文件格式。欲验证是否支持播放某一特定视频文件，可通过启动“开始-程序-附件-娱乐-Windows Media Player”，来测试播放该视频文件。若Windows Media Player可顺利播放，则本软件也可以支持播放，反之亦然。
