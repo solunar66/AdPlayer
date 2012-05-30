@@ -21,7 +21,7 @@ namespace PLAY
         private ComboBox cb_type;
         private NumericUpDown nu;
 
-        private int cur_level, cur_index;
+        private TreeNode cur_node;
 
 #endregion
 
@@ -85,7 +85,7 @@ namespace PLAY
 
         private void button_cancel_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("确认不保存退出？", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show("确认退出？\n\n(所有未写入配置文件的修改都将失效)", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.OK)
                 this.Close();
         }
 
@@ -94,58 +94,72 @@ namespace PLAY
             if (dataGridView1.Rows.Count == 0) return;
             
             TreeNode node = treeView1.SelectedNode;
-            switch (node.Level)
+
+            try
             {
-                case 0:
-                    DateTime startDate = DateTime.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString());
-                    DateTime endDate = DateTime.Parse(dataGridView1.Rows[0].Cells[1].Value.ToString());
-                    if (startDate.Date >= endDate.Date)
-                    {
-                        MessageBox.Show("起始日期须早于终止日期！请检查输入！", "日期校验异常", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    DateSheet dt = new DateSheet();
-                    dt.startDate = startDate;
-                    dt.endDate = endDate;
-                    dt.Mon = (bool)dataGridView1.Rows[0].Cells[2].Value;
-                    dt.Tue = (bool)dataGridView1.Rows[0].Cells[3].Value;
-                    dt.Wed = (bool)dataGridView1.Rows[0].Cells[4].Value;
-                    dt.Thu = (bool)dataGridView1.Rows[0].Cells[5].Value;
-                    dt.Fri = (bool)dataGridView1.Rows[0].Cells[6].Value;
-                    dt.Sat = (bool)dataGridView1.Rows[0].Cells[7].Value;
-                    dt.Sun = (bool)dataGridView1.Rows[0].Cells[8].Value;
-                    dt.timesheets = config.datesheets[node.Index].timesheets;
-                    config.datesheets[node.Index] = dt;
-                    break;
+                switch (node.Level)
+                {
+                    case 0:
+                        DateTime startDate = DateTime.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString());
+                        DateTime endDate = DateTime.Parse(dataGridView1.Rows[0].Cells[1].Value.ToString());
+                        if (startDate.Date >= endDate.Date)
+                        {
+                            MessageBox.Show("起始日期须早于终止日期！请检查输入！", "日期校验异常", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        DateSheet dt = new DateSheet();
+                        dt.startDate = startDate;
+                        dt.endDate = endDate;
+                        dt.Mon = (bool)dataGridView1.Rows[0].Cells[2].Value;
+                        dt.Tue = (bool)dataGridView1.Rows[0].Cells[3].Value;
+                        dt.Wed = (bool)dataGridView1.Rows[0].Cells[4].Value;
+                        dt.Thu = (bool)dataGridView1.Rows[0].Cells[5].Value;
+                        dt.Fri = (bool)dataGridView1.Rows[0].Cells[6].Value;
+                        dt.Sat = (bool)dataGridView1.Rows[0].Cells[7].Value;
+                        dt.Sun = (bool)dataGridView1.Rows[0].Cells[8].Value;
+                        dt.timesheets = config.datesheets[node.Index].timesheets;
+                        config.datesheets[node.Index] = dt;
+                        cur_node.Text = "日期: " + dt.startDate.ToShortDateString() + " 至 " + dt.endDate.ToShortDateString();
+                        break;
 
-                case 1:
-                    DateTime startTime = DateTime.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString());
-                    DateTime endTime = DateTime.Parse(dataGridView1.Rows[0].Cells[1].Value.ToString());
-                    if (startTime.TimeOfDay >= endTime.TimeOfDay)
-                    {
-                        MessageBox.Show("起始时间须早于终止时间！请检查输入！", "时间校验异常", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    TimeSheet ts = new TimeSheet();
-                    ts.startTime = startTime;
-                    ts.endTime = endTime;
-                    ts.mode = dataGridView1.Rows[0].Cells[2].Value.ToString() == "随机播放" ? PlayMode.random : PlayMode.sequencial;
-                    ts.contents = config.datesheets[node.Parent.Index].timesheets[node.Index].contents;
-                    config.datesheets[node.Parent.Index].timesheets[node.Index] = ts;
-                    break;
+                    case 1:
+                        DateTime startTime = DateTime.Parse(dataGridView1.Rows[0].Cells[0].Value.ToString());
+                        DateTime endTime = DateTime.Parse(dataGridView1.Rows[0].Cells[1].Value.ToString());
+                        if (startTime.TimeOfDay >= endTime.TimeOfDay)
+                        {
+                            MessageBox.Show("起始时间须早于终止时间！请检查输入！", "时间校验异常", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        TimeSheet ts = new TimeSheet();
+                        ts.startTime = startTime;
+                        ts.endTime = endTime;
+                        ts.mode = dataGridView1.Rows[0].Cells[2].Value.ToString() == "随机播放" ? PlayMode.random : PlayMode.sequencial;
+                        ts.contents = config.datesheets[node.Parent.Index].timesheets[node.Index].contents;
+                        config.datesheets[node.Parent.Index].timesheets[node.Index] = ts;
+                        cur_node.Text = "时间: " + ts.startTime.ToLongTimeString() + " 至 " + ts.endTime.ToLongTimeString() + ", 播放模式: " + ts.mode;
+                        break;
 
-                case 2:
-                    Content ct = new Content();
-                    if (dataGridView1.Rows[0].Cells[0].Value.ToString().Equals("dir")) ct.type = ContentType.dir;
-                    if (dataGridView1.Rows[0].Cells[0].Value.ToString().Equals("powerpoint")) ct.type = ContentType.powerpoint;
-                    if (dataGridView1.Rows[0].Cells[0].Value.ToString().Equals("video")) ct.type = ContentType.video;
-                    ct.duration = int.Parse(dataGridView1.Rows[0].Cells[1].Value.ToString());
-                    ct.file = dataGridView1.Rows[0].Cells[2].Value.ToString();
-                    config.datesheets[node.Parent.Parent.Index].timesheets[node.Parent.Index].contents[node.Index] = ct;
-                    break;
+                    case 2:
+                        Content ct = new Content();
+                        if (dataGridView1.Rows[0].Cells[0].Value.ToString().Equals("dir")) ct.type = ContentType.dir;
+                        if (dataGridView1.Rows[0].Cells[0].Value.ToString().Equals("powerpoint")) ct.type = ContentType.powerpoint;
+                        if (dataGridView1.Rows[0].Cells[0].Value.ToString().Equals("video")) ct.type = ContentType.video;
+                        ct.duration = int.Parse(dataGridView1.Rows[0].Cells[1].Value.ToString());
+                        ct.file = dataGridView1.Rows[0].Cells[2].Value.ToString();
+                        config.datesheets[node.Parent.Parent.Index].timesheets[node.Parent.Index].contents[node.Index] = ct;
+                        cur_node.Text = "文件: 类型:" + ct.type.ToString() + ", 停留: " + ct.duration.ToString() + ", 名称: " + ct.file;
+                        break;
 
-                default:
-                    break;
+                    default:
+                        break;
+                }
+                label_update_ok.Text = "保存成功！";
+                label_update_ok.ForeColor = Color.Black;
+            }
+            catch
+            {
+                label_update_ok.Text = "修改失败！请检查输入！";
+                label_update_ok.ForeColor = Color.Red;
             }
 
             label_update_ok.Visible = true;
@@ -229,40 +243,18 @@ namespace PLAY
             }
         }
 
-        private void ToolStripMenuItem_Add_Click(object sender, EventArgs e)
-        {
-            TreeNode node = treeView1.SelectedNode;
-            TreeNode newNode;
-
-            switch (node.Level)
-            {
-                case 0:
-                    config.datesheets.Insert(node.Index, new DateSheet());
-                    newNode = treeView1.Nodes.Insert(node.Index, "New Node");
-                    break;
-                case 1:
-                    config.datesheets[node.Parent.Index].timesheets.Insert(node.Index, new TimeSheet());
-                    newNode = node.Parent.Nodes.Insert(node.Index, "New Node");
-                    break;
-                case 2:
-                    config.datesheets[node.Parent.Parent.Index].timesheets[node.Parent.Index].contents.Insert(node.Index, new Content());
-                    newNode = node.Parent.Nodes.Insert(node.Index, "New Node");
-                    break;
-                default:
-                    throw new Exception();
-            }
-            treeView1.SelectedNode = newNode;
-
-            //CreateDataGridView(newNode.Level);
-            display(newNode);
-        }
-
         private void toolStripMenuItem_Delete_Click(object sender, EventArgs e)
         {
+            TreeNode node = treeView1.SelectedNode;
+
+            if (node.Parent.Nodes.Count == 1)
+            {
+                MessageBox.Show("本级最后一项配置不可删除！", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             if (MessageBox.Show("确认删除该项？", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                TreeNode node = treeView1.SelectedNode;
-
                 switch (node.Level)
                 {
                     case 0:
@@ -281,18 +273,68 @@ namespace PLAY
             }
         }
 
+        private void ToolStripMenuItem_Add_Date_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem_Add(0);
+        }
+
+        private void ToolStripMenuItem_Add_Time_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem_Add(1);
+        }
+
+        private void ToolStripMenuItem_Add_Content_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem_Add(2);
+        }
+
+        private void ToolStripMenuItem_Add(int level)
+        {
+            TreeNode node = treeView1.SelectedNode;
+            TreeNode newNode;
+
+            try
+            {
+                switch (level)
+                {
+                    case 0:
+                        config.datesheets.Insert(node.Index, new DateSheet());
+                        newNode = treeView1.Nodes.Insert(node.Index, "New Node");
+                        break;
+                    case 1:
+                        config.datesheets[node.Parent.Index].timesheets.Insert(node.Index, new TimeSheet());
+                        newNode = node.Parent.Nodes.Insert(node.Index, "New Node");
+                        break;
+                    case 2:
+                        config.datesheets[node.Parent.Parent.Index].timesheets[node.Parent.Index].contents.Insert(node.Index, new Content());
+                        newNode = node.Parent.Nodes.Insert(node.Index, "New Node");
+                        break;
+                    default:
+                        throw new Exception();
+                }
+                treeView1.SelectedNode = newNode;
+
+                display(newNode);
+            }
+            catch
+            {
+                MessageBox.Show("请先完成新添加配置项目内容，再添加新项目。", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+#endregion
+
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if (e.Node.Level == cur_level && e.Node.Index == cur_index)
+            if (e.Node == cur_node)
             { }
             else
             {
                 label_update_ok.Visible = false;
+                button_update.Visible = false;
                 clear();
-            }            
+            }
         }
-
-#endregion
 
 #region datagridview events handler
 
@@ -404,6 +446,13 @@ namespace PLAY
             { }
         }
 
+        private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            DataGridView dgv = (DataGridView)sender;
+            if (dgv.Columns[e.ColumnIndex].Name.Length == 3) { }
+            else { e.Cancel = true; }
+        }
+
         private void monthCalendar_DateSelected(object sender, DateRangeEventArgs e)
         {
             CalenderCell m = (CalenderCell)sender;
@@ -418,13 +467,6 @@ namespace PLAY
             dataGridView1.Refresh();
             m.Dispose();
             m = null;
-        }
-
-        private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-        {
-            DataGridView dgv = (DataGridView)sender;
-            if (dgv.Columns[e.ColumnIndex].Name.Length == 3) { }
-            else { e.Cancel = true; }
         }
 
 #endregion
@@ -497,8 +539,9 @@ namespace PLAY
                     break;
             }
 
-            cur_level = node.Level;
-            cur_index = node.Index;
+            button_update.Visible = true;
+
+            cur_node = node;
         }
 
         private void clear()
@@ -577,7 +620,6 @@ namespace PLAY
         }
 
 #endregion
-        
     }
 
 #region customize datagridviewcell

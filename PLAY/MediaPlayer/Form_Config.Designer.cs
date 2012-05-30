@@ -37,11 +37,14 @@
             this.toolStripMenuItem_MoveUp = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_MoveDown = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.ToolStripMenuItem_Add = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Add = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button_update = new System.Windows.Forms.Button();
             this.label_update_ok = new System.Windows.Forms.Label();
+            this.button_update = new System.Windows.Forms.Button();
+            this.ToolStripMenuItem_Add_Date = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem_Add_Time = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem_Add_Content = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -49,22 +52,22 @@
             // 
             // button_ok
             // 
-            this.button_ok.Location = new System.Drawing.Point(427, 406);
+            this.button_ok.Location = new System.Drawing.Point(378, 344);
             this.button_ok.Name = "button_ok";
             this.button_ok.Size = new System.Drawing.Size(124, 23);
             this.button_ok.TabIndex = 0;
-            this.button_ok.Text = "写入配置文件";
+            this.button_ok.Text = "保存并退出";
             this.button_ok.UseVisualStyleBackColor = true;
             this.button_ok.Click += new System.EventHandler(this.button_ok_Click);
             // 
             // button_cancel
             // 
             this.button_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_cancel.Location = new System.Drawing.Point(557, 406);
+            this.button_cancel.Location = new System.Drawing.Point(508, 344);
             this.button_cancel.Name = "button_cancel";
-            this.button_cancel.Size = new System.Drawing.Size(75, 23);
+            this.button_cancel.Size = new System.Drawing.Size(124, 23);
             this.button_cancel.TabIndex = 0;
-            this.button_cancel.Text = "退出";
+            this.button_cancel.Text = "放弃修改";
             this.button_cancel.UseVisualStyleBackColor = true;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
@@ -75,11 +78,10 @@
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.Location = new System.Drawing.Point(0, 247);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(644, 154);
+            this.dataGridView1.Size = new System.Drawing.Size(644, 91);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
             this.dataGridView1.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellLeave);
@@ -103,86 +105,113 @@
             this.toolStripMenuItem_MoveUp,
             this.toolStripMenuItem_MoveDown,
             this.toolStripSeparator1,
-            this.ToolStripMenuItem_Add,
+            this.toolStripMenuItem_Add,
             this.toolStripMenuItem_Delete});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(95, 98);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 120);
             // 
             // toolStripMenuItem_MoveUp
             // 
             this.toolStripMenuItem_MoveUp.Name = "toolStripMenuItem_MoveUp";
-            this.toolStripMenuItem_MoveUp.Size = new System.Drawing.Size(94, 22);
+            this.toolStripMenuItem_MoveUp.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem_MoveUp.Text = "上移";
             this.toolStripMenuItem_MoveUp.Click += new System.EventHandler(this.toolStripMenuItem_MoveUp_Click);
             // 
             // toolStripMenuItem_MoveDown
             // 
             this.toolStripMenuItem_MoveDown.Name = "toolStripMenuItem_MoveDown";
-            this.toolStripMenuItem_MoveDown.Size = new System.Drawing.Size(94, 22);
+            this.toolStripMenuItem_MoveDown.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem_MoveDown.Text = "下移";
             this.toolStripMenuItem_MoveDown.Click += new System.EventHandler(this.toolStripMenuItem_MoveDown_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(91, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
-            // ToolStripMenuItem_Add
+            // toolStripMenuItem_Add
             // 
-            this.ToolStripMenuItem_Add.Name = "ToolStripMenuItem_Add";
-            this.ToolStripMenuItem_Add.Size = new System.Drawing.Size(94, 22);
-            this.ToolStripMenuItem_Add.Text = "添加";
-            this.ToolStripMenuItem_Add.Click += new System.EventHandler(this.ToolStripMenuItem_Add_Click);
+            this.toolStripMenuItem_Add.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItem_Add_Date,
+            this.ToolStripMenuItem_Add_Time,
+            this.ToolStripMenuItem_Add_Content});
+            this.toolStripMenuItem_Add.Name = "toolStripMenuItem_Add";
+            this.toolStripMenuItem_Add.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem_Add.Text = "添加";
             // 
             // toolStripMenuItem_Delete
             // 
             this.toolStripMenuItem_Delete.Name = "toolStripMenuItem_Delete";
-            this.toolStripMenuItem_Delete.Size = new System.Drawing.Size(94, 22);
+            this.toolStripMenuItem_Delete.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem_Delete.Text = "删除";
             this.toolStripMenuItem_Delete.Click += new System.EventHandler(this.toolStripMenuItem_Delete_Click);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label_update_ok);
+            this.panel1.Controls.Add(this.button_update);
+            this.panel1.Controls.Add(this.button_cancel);
             this.panel1.Controls.Add(this.treeView1);
+            this.panel1.Controls.Add(this.button_ok);
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(644, 401);
+            this.panel1.Size = new System.Drawing.Size(644, 375);
             this.panel1.TabIndex = 6;
-            // 
-            // button_update
-            // 
-            this.button_update.Location = new System.Drawing.Point(12, 406);
-            this.button_update.Name = "button_update";
-            this.button_update.Size = new System.Drawing.Size(75, 23);
-            this.button_update.TabIndex = 5;
-            this.button_update.Text = "保存";
-            this.button_update.UseVisualStyleBackColor = true;
-            this.button_update.Click += new System.EventHandler(this.button_update_Click);
             // 
             // label_update_ok
             // 
             this.label_update_ok.AutoSize = true;
+            this.label_update_ok.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label_update_ok.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_update_ok.ForeColor = System.Drawing.Color.Red;
-            this.label_update_ok.Location = new System.Drawing.Point(104, 412);
+            this.label_update_ok.Location = new System.Drawing.Point(408, 311);
             this.label_update_ok.Name = "label_update_ok";
-            this.label_update_ok.Size = new System.Drawing.Size(65, 12);
+            this.label_update_ok.Size = new System.Drawing.Size(70, 12);
             this.label_update_ok.TabIndex = 7;
-            this.label_update_ok.Text = "更新成功！";
+            this.label_update_ok.Text = "修改成功！";
             this.label_update_ok.Visible = false;
+            // 
+            // button_update
+            // 
+            this.button_update.Location = new System.Drawing.Point(557, 306);
+            this.button_update.Name = "button_update";
+            this.button_update.Size = new System.Drawing.Size(75, 23);
+            this.button_update.TabIndex = 5;
+            this.button_update.Text = "确认修改";
+            this.button_update.UseVisualStyleBackColor = true;
+            this.button_update.Visible = false;
+            this.button_update.Click += new System.EventHandler(this.button_update_Click);
+            // 
+            // ToolStripMenuItem_Add_Date
+            // 
+            this.ToolStripMenuItem_Add_Date.Name = "ToolStripMenuItem_Add_Date";
+            this.ToolStripMenuItem_Add_Date.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItem_Add_Date.Text = "日期时间段";
+            this.ToolStripMenuItem_Add_Date.Click += new System.EventHandler(this.ToolStripMenuItem_Add_Date_Click);
+            // 
+            // ToolStripMenuItem_Add_Time
+            // 
+            this.ToolStripMenuItem_Add_Time.Name = "ToolStripMenuItem_Add_Time";
+            this.ToolStripMenuItem_Add_Time.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItem_Add_Time.Text = "每天时间段";
+            this.ToolStripMenuItem_Add_Time.Click += new System.EventHandler(this.ToolStripMenuItem_Add_Time_Click);
+            // 
+            // ToolStripMenuItem_Add_Content
+            // 
+            this.ToolStripMenuItem_Add_Content.Name = "ToolStripMenuItem_Add_Content";
+            this.ToolStripMenuItem_Add_Content.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItem_Add_Content.Text = "播放内容项";
+            this.ToolStripMenuItem_Add_Content.Click += new System.EventHandler(this.ToolStripMenuItem_Add_Content_Click);
             // 
             // Form_Config
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(644, 445);
+            this.ClientSize = new System.Drawing.Size(644, 375);
             this.ControlBox = false;
-            this.Controls.Add(this.label_update_ok);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button_cancel);
-            this.Controls.Add(this.button_update);
-            this.Controls.Add(this.button_ok);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form_Config";
             this.ShowInTaskbar = false;
@@ -191,8 +220,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -204,12 +233,15 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Add;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_MoveUp;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_MoveDown;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Delete;
         private System.Windows.Forms.Button button_update;
         private System.Windows.Forms.Label label_update_ok;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Add;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Add_Date;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Add_Time;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Add_Content;
     }
 }

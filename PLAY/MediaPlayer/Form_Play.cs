@@ -172,8 +172,7 @@ namespace PLAY
                 axWindowsMediaPlayer1.Dock = DockStyle.None;
                 axWindowsMediaPlayer1.Size = new Size(496, 431);
                 axWindowsMediaPlayer1.Location = new Point(12, 3);
-                if (axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPlaying)
-                { axWindowsMediaPlayer1.Ctlcontrols.pause(); }
+                axWindowsMediaPlayer1.Ctlcontrols.stop();
                 panel1.Visible = true;
                 button_about.Visible = true;
                 button_help.Visible = true;
@@ -205,14 +204,8 @@ namespace PLAY
                 this.Location = scr[config.scr].WorkingArea.Location;
             }
 
-            if (axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPaused)
-            {
-                if (DialogResult.Yes == MessageBox.Show("是否继续播放当前广告？\r\n\n选择\"否\"将重新开始播放", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-                {
-                    axWindowsMediaPlayer1.Ctlcontrols.play();
-                    return;
-                }
-            }
+            axWindowsMediaPlayer1.Ctlcontrols.play();
+
             CheckPlayList();
             DoPlay();
         }
