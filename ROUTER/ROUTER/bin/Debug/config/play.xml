@@ -4,8 +4,8 @@
   <idle type="video" src="media\logo.jpg" duration="1" />
   <sleep starttime="18:00:00" endtime="08:00:00" />
   <notice fontname="SimHei" color="Red" bgcolor="Yellow" size="18" bold="1" speed="100" />
-  <period startdate="2012-03-01" enddate="2012-05-04" mon="1" tue="1" wed="1" thu="1" fri="1" sat="0" sun="0">
-    <time starttime="00:30:00" endtime="17:00:00" mode="sequencial">
+  <period startdate="2012/3/1" enddate="2012/5/4" mon="1" tue="1" wed="1" thu="1" fri="1" sat="0" sun="0">
+    <time starttime="0:30:00" endtime="17:00:00" mode="sequencial">
       <item type="powerpoint" src="media\example_ppt.ppt" duration="1" />
       <item type="video" src="media\example_wmv.wmv" duration="0" />
       <item type="powerpoint" src="media\example_ppt.ppt" duration="1" />
@@ -14,9 +14,9 @@
       <item type="video" src="media\example_wmv.wmv" duration="0" />
     </time>
   </period>
-  <period startdate="2012-05-04" enddate="2012-12-31" mon="1" tue="1" wed="1" thu="1" fri="1" sat="1" sun="1">
-    <time starttime="08:00:00" endtime="23:00:00" mode="sequencial">
-      <item type="dir" src="media\" duration="1" />
+  <period startdate="2012/5/4" enddate="2012/12/31" mon="1" tue="1" wed="1" thu="1" fri="1" sat="1" sun="1">
+    <time starttime="8:00:00" endtime="23:00:00" mode="sequencial">
+      <item type="dir" src="media\media_files" duration="1" />
     </time>
   </period>
 </system>

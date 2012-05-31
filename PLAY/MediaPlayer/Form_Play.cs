@@ -305,8 +305,12 @@ namespace PLAY
         // 空闲播放
         private void PlayIdle()
         {
-            axWindowsMediaPlayer1.URL = config.idle.file.IndexOf(":") == -1 ? curDir + "\\" + config.idle.file : config.idle.file;
-            axWindowsMediaPlayer1.Ctlcontrols.play();
+            try
+            {
+                axWindowsMediaPlayer1.URL = config.idle.file.IndexOf(":") == -1 ? curDir + "\\" + config.idle.file : config.idle.file;
+                axWindowsMediaPlayer1.Ctlcontrols.play();
+            }
+            catch { }
         }
 
         // 播放视频
