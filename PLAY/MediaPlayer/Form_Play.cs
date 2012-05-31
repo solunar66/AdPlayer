@@ -46,37 +46,44 @@ namespace PLAY
             this.Text = "广告播放系统";
 
             // 读取配置
-            xml.ReadPlayConfig(out config);
-            numericUpDown2.Value = config.notice.interval;
-
-            // 播放器设置
-            axWindowsMediaPlayer1.uiMode = "none";
-            axWindowsMediaPlayer1.stretchToFit = true;
-            axWindowsMediaPlayer1.Ctlenabled = true;
-            axWindowsMediaPlayer1.settings.setMode("loop", true);// 循环
-
-            Screen[] scr = Screen.AllScreens;
-            if (scr.Length > 1)
+            if (!xml.ReadPlayConfig(out config))
             {
-                label8.ForeColor = Color.FromKnownColor(System.Drawing.KnownColor.ControlText);
-                comboBox_scr.Enabled = true;
-                for (int i = 0; i < scr.Length; i++)
-                {
-                    comboBox_scr.Items.Add(scr[i].DeviceName);
-                }
-                if (config.scr <= scr.Length) comboBox_scr.SelectedIndex = config.scr - 1;
+                MessageBox.Show("没有检测到配置文件！\n\n请将正确的配置文件\"play.xml\"放入程序目录的\"config\"文件夹下", "启动异常", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                this.Close();
             }
+            else
+            {
+                numericUpDown2.Value = config.notice.interval;
 
-            comboBox_idle.Items.Add(ContentType.video);
-            comboBox_idle.Items.Add(ContentType.powerpoint);
-            comboBox_idle.SelectedIndex = (int)(config.idle.type) - 1;
-            numericUpDown_idle.Value = (decimal)config.idle.duration;
-            label_idle.Text = config.idle.file;
+                // 播放器设置
+                axWindowsMediaPlayer1.uiMode = "none";
+                axWindowsMediaPlayer1.stretchToFit = true;
+                axWindowsMediaPlayer1.Ctlenabled = true;
+                axWindowsMediaPlayer1.settings.setMode("loop", true);// 循环
 
-            dateTimePicker_sleepStart.Value = config.sleep.startTime;
-            dateTimePicker_sleepEnd.Value = config.sleep.endTime;
-            
-            hook = new Hook();
+                Screen[] scr = Screen.AllScreens;
+                if (scr.Length > 1)
+                {
+                    label8.ForeColor = Color.FromKnownColor(System.Drawing.KnownColor.ControlText);
+                    comboBox_scr.Enabled = true;
+                    for (int i = 0; i < scr.Length; i++)
+                    {
+                        comboBox_scr.Items.Add(scr[i].DeviceName);
+                    }
+                    if (config.scr <= scr.Length) comboBox_scr.SelectedIndex = config.scr - 1;
+                }
+
+                comboBox_idle.Items.Add(ContentType.video);
+                comboBox_idle.Items.Add(ContentType.powerpoint);
+                comboBox_idle.SelectedIndex = (int)(config.idle.type) - 1;
+                numericUpDown_idle.Value = (decimal)config.idle.duration;
+                label_idle.Text = config.idle.file;
+
+                dateTimePicker_sleepStart.Value = config.sleep.startTime;
+                dateTimePicker_sleepEnd.Value = config.sleep.endTime;
+
+                hook = new Hook();
+            }
         }
 
         // 字幕滚动
@@ -415,7 +422,7 @@ namespace PLAY
 
             if (axWindowsMediaPlayer1.Dock == DockStyle.Fill)
             {
-                if (DateTime.Now.TimeOfDay >= config.sleep.startTime.TimeOfDay && DateTime.Now.TimeOfDay <= config.sleep.endTime.TimeOfDay)
+                if (CheckSleep())
                 {
                     if (axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPlaying)
                     {
@@ -442,6 +449,24 @@ namespace PLAY
                     }
                 }
             }
+        }
+
+        private bool CheckSleep()
+        {
+            // in one day
+            if (config.sleep.startTime.TimeOfDay < config.sleep.endTime.TimeOfDay)
+            {
+                if (DateTime.Now.TimeOfDay >= config.sleep.startTime.TimeOfDay && DateTime.Now.TimeOfDay <= config.sleep.endTime.TimeOfDay)
+                { return true; }
+            }
+            // cross night
+            else if (config.sleep.startTime.TimeOfDay > config.sleep.endTime.TimeOfDay)
+            {
+                if (DateTime.Now.TimeOfDay >= config.sleep.startTime.TimeOfDay && DateTime.Now.TimeOfDay <= config.sleep.endTime.TimeOfDay)
+                { return false; }
+            }
+
+            return false;
         }
 
         private void axWindowsMediaPlayer1_PlayStateChange()
@@ -516,21 +541,11 @@ namespace PLAY
 
         private void dateTimePicker_sleepStart_Leave(object sender, EventArgs e)
         {
-            if (dateTimePicker_sleepStart.Value >= dateTimePicker_sleepEnd.Value)
-            {
-                MessageBox.Show("起始时间不能晚于(等于)终止时间！", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dateTimePicker_sleepStart.Select();
-            }
             xml.Update("sleep", "starttime", dateTimePicker_sleepStart.Value.ToLongTimeString());
         }
 
         private void dateTimePicker_sleepEnd_Leave(object sender, EventArgs e)
         {
-            if (dateTimePicker_sleepStart.Value >= dateTimePicker_sleepEnd.Value)
-            {
-                MessageBox.Show("终止时间不能早于(等于)起始时间！", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dateTimePicker_sleepEnd.Select();
-            }
             xml.Update("sleep", "endtime", dateTimePicker_sleepEnd.Value.ToLongTimeString());
         }
 

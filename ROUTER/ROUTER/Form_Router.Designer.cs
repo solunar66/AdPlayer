@@ -130,6 +130,7 @@
             this.ShowInTaskbar = false;
             this.Text = "系统服务";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.Load += new System.EventHandler(this.Form_Router_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -169,6 +169,18 @@ namespace PLAY
 
 #region treeview events handler
 
+        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (e.Node == cur_node)
+            { }
+            else
+            {
+                label_update_ok.Visible = false;
+                button_update.Visible = false;
+                clear();
+            }
+        }
+
         private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             display(e.Node);
@@ -246,8 +258,8 @@ namespace PLAY
         private void toolStripMenuItem_Delete_Click(object sender, EventArgs e)
         {
             TreeNode node = treeView1.SelectedNode;
-
-            if (node.Parent.Nodes.Count == 1)
+                        
+            if (node.PrevNode == null && node.NextNode == null)
             {
                 MessageBox.Show("本级最后一项配置不可删除！", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -323,18 +335,6 @@ namespace PLAY
         }
 
 #endregion
-
-        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-        {
-            if (e.Node == cur_node)
-            { }
-            else
-            {
-                label_update_ok.Visible = false;
-                button_update.Visible = false;
-                clear();
-            }
-        }
 
 #region datagridview events handler
 

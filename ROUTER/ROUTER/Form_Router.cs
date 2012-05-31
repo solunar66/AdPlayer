@@ -11,6 +11,8 @@ namespace ROUTER
 {
     public partial class Form_Router : Form
     {
+        private bool forceQuit = false;
+
         public Form_Router()
         {
             InitializeComponent();
@@ -21,7 +23,14 @@ namespace ROUTER
             System.Diagnostics.Process.Start("Updater.exe", "-f");
             
             PLAY.Form_Play play = new PLAY.Form_Play();
-            play.Show();
+            if (!play.IsDisposed)
+            {
+                play.Show();
+            }
+            else 
+            {
+                forceQuit = true;
+            }
 
             //UPD.Form_Updater updater = new UPD.Form_Updater();
             //updater.Show();
@@ -62,6 +71,11 @@ namespace ROUTER
         private void button_ok_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form_Router_Load(object sender, EventArgs e)
+        {
+            if (forceQuit) this.Close();
         }
     }
 }
