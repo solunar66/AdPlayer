@@ -523,7 +523,7 @@ namespace PLAY
             xml.Update("screen", "index", (comboBox_scr.SelectedIndex + 1).ToString());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_idle_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -586,6 +586,21 @@ namespace PLAY
         private void button_about_Click(object sender, EventArgs e)
         {
             MessageBox.Show("版权所有: 程漱铭\r\nCopyright © 2012 Samuel.CHENG\nAll rights reserved\r\n\n技术支持: +86 1381***5709", "版权所有", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        private void button_interval_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox_interval_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown_interval_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

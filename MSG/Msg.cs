@@ -8,6 +8,7 @@ namespace MSG
 {
     public class Msg
     {
+#region messages
         // 系统消息
         private const int WM_SYSCOMMAND = 0x112;
         // 启动屏幕保护消息
@@ -33,6 +34,7 @@ namespace MSG
         public const int INT_MSG_Update = USER + 4;
 
         public const int INT_MSG_Window = USER + 5;
+#endregion
 
         public struct My_lParam_Notice
         {
