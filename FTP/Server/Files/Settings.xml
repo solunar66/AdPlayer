@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+  <SETTINGS>
+    <KEY NAME="MIN_PASSV_PORT" VALUE="7000" />
+    <KEY NAME="MAX_PASSV_PORT" VALUE="7100" />
+    <KEY NAME="FTP_PORT" VALUE="21" />
+    <KEY NAME="AUTO_START_FTP" VALUE="1" />
+    <KEY NAME="ENABLE_FTP_LOGGING" VALUE="0" />
+    <KEY NAME="HTTP_PORT" VALUE="9090" />
+    <KEY NAME="AUTO_START_HTTP" VALUE="1" />
+    <KEY NAME="HTTP_LOGIN_ID" VALUE="ADMIN" />
+    <KEY NAME="HTTP_PASSWORD" VALUE="admin" />
+    <KEY NAME="ENABLE_NOTIFY_ICON" VALUE="1" />
+    <KEY NAME="ENABLE_FTPFOLDER_ICON" VALUE="0" />
+    <KEY NAME="ENABLE_QUICK_CONFIG_MENU" VALUE="1" />
+    <KEY NAME="AUTO_SEND_ERROR_REPORT" VALUE="0" />
+    <KEY NAME="ENABLE_APD" VALUE="0" />
+    <KEY NAME="MOVE_FILES_TO_RECYCLE_BIN" VALUE="1" />
+    <KEY NAME="DATE_TIME_FORMAT" VALUE="dd-MM-yyyy hh:mm:sstt" />
+  </SETTINGS>
+  <UserAccount>
+    <USER UserName="ADMIN" Password="admin" Root="C:" PermissionSet="111111111" Enabled="1" />
+  </UserAccount>
+</Configuration>

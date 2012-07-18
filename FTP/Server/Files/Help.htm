@@ -1,0 +1,102 @@
+<div style="width:800px;height:455px;overflow:auto;"><p><font size="5">User Guide</font></p>
+<p><font size="4">Online Users</font></p>
+<ul>
+	<li>Displays the list of all the users currently online in tabular format.</li>
+	<li>This tabular record contains the following details<br>
+&nbsp;&nbsp;&nbsp; <b>EndPoint</b> : The IP Address and the Port no to which they 
+	were connected<br>
+&nbsp;&nbsp;&nbsp; <b>User Name</b> : The name used to login.<br>
+&nbsp;&nbsp;&nbsp; <b>Current Directory</b> - The directory they were accessing.<br>
+&nbsp;&nbsp;&nbsp; <b>Connected Time</b> - This is the time when the client is connected.<br>
+&nbsp;&nbsp;&nbsp; <b>Last Interaction</b> - This is the time when the client is 
+	last interacted with the server.</li>
+</ul>
+<p><font size="4">User Account</font></p>
+<ul>
+	<li><b>View Users List</b> - This lists the User Name, Password and the root 
+	path for the ftp users.</li>
+	<li><b>Add New User</b> - Clicking on the Add button at the header of the list 
+	will display the new page where you can add new user.</li>
+	<li><b>Edit User</b> - Clicking on the Edit button at the of the respective 
+	user, displays the same page as that of add user button where you can change 
+	any of the rights or other settings</li>
+	<li><b>Delete User</b> - Click on the link delete button corresponding to the 
+	user will delete the user permanently after reconfirming.</li>
+</ul>
+<p><font size="4">Service Settings</font></p>
+<ul>
+	<li>This option enables to change the port no on which the FTP and HTTP server 
+	is running and the Authentication User Name and Password for HTTP Service.</li>
+	<li>This also enables the PASV port range for the FTP Server. PASV port is the 
+	different port which is used to transfer files to the client.</li>
+</ul>
+<p><font size="4">Logout</font></p>
+<ul>
+	<li>This ends the current authenticated session and prompts for user name and 
+	password to re-authenticate.</li>
+</ul>
+<p>&nbsp;</p>
+<p><font size="5">General FAQ&#39;s</font></p>
+<ol>
+	<li><b>What is the advantage of using Advanced FTP Server over other ftp servers?</b><br>
+	Other free FTP servers dose not provide the facility to control the server remotely 
+	and some provides this facility by installing the required software&#39;s in the 
+	remote machine which may not be possible all the times. But this provides a simple, 
+	user friendly web interface, where you can connect from remote machine through 
+	a browser. This enables control over the application from remote machines.<br>
+&nbsp;</li>
+	<li><b>When the HTTP port is changed it shown the message box that it had been 
+	changed but then the page is not displayed properly?</b><br>
+	When the HTTP port is changed the application starts running the server with 
+	the new port where the previous port you were using becomes invalid. Once you 
+	change the HTTP port you also need to manually change the port in the address 
+	bar. Here even when the HTTP port is changed the server retains your authentication 
+	information till you close the browser and when you change the port and reconnect 
+	you need not re-authenticate.<br>
+&nbsp;</li>
+	<li><b>How to change the HTTP User Name and Password via browser?</b><br>
+	Navigate to Service Settings and just type in the user name and password in 
+	the field provided and click the Save Changes button.<br>
+&nbsp;</li>
+	<li><b>Why the web interface so simple and classic?</b><br>
+	This simple interface is provided to maintain the speed and reduce the band 
+	width of the server. More over just to maintain the server no rich appearance 
+	is required.<br>
+&nbsp;</li>
+	<li><b>What is the use of running the application as windows service?</b><br>
+	As this application is run from windows service this starts as soon as the windows 
+	started. So to use the ftp server remotely you need not login to your windows 
+	account. When you require any files from your system when you are outside, you 
+	can call up some body and ask to turn on your system so that you can use your 
+	IP Address to connect to your system.<br>
+&nbsp;</li>
+	<li><b>How to connect to the ftp server when the port no is changed from 21 
+	to some thing else?</b><br>
+	The default global port for FTP server is 21 and your client always connects 
+	to the ftp server using the port 21 until you explicitly define the port. To 
+	explicitly define the port just type in like this ftp://IPAddress:Port no. (E.g. 
+	ftp://121.0.0.1:25) will connect to the local ftp server running in port 25.<br>
+&nbsp;</li>
+	<li><b>Is their any way to directly connect to the http server without explicitly 
+	mentioning the http port?</b><br>
+	Yes, the global default port for the http server is 80. If you change the http 
+	port to 80 then you need not mention the http port explicitly. (Note: Only one 
+	application can run in one single port. So if you change the port to 80 any 
+	other http applications installed, like IIS wont work properly)<br>
+&nbsp;</li>
+	<li><b>When the ftp port no is set to 21 it was not working properly but it 
+	works with some other ports?</b><br>
+	This means the port 21 is used by some other applications and so you cannot 
+	use the port 21. It must be some other ftp applications. Either you must stop 
+	the other application from using this port or you need to use some other port 
+	for this application.<br>
+&nbsp;</li>
+	<li><b>The ftp server is working properly in the system where it is installed 
+	but when connecting from remote machines it is not connecting?</b><br>
+	Their may be several cause for this problem like firewall blocks the program 
+	from for external connections, your router may not forward the ports to your 
+	system, your external IP address is different from the IP address in your local 
+	network (LAN), when you connect to the server from remote machine not in your 
+	local network (LAN) you need to use your external IP. You can easily find reference 
+	in google to solve your problem.</li>
+</ol></div>

@@ -1,0 +1,29 @@
+<div>
+<table cellspacing="0" cellpadding="4" border="0" style="border:1px Solid #B5C7DE; background-color:#EEEECC;border-collapse:collapse; position: absolute; left:-1px; top:226px; width:197px" width="268">
+<tr>
+<td>
+<table cellpadding="0" border="0" style="color:#333333;font-family:Verdana;font-size:0.8em;height:91px;width:187px">
+<tr>
+<td align="center" colspan="2" style="color:White;background-color:#999966;font-size:0.9em;font-weight:bold;">
+Log In</td>
+</tr>
+<tr>
+<td align="right" width="69">Login Id:</td>
+<td width="112">
+<input size="14" id="txtLoginId" onkeydown="if(window.event.keyCode == 13) RequestAsync('SIGNUP/', this.value + '/' + txtPassword.value, div_Render, 'Verifying Credentials. Please wait...');" onblur="JavaScript:document.getElementById('lblUserName').innerHTML=txtLoginId.value=this.value;"></td>
+</tr>
+<tr>
+<td align="right" width="69" height="25">Password:</td>
+<td width="112" height="25">
+<input id="txtPassword" type="password" size="14" onkeydown="if(window.event.keyCode == 13) RequestAsync('SIGNUP/', txtLoginId.value + '/' + this.value, div_Render, 'Verifying Credentials. Please wait...');" onblur="JavaScript:txtPassword.value=this.value;"></td>
+</tr>
+<tr><td colspan="2" height="21">-MessageText-</td></tr>
+<tr>
+<td align="right" colspan="2" height="21">
+<input type="button" value="Log In" style="color:#284E98;background-color:White;border-color:#507CD1;border-width:1px;border-style:Solid;font-family:Verdana;font-size:0.8em;" onclick="RequestAsync('SIGNUP/', txtLoginId.value + '/' + txtPassword.value, div_Render, 'Verifying Credentials. Please wait...');"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>

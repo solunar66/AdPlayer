@@ -1,0 +1,72 @@
+<style>
+input{color:#284E98;background-color:White;border-color:#507CD1;border-width:1px;border-style:Solid;font-family:Verdana;font-size:0.8em;}
+</style><div>
+	<table cellspacing="0" cellpadding="4" border="0" style="border:1px Solid #B5C7DE; background-color:#EEEECC;border-collapse:collapse; position: absolute; left:218px; top:103px; width:272px; height:101px" width="268">
+		<tr>
+			<td>
+			<table cellpadding="0" border="0" style="color:#333333;font-family:Verdana;font-size:0.8em;height:91px;width:272px">
+				<tr>
+					<td align="center" colspan="2" style="color:White;background-color:#999966;font-size:0.9em;font-weight:bold;">
+					FTP Settings</td>
+				</tr>
+				<tr>
+					<td align="right" width="132">FTP Port:</td>
+					<td width="134">
+					<input size="8" id="txtFTPPort" onblur="JavaScript:txtFTPPort.value=this.value" value="--FTPPort--"></td>
+				</tr>
+				<tr>
+					<td align="right" width="132">PASV Port Range:</td>
+					<td width="134">
+					<input size="8" id="txtPASVPortFrom" onblur="JavaScript:txtPASVPortFrom.value=this.value" value="--MinPasvPort--" maxlength=5> 
+					-
+					<input size="8" id="txtPASVPortTo" onblur="JavaScript:txtPASVPortTo.value=this.value" value="--MaxPasvPort--" maxlength=5></td>
+				</tr>
+				<tr>
+					<td colspan="2" height="25">
+					<input id="chnRunFTP" type="checkbox" onchange="if(this.checked)this.value = '1';else this.value='0';" --RUNSVC--> 
+					Auto start FTP Listener</td>
+				</tr>
+				<tr>
+					<td colspan="2" height="21" align=right>
+					&nbsp;<input type="button" value="Save Changes" onclick="if((txtFTPPort.value - 0) != txtFTPPort.value || (txtPASVPortFrom.value - 0) != txtPASVPortFrom.value || (txtPASVPortTo.value - 0) != txtPASVPortTo.value) alert('Port specified is not valid'); else if((txtPASVPortFrom.value - 0) >= txtPASVPortTo.value - 10) alert('Atleast 10 ports mustt be allowed for passiv mode.'); else RequestAsync('SAVEP/', txtFTPPort.value + '/' + txtPASVPortFrom.value + '/' + txtPASVPortTo.value + '/' + chnRunFTP.value, div_Render, 'Updating. Please wait...');"></td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+	</table>
+	<table cellspacing="0" cellpadding="4" border="0" style="border:1px Solid #B5C7DE; background-color:#EEEECC;border-collapse:collapse; position: absolute; left:219px; top:222px; width:260px; height:101px" width="268">
+		<tr>
+			<td>
+			<table cellpadding="0" border="0" style="color:#333333;font-family:Verdana;font-size:0.8em;height:91px;width:270px">
+				<tr>
+					<td align="center" colspan="2" style="color:White;background-color:#999966;font-size:0.9em;font-weight:bold;">
+					HTTP Settings</td>
+				</tr>
+				<tr>
+					<td align="right" width="132">HTTP Port:</td>
+					<td width="139">
+					<input size="8" id="txtHTTPPort" onblur="JavaScript:txtHTTPPort.value=this.value" value="--HTTPPort--" name="T4"></td>
+				</tr>
+				<tr>
+					<td align="right" width="123">User Name:</td>
+					<td width="139">
+					<input size="17" id="txtUserName" onblur="JavaScript:txtUserName.value=this.value"></td>
+				</tr>
+				<tr>
+					<td align="right" width="123">Password:</td>
+					<td width="139">
+					<input size="17" id="txtPassword" onblur="JavaScript:txtPassword.value=this.value"></td>
+				</tr>
+				<tr>
+					<td colspan="2" height="24">&nbsp;Update HTTP Login 
+					Credentials</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="right" height="18">
+					<input type="button" value="Save Changes" onclick="if((txtHTTPPort.value-0) != txtHTTPPort.value || (txtHTTPPort.value-0) < 20)alert('HTTTP Port specified is invalid.'); else RequestAsync('HPCA/', txtHTTPPort.value + '/' + txtUserName.value + '/' + escape(txtPassword.value), div_Render, 'Verifying Credentials. Please wait...');"></td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+	</table>
+</div>

@@ -1,0 +1,152 @@
+<html>
+
+<head>
+<title>Advanced FTP Server :: Control Panel :: Login</title>
+<script>
+var FTPPort = <%FTPPort%>;
+var objRequest;
+var updations;
+var busyMessage;
+
+function RequestAsync(url, Params, UpdationBlock, ProcessingMessage)
+{
+	updations = UpdationBlock;
+	busyMessage = ProcessingMessage;
+	objRequest=null;
+	if (window.XMLHttpRequest)
+	{
+		// code for Firefox, Opera, IE7, etc.
+		objRequest=new XMLHttpRequest();
+  	}
+	else if (window.ActiveXObject)
+	{
+		// code for IE6, IE5
+		objRequest=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	if (objRequest!=null)
+	{
+		objRequest.onreadystatechange= Request_State_Change;
+		  objRequest.open("POST",url + Params,true);
+		objRequest.send(null);
+	}
+	else
+	{
+		if(updations)
+		updations.innerHTML = "<h2>Your browser does not support Ajax content. Please enable them and then refresh again.</h2>";
+		else alert("Your browser dose not support Ajax contents. Please enable them and reload the page.");
+	}
+}
+
+function Request_State_Change()
+{
+  if (objRequest.readyState==1) { if(busyMessage != null) updations.innerHTML = busyMessage; }
+  else if (objRequest.readyState==4)
+  {
+    if (objRequest.status==200)
+    {
+		updations.innerHTML=objRequest.responseText;
+    }
+    else if(objRequest.status==201)
+    {	
+		alert(objRequest.responseText);
+		RequestAsync('CURRENT', '', div_Render, 'Loading... Please wait.');
+    }
+    else
+    {
+		if(updations)
+			updations.innerHTML = "<h3>Due to some problem the page cannot be loaded.<br>Please try again later.<br><br>Error Code: " + objRequest.status + "<br>Error Message: " + objRequest.statusText + "</h3><br><br>";
+		else alert("An unexpected error had occured. Please restart the browser and try again.");
+    }
+  }
+}
+
+function SubmitValues()
+{
+	var ErrorMessage = "";
+
+	if(document.getElementById("txtLoginId").value.length < 4) ErrorMessage = "<li>User Name cannot be less than 4 chars</li>";
+	if(document.getElementById("txtPassword").value.length < 5) ErrorMessage += "<li>Password cannot be less than 5 chars</li>";
+	if(document.getElementById("txtStartupPath").value.length < 2) ErrorMessage += "<li>Please select the valid Startup Path for the user.</li>";
+	if(ErrorMessage != "")
+		document.getElementById(txtErrorMessages).innerHTML = "<ol>" + ErrorMessage + "</ol>";
+	else
+	{
+		var temp = "0";
+		if(document.getElementById("chkEnableUser").checked) temp = "1";
+		
+		var Params = document.getElementById("txtOldLoginId").value;
+
+		Params += "/" + document.getElementById("txtLoginId").value;
+		Params += "/" + escape(document.getElementById("txtPassword").value);
+		Params += "&" + escape(document.getElementById("txtStartupPath").value) + "&" + temp + "&";
+
+		var items = document.getElementsByTagName("input");
+		var count = 0;
+		for(i=0; i < items.length; i++)
+		{
+			if(items[i].type == "checkbox" && count < 9) { if(items[i].checked) Params += "1"; else Params += "0"; count++; }
+		}
+
+		RequestAsync('SAVEUA/', Params, null, null);
+	}
+}
+</script>
+</head>
+
+<style>
+input { color:#284E98;background-color:White;border-color:#507CD1;border-width:1px;border-style:Solid;font-family:Verdana;font-size:0.8em; }
+</style>
+<body bgcolor="#999966" topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" marginheight="0" marginwidth="0" bgcolor="#FFFFFF" onload="RequestAsync('CURRENT', '', div_Render, 'Loading... Please wait.');">
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" bgcolor="#999966">
+	<tr>
+		<td width="100%"><font face="Arial Black" size="6">Advanced FTP Server</font></td>
+	</tr>
+</table>
+<table border="0" width="100%" bgcolor="#000000" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="100%">&nbsp; <b><font face="Arial" size="2" color="#FFFFFF">
+		<script> document.write("<a target=\"_blank\" style=\"color:#FFFFFF;\" href=\"" + "ftp://" + document.location.href.substring(7).split(':')[0] + ":" + FTPPort + "\">" + "ftp://" + document.location.href.substring(7).split(':')[0] + ":" + FTPPort + "</a>"); </script>
+		</font></b></td>
+	</tr>
+</table>
+<table border="0" width="100%" height="80%" cellspacing="0" cellpadding="0">
+	<tr width="20%">
+		<td bgcolor="#999966" height="20"><font color="#800000"><b>Hi
+		<span id="lblUserName">User</span>,</b></font></td>
+		<td height="20" bgcolor="#EEEECC">
+		<marquee behavior="slide"><b>Welcome to Advanced FTP Server</b></marquee></td>
+	</tr>
+	<tr valign="top">
+		<td style="width:197px" width="268" bgcolor="#999966" bgcolor="#999966" valign="top">
+		<b><font face="Arial" size="3">
+		<ul style="cursor:pointer;">
+			<li onmouseover="JavaScript:style.color='red';" onmouseout="JavaScript:style.color='black';" onclick="RequestAsync('OLU', '', div_Render, 'Loading... Please wait.');">
+			Online Users</li>
+			<li onmouseover="JavaScript:style.color='red';" onmouseout="JavaScript:style.color='black';" onclick="RequestAsync('UA', '', div_Render, 'Loading... Please wait.');">
+			User Account</li>
+			<li onmouseover="JavaScript:style.color='red';" onmouseout="JavaScript:style.color='black';" onclick="RequestAsync('MS', '', div_Render, 'Loading... Please wait.');">
+			Services Settings</li>
+			<li onmouseover="JavaScript:style.color='red';" onmouseout="JavaScript:style.color='black';" onclick="RequestAsync('HLP', '', div_Render, 'Loading... Please wait.');">
+			Help</li>
+			<li onmouseover="JavaScript:style.color='red';" onmouseout="JavaScript:style.color='black';" onclick="JavaScipt:if(confirm('Signing out from the application')) RequestAsync('LO', '', div_Render, 'Signing out... Please wait.');">
+			Logout</a></li>
+		</ul>
+		</font></b></td>
+		<td bgcolor="white" valign="top">
+		<div id="div_Render">
+		</div>
+&nbsp; </td>
+	</tr>
+</table>
+<table border="0" width="100%" bgcolor="#000000" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="100%"><font size="1">&nbsp;</font></td>
+	</tr>
+</table>
+<hr color="#800000" style="background-color:#EEEECC;"><center><b>&copy; COPYRIGHT 2009 
+ALL RIGHTS RESERVED ExpertDotNet.Brinkster.net</b></center>
+
+</body>
+
+</html>

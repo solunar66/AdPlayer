@@ -1,0 +1,18 @@
+﻿<ERRORLOG>
+  <LOG TIME="16:30:01" SOURCE="HTTP">
+    <EXCEPTION>System.NullReferenceException: Object reference not set to an instance of an object.
+   at AdvancedFTPServer.HTTPServer.NewHTTPClientArrived(IAsyncResult arg) in C:\Documents\Visual Studio 2008\Projects\AdvancedFTPServer\Server\Classes\HTTPServer.cs:line 45</EXCEPTION>
+    <MESSAGE>Object reference not set to an instance of an object.</MESSAGE>
+    <SOURCE>FTPServer</SOURCE>
+    <STACK>   at AdvancedFTPServer.HTTPServer.NewHTTPClientArrived(IAsyncResult arg) in C:\Documents\Visual Studio 2008\Projects\AdvancedFTPServer\Server\Classes\HTTPServer.cs:line 45</STACK>
+    <TARGETSITE>NewHTTPClientArrived</TARGETSITE>
+  </LOG>
+﻿  <LOG TIME="16:30:01" SOURCE="HTTP">
+    <EXCEPTION>System.NullReferenceException: Object reference not set to an instance of an object.
+   at AdvancedFTPServer.HTTPServer.NewHTTPClientArrived(IAsyncResult arg) in C:\Documents\Visual Studio 2008\Projects\AdvancedFTPServer\Server\Classes\HTTPServer.cs:line 59</EXCEPTION>
+    <MESSAGE>Object reference not set to an instance of an object.</MESSAGE>
+    <SOURCE>FTPServer</SOURCE>
+    <STACK>   at AdvancedFTPServer.HTTPServer.NewHTTPClientArrived(IAsyncResult arg) in C:\Documents\Visual Studio 2008\Projects\AdvancedFTPServer\Server\Classes\HTTPServer.cs:line 59</STACK>
+    <TARGETSITE>NewHTTPClientArrived</TARGETSITE>
+  </LOG>
+</ERRORLOG>

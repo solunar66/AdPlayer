@@ -1,0 +1,25 @@
+<table cellpadding="0" border="0" style="color:#333333;font-family:Verdana;font-size:0.8em;height:91px;width:354px;">
+	<tr>
+		<td align="center" colspan="2" style="color:White;background-color:#999966;font-size:0.9em;font-weight:bold;">
+		Choose Folder</td>
+	</tr>
+	<tr>
+		<td width="93">Selected Path</td>
+		<td width="255">
+		<input id="curSelectedPath" readonly style="width:254;height:22" value="--SelPath--"></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		<select id="drvList" style="height:180; width:350;" ondblclick="RequestAsync('LIST&', document.getElementById('curSelectedPath').value  + this.value, tdDirectory, 'Searching. Please wait...');" multiple>
+		<OPTIONS>
+		</select> </td>
+	</tr>
+	<tr>
+		<td align="left">
+		<input type="button" value="&lt;-- Back" bakonclick>
+		</td>
+		<td align="right" colspan="2">
+		<input type="button" value="Select" onclick="JavaScript:document.getElementById('txtStartupPath').value = document.getElementById('curSelectedPath').value + drvList.value; getElementById('tblBrowser').style.display = 'none';">
+		<input type="button" value="Cancel" onclick="JavaScript:tblBrowser.style.display='none';"></td>
+	</tr>
+</table>

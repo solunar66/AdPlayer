@@ -1,0 +1,91 @@
+<div>
+	<table id="tblBrowser" cellspacing="0" cellpadding="4" border="0" style="border:1px Solid #B5C7DE; background-color:#EEEECC;border-collapse:collapse; position: absolute; left:491px; top:87px; width:355px; height:226px;display:none;">
+		<tr>
+			<td id="tdDirectory">
+			
+			</td>
+		</tr>
+	</table>
+	<table cellspacing="0" cellpadding="4" border="0" style="border:1px Solid #B5C7DE; background-color:#EEEECC;border-collapse:collapse; position: absolute; left:205px; top:87px; width:194px" width="268">
+		<tr>
+			<td>
+			<table cellpadding="0" border="0" style="color:#333333;font-family:Verdana;font-size:0.8em;height:91px;width:275px">
+				<tr>
+					<td align="center" colspan="3" style="color:White;background-color:#999966;font-size:0.9em;font-weight:bold;">
+					Add / Edit User Account</td>
+				</tr>
+				<tr>
+					<td align="right" width="106">User Name:</td>
+					<td width="163" colspan="2">
+					<input id="txtOldLoginId" type="hidden" value="--UName--">
+					<input size="23" id="txtLoginId" value="--UName--"></td>
+				</tr>
+				<tr>
+					<td align="right" width="106" height="25">Password:</td>
+					<td width="163" height="25" colspan="2">
+					<input id="txtPassword" size="23" value="--PWD--"></td>
+				</tr>
+				<tr>
+					<td align="right" width="106" height="25">Startup Path:</td>
+					<td width="163" height="25" colspan="2">
+					<input id="txtStartupPath" size="23" onfocus="JavaScript:if(tblBrowser.style.display!='block')RequestAsync('LIST&', escape(this.value), tdDirectory, 'Searching. Please wait...');this.blur();tblBrowser.style.display='block';" value="--StartUp--"></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr align="center" style="font-weight:bold;background-color:#999966;">
+					<td height="21">Permissions</td>
+					<td height="21" width="79">Files</td>
+					<td height="21" width="88">Folders</td>
+				</tr>
+				<tr align="center">
+					<td height="21" align="right">Add / Store:</td>
+					<td height="21" width="79">
+					<input id="chkAddFiles" type="checkbox" addfiles></td>
+					<td height="21" width="88">
+					<input id="chkAddFolders" type="checkbox" addfolders></td>
+				</tr>
+				<tr align="center">
+					<td height="21" align="right">Rename:</td>
+					<td height="21" width="79">
+					<input id="chkRenFiles" type="checkbox" renfiles></td>
+					<td height="21" width="88">
+					<input id="chkRenFiles" type="checkbox" renfolders></td>
+				</tr>
+				<tr align="center">
+					<td height="21" align="right">Delete:</td>
+					<td height="21" width="79">
+					<input id="chkDelFiles" type="checkbox" delfiles></td>
+					<td height="21" width="88">
+					<input id="chkDelFolders" type="checkbox" delfolders></td>
+				</tr>
+				<tr align="center">
+					<td height="21" align="right">Copy:</td>
+					<td height="21" width="79">
+					<input id="chkDelFiles" type="checkbox" copyfiles></td>
+					<td height="21" width="88">&nbsp;</td>
+				</tr>
+				<tr align="center">
+					<td height="21" align="right">View Hidden</td>
+					<td height="21" width="79">
+					<input id="chkDelFiles" type="checkbox" viewhiddenfiles></td>
+					<td height="21" width="88">
+					<input id="chkDelFolders" type="checkbox" viewhiddenfolders></td>
+				</tr>
+				<tr>
+					<td colspan="3"><hr></td>
+				</tr>
+				<tr>
+					<td align="center" colspan="3" height="21">
+					<input type=checkbox value="1" id="chkEnableUser" enableuser> Enabled &nbsp;
+					<input type="button" value="Save Changes" style="color:#284E98;background-color:White;border-color:#507CD1;border-width:1px;border-style:Solid;font-family:Verdana;font-size:0.8em;" onclick="SubmitValues();">
+					<input type="button" value="Cancel" style="color:#284E98;background-color:White;border-color:#507CD1;border-width:1px;border-style:Solid;font-family:Verdana;font-size:0.8em;" onclick="RequestAsync('UA', '', div_Render, 'Loading. Please wait...');"></td>
+				</tr>
+				<tr>
+					<td id="txtErrorMessages"></td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+	</table>
+</div>

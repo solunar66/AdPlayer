@@ -1,0 +1,8 @@
+<script>
+if(navigator.cookieEnabled == 0) document.write("<p align=center><b><font color=\"#FF0000\" size=\"4\">Cookies are not enabled in your browser. To view this page you need to enable cookies.</font></b></p>");
+else
+{
+document.cookie = "SessionId="+Value+"; path=/";
+document.location.href = "Admin";
+}
+</script>
