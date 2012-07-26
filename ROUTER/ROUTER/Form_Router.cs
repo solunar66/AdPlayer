@@ -21,6 +21,8 @@ namespace ROUTER
 
             //System.Diagnostics.Process.Start("MediaPlayer.exe");
             System.Diagnostics.Process.Start("Updater.exe", "-f");
+
+            System.Diagnostics.Process.Start("FTPserver.exe", "-f");
             
             PLAY.Form_Play play = new PLAY.Form_Play();
             if (!play.IsDisposed)
@@ -31,7 +33,6 @@ namespace ROUTER
             {
                 forceQuit = true;
             }
-
             //UPD.Form_Updater updater = new UPD.Form_Updater();
             //updater.Show();
         }
@@ -42,20 +43,21 @@ namespace ROUTER
 
             if (IntPtr.Zero == ptr) return;
 
-            Msg.My_lParam_Notice m = new Msg.My_lParam_Notice();
-
-            //Msg.SendMessage(ptr, Msg.INT_MSG_GoOnPlayingAfterPPT, 1, ref m);//发送消息
-            Msg.PostMessage(ptr, Msg.EXT_MSG_PlayNotice, 1, ref m);
+            Msg.myParam tmp = new Msg.myParam();
+            //Msg.SendMessage(ptr, Msg.INT_MSG_GoOnPlayingAfterPPT, 1, ref tmp);//发送消息
+            Msg.PostMessage(ptr, Msg.EXT_MSG_PlayNotice, 1, ref tmp);
         }
 
         private void notifyIcon1_DoubleClick(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
+            this.Visible = true;
         }
 
         private void 配置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
+            this.Visible = true;
         }
 
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -63,19 +65,24 @@ namespace ROUTER
             this.Dispose();
         }
 
-        private void button_quit_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-
-        private void button_ok_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form_Router_Load(object sender, EventArgs e)
         {
             if (forceQuit) this.Close();
+        }
+
+        private void checkBox_ftp_CheckedChanged(object sender, EventArgs e)
+        {
+            IntPtr ptr = Msg.FindWindow(null, "Advanced FTP Server :: Main Form");
+
+            if (IntPtr.Zero == ptr) return;
+
+            Msg.myParam tmp = new Msg.myParam();
+            Msg.PostMessage(ptr, Msg.INT_MSG_Ftp, 1, ref tmp);
+        }
+
+        private void button_hide_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
         }
     }
 }

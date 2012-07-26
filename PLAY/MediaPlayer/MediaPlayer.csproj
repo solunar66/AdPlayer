@@ -129,6 +129,10 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\FTP\Server\FtpServer.csproj">
+      <Project>{6A272B6E-C3A9-42D9-9317-A54286BAB1FC}</Project>
+      <Name>FtpServer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\LOG\LogInfo.csproj">
       <Project>{CA5BE391-8A42-497D-8C21-B3527CD16D56}</Project>
       <Name>LogInfo</Name>

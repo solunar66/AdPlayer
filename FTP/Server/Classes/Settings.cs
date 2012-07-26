@@ -27,14 +27,14 @@ namespace FTP
         DATE_TIME_FORMAT
     }
 
-    class ApplicationSettings
+    public class ApplicationSettings
     {
         #region Declerations
         internal static XmlDocument Settings;
         internal static FTPServer FtpServer;
         internal static HTTPServer HttpServer;
         internal static DriveInfo[] Drives;
-        static string _HostName, _DataPath;
+        public static string _HostName, _DataPath;
         #endregion
 
         #region Properties
@@ -259,7 +259,7 @@ namespace FTP
 
         #region General Methods
 
-        internal static void ReadSettings()
+        public static void ReadSettings()
         {
             Drives = DriveInfo.GetDrives();
             _HostName = Dns.GetHostName();
@@ -579,7 +579,7 @@ namespace FTP
             return GetUser(UserName) != null;
         }
 
-        internal static bool GetUser(string UserName, out string Password, out string RootPath, out string PermissionSet, out bool Enabled)
+        public static bool GetUser(string UserName, out string Password, out string RootPath, out string PermissionSet, out bool Enabled)
         {
             XmlNode User = GetUser(UserName);
             Password = PermissionSet = RootPath = null;

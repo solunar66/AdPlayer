@@ -30,14 +30,21 @@ namespace PLAY
         private Config config;
 
         private List<Content> playlist;
+        private List<Content> interlist;
         private Content content;
         private PlayMode mode;
+        private Content lastPlay, lastInter;
 
         private bool monitorON = true;
+        private bool interPlay = false;
 
         private Hook hook;
 
         private WMPLib.WMPPlayState prev_state;
+
+        private string interMediaPath;
+
+        private Msg.myParam tmp;
 
         public Form_Play()
         {
@@ -82,6 +89,11 @@ namespace PLAY
                 dateTimePicker_sleepStart.Value = config.sleep.startTime;
                 dateTimePicker_sleepEnd.Value = config.sleep.endTime;
 
+                checkBox_interval.Checked = config.intermedia.enable;
+                checkBox_interval_CheckedChanged(this, null);
+                numericUpDown_interval.Value = config.intermedia.limit;
+                numericUpDown_duration.Value = config.intermedia.duration;
+
                 hook = new Hook();
             }
         }
@@ -110,8 +122,7 @@ namespace PLAY
                         {
                             IntPtr ptr = Msg.FindWindow(null, "系统升级守护进程");
                             if (IntPtr.Zero == ptr) return;
-                            Msg.My_lParam_Notice myM = new Msg.My_lParam_Notice();
-                            Msg.PostMessage(ptr, Msg.INT_MSG_Update, 1, ref myM);
+                            Msg.PostMessage(ptr, Msg.INT_MSG_Update, 1, ref tmp);
                         }
                         break;
 
@@ -149,8 +160,7 @@ namespace PLAY
                         IntPtr ptr1 = Msg.FindWindow(null, "系统服务");
                         if (IntPtr.Zero != ptr1)
                         {
-                            Msg.My_lParam_Notice mm = new Msg.My_lParam_Notice();
-                            Msg.PostMessage(ptr1, WM_DESTROY, 0, ref mm);
+                            Msg.PostMessage(ptr1, WM_DESTROY, 0, ref tmp);
                         }
                         break;
 
@@ -192,6 +202,10 @@ namespace PLAY
         {
             // 读取配置
             xml.ReadPlayConfig(out config);
+            string pwd, pmt; bool ebl;
+            FTP.ApplicationSettings._DataPath = Directory.GetCurrentDirectory();
+            FTP.ApplicationSettings.ReadSettings();
+            FTP.ApplicationSettings.GetUser("ADPLAYER", out pwd, out interMediaPath, out pmt, out ebl);
 
             Cursor.Hide();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -213,6 +227,7 @@ namespace PLAY
 
             axWindowsMediaPlayer1.Ctlcontrols.play();
 
+            interlist = config.intermedia.contents;
             CheckPlayList();
             DoPlay();
         }
@@ -266,28 +281,40 @@ namespace PLAY
                 return;
             }
 
+            int index;
             Msg.ShutMonitor(-1);
 
-            switch (mode)
+            if (interPlay)
             {
-                case PlayMode.random:
-                    if (playlist.Count == 1)
-                    {
-                        content = playlist[0];
-                    }
-                    else
-                    {
-                        Random rdm = new Random();
-                        content = playlist[rdm.Next(playlist.Count - 1)];
-                    }
-                    break;
-                case PlayMode.sequencial:
-                    int index = playlist.IndexOf(content);
-                    if (index == playlist.Count - 1) content = playlist[0];
-                    else content = playlist[index + 1];
-                    break;
-                default:
-                    break;
+                index = interlist.IndexOf(lastInter);
+                if (index == interlist.Count - 1) content = interlist[0];
+                else content = interlist[index + 1];
+                lastInter = content;
+            }
+            else
+            {
+                switch (mode)
+                {
+                    case PlayMode.random:
+                        if (playlist.Count == 1)
+                        {
+                            content = playlist[0];
+                        }
+                        else
+                        {
+                            Random rdm = new Random();
+                            content = playlist[rdm.Next(playlist.Count)];
+                        }
+                        break;
+                    case PlayMode.sequencial:
+                        index = playlist.IndexOf(lastPlay);
+                        if (index == playlist.Count - 1) content = playlist[0];
+                        else content = playlist[index + 1];
+                        break;
+                    default:
+                        break;
+                }
+                lastPlay = content;
             }
             switch (content.type)
             {
@@ -300,6 +327,7 @@ namespace PLAY
                 default:
                     break;
             }
+            interPlay ^= true;
         }
 
         // 空闲播放
@@ -343,16 +371,21 @@ namespace PLAY
 
             if (IntPtr.Zero != ptr1)
             {
-                Msg.My_lParam_Notice m = new Msg.My_lParam_Notice();
-                Msg.PostMessage(ptr1, WM_DESTROY, 0, ref m);
+                Msg.PostMessage(ptr1, WM_DESTROY, 0, ref tmp);
             }
 
             IntPtr ptr2 = Msg.FindWindow(null, "系统升级守护进程");
 
             if (IntPtr.Zero != ptr2)
             {
-                Msg.My_lParam_Notice m = new Msg.My_lParam_Notice();
-                Msg.PostMessage(ptr2, WM_DESTROY, 0, ref m);
+                Msg.PostMessage(ptr2, WM_DESTROY, 0, ref tmp);
+            }
+
+            IntPtr ptr3 = Msg.FindWindow(null, "Advanced FTP Server :: Main Form");
+
+            if (IntPtr.Zero != ptr3)
+            {
+                Msg.PostMessage(ptr3, WM_DESTROY, 0, ref tmp);
             }
 
             this.Dispose();
@@ -370,14 +403,13 @@ namespace PLAY
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            numericUpDown1.Enabled = checkBox1.CheckState == CheckState.Checked ? false : true;
-            label2.Enabled = numericUpDown1.Enabled;
-            label3.Enabled = numericUpDown1.Enabled;
+            numericUpDown1.Enabled = checkBox1.CheckState == CheckState.Checked ? true : false;
 
-            checkBox1.ForeColor = 
+            label2.ForeColor = 
                 (checkBox1.CheckState == CheckState.Checked) ? 
                 Color.FromKnownColor(System.Drawing.KnownColor.ControlText) :
                 Color.FromKnownColor(System.Drawing.KnownColor.InactiveCaption);
+            label3.ForeColor = label2.ForeColor;
         }
 
         private void button_Font_Click(object sender, EventArgs e)
@@ -560,17 +592,24 @@ namespace PLAY
 
         private void axWindowsMediaPlayer1_MouseDownEvent(object sender, AxWMPLib._WMPOCXEvents_MouseDownEvent e)
         {
-            if (e.nButton == 2 && axWindowsMediaPlayer1.Dock == DockStyle.Fill)
+            if(axWindowsMediaPlayer1.Dock != DockStyle.Fill) return;
+            if (e.nButton == 2)
             {
                 Cursor.Show();
                 if (DialogResult.Yes == MessageBox.Show("退出全屏？", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
                     EscKeyPressEvent();
                 }
-                else
+                Cursor.Hide();
+            }
+            else if (e.nButton == 4)
+            {
+                Cursor.Show();
+                if (DialogResult.Yes == MessageBox.Show("跳过当前视频？", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
-                    Cursor.Hide();
+                    axWindowsMediaPlayer1.Ctlcontrols.stop();
                 }
+                Cursor.Hide();
             }
         }
 
@@ -595,12 +634,30 @@ namespace PLAY
 
         private void checkBox_interval_CheckedChanged(object sender, EventArgs e)
         {
+            numericUpDown_interval.Enabled = checkBox_interval.CheckState == CheckState.Checked ? true : false;
+            numericUpDown_duration.Enabled = numericUpDown_interval.Enabled;
 
+            numericUpDown_interval.ForeColor =
+                (checkBox_interval.CheckState == CheckState.Checked) ?
+                Color.FromKnownColor(System.Drawing.KnownColor.ControlText) :
+                Color.FromKnownColor(System.Drawing.KnownColor.InactiveCaption);
+            numericUpDown_duration.ForeColor = numericUpDown_interval.ForeColor;
+            label12.ForeColor = numericUpDown_interval.ForeColor;
+            label14.ForeColor = numericUpDown_interval.ForeColor;
+            label15.ForeColor = numericUpDown_interval.ForeColor;
+            label17.ForeColor = numericUpDown_interval.ForeColor;
+
+            xml.Update("intermedia", "enable", checkBox_interval.Checked ? "1" : "0");
         }
 
         private void numericUpDown_interval_ValueChanged(object sender, EventArgs e)
         {
+            xml.Update("intermedia", "limit", numericUpDown_interval.Value.ToString());
+        }
 
+        private void numericUpDown_duration_ValueChanged(object sender, EventArgs e)
+        {
+            xml.Update("intermedia", "duration", numericUpDown_duration.Value.ToString());
         }
     }
 }

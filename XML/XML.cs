@@ -190,6 +190,24 @@ namespace XML
                 config.notice.size = int.Parse(notice.Attributes["size"].Value);
                 config.notice.interval = int.Parse(notice.Attributes["speed"].Value);
 
+                XmlNode intermedia = system.SelectSingleNode("intermedia");
+                config.intermedia.enable = intermedia.Attributes["enable"].Value == "0" ? false : true;
+                config.intermedia.limit = int.Parse(intermedia.Attributes["limit"].Value);
+                config.intermedia.duration = int.Parse(intermedia.Attributes["duration"].Value);
+                config.intermedia.contents = new List<Content>();
+                DirectoryInfo d = new DirectoryInfo(intermedia.Attributes["root"].Value);
+                if (d.Exists)
+                {
+                    foreach (FileInfo file in d.GetFiles())
+                    {
+                        Content content = new Content();
+                        if (file.Extension.Contains("ppt")) { content.type = ContentType.powerpoint; }
+                        else { content.type = ContentType.video; }
+                        content.duration = config.intermedia.duration;
+                        content.file = file.FullName;
+                        config.intermedia.contents.Add(content);
+                    }
+                }
 
                 XmlNodeList root = system.SelectNodes("period");
                 config.datesheets = new List<DateSheet>();

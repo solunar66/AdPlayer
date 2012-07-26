@@ -13,7 +13,16 @@ namespace XML
         public Content idle;
         public TimeSheet sleep;
         public Notice notice;
+        public InterMedia intermedia;
         public List<DateSheet> datesheets;
+    }
+
+    public struct InterMedia
+    {
+        public bool enable;
+        public int limit;
+        public int duration;
+        public List<Content> contents;
     }
 
     public struct Notice

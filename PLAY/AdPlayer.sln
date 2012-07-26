@@ -17,7 +17,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaPlayer", "MediaPlayer\
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AdPlayer", "..\ROUTER\AdPlayer\AdPlayer.vdproj", "{CAAC8BF6-AC7D-4843-ABF2-0687EBC82B85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "..\FTP\Server\Server.csproj", "{6A272B6E-C3A9-42D9-9317-A54286BAB1FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FtpServer", "..\FTP\Server\FtpServer.csproj", "{6A272B6E-C3A9-42D9-9317-A54286BAB1FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FtpClient", "..\CLIENT\FtpClient\FtpClient.csproj", "{B10A4DEA-333B-4790-B8D2-819D77922CDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{6A272B6E-C3A9-42D9-9317-A54286BAB1FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A272B6E-C3A9-42D9-9317-A54286BAB1FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A272B6E-C3A9-42D9-9317-A54286BAB1FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B10A4DEA-333B-4790-B8D2-819D77922CDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B10A4DEA-333B-4790-B8D2-819D77922CDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B10A4DEA-333B-4790-B8D2-819D77922CDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B10A4DEA-333B-4790-B8D2-819D77922CDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

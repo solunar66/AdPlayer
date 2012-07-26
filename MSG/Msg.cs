@@ -34,24 +34,21 @@ namespace MSG
         public const int INT_MSG_Update = USER + 4;
 
         public const int INT_MSG_Window = USER + 5;
-#endregion
 
-        public struct My_lParam_Notice
+        public const int INT_MSG_Ftp = USER + 6;
+
+        public struct myParam
         {
-            public string text;
-            public string color;
-            public string bgcolor;
-            public int interval;
-            public string font;
-            public bool bold;
+            public string param;
         }
+#endregion
 
         [DllImport("User32.dll", EntryPoint = "SendMessage")]
         public static extern int SendMessage(
             IntPtr hWnd,        // 信息发往的窗口的句柄 
             int Msg,            // 消息ID 
             int wParam,         // 参数1 
-            ref My_lParam_Notice lParam// 自定义消息参数
+            ref myParam lParam// 自定义消息参数
             );
 
         [DllImport("User32.dll", EntryPoint = "PostMessage")]
@@ -59,7 +56,7 @@ namespace MSG
             IntPtr hWnd,        // 信息发往的窗口的句柄 
             int Msg,            // 消息ID 
             int wParam,         // 参数1 
-            ref My_lParam_Notice lParam// 自定义消息参数
+            ref myParam lParam// 自定义消息参数
             );
 
         [DllImport("User32.dll", EntryPoint = "FindWindow")]

@@ -30,7 +30,7 @@ namespace FTP
         {
             byte[] Buffer = new byte[1024];
             int Received = ClientSocket.Receive(Buffer, Buffer.Length, SocketFlags.None);
-            string Request = Encoding.ASCII.GetString(Buffer, 0, Received);
+            string Request = Encoding.GetEncoding("GB2312").GetString(Buffer, 0, Received);
             int StartPos = Request.IndexOf("HTTP", 3);
             HttpVersion = Request.Substring(StartPos, 8);
 
@@ -148,7 +148,7 @@ namespace FTP
             ResponseHeader += "Accept-Ranges: bytes\r\n";
             ResponseHeader += "Content-Length: " + TotalBytes + "\r\n\r\n";
 
-            SendData(Encoding.ASCII.GetBytes(ResponseHeader));
+            SendData(Encoding.GetEncoding("GB2312").GetBytes(ResponseHeader));
         }
 
         void SendData(byte[] ResponseBody)
@@ -162,14 +162,14 @@ namespace FTP
         {
             string ResponseText = global::FTP.Properties.Resources.PreRender.Replace("\"+Value+\"", CurrentSession.ID);
             SendHeader(ResponseText.Length, "200 OK");
-            SendData(Encoding.ASCII.GetBytes(ResponseText));
+            SendData(Encoding.GetEncoding("GB2312").GetBytes(ResponseText));
         }
 
         void RenderPage_Admin()
         {
             string ResponseText = global::FTP.Properties.Resources.Main.Replace("<%FTPPort%>", ApplicationSettings.FTPPort.ToString());
             SendHeader(ResponseText.Length, "200 OK");
-            SendData(Encoding.ASCII.GetBytes(ResponseText));
+            SendData(Encoding.GetEncoding("GB2312").GetBytes(ResponseText));
         }
 
         void RenderPage_List(string Path)
@@ -212,14 +212,14 @@ namespace FTP
             ResponseText = ResponseText.Replace("--SelPath--", Path);
             ResponseText = ResponseText.Replace("<OPTIONS>", List);
             SendHeader(ResponseText.Length, "200 OK");
-            SendData(Encoding.ASCII.GetBytes(ResponseText));
+            SendData(Encoding.GetEncoding("GB2312").GetBytes(ResponseText));
         }
 
         void RenderPage_Login(string Message)
         {
             string ResponseText = global::FTP.Properties.Resources.Login.Replace("-MessageText-", Message);
             SendHeader(ResponseText.Length, "200 OK");
-            SendData(Encoding.ASCII.GetBytes(ResponseText));
+            SendData(Encoding.GetEncoding("GB2312").GetBytes(ResponseText));
         }
 
         void RenderPage_Signup(string LoginID, string Password)
@@ -229,7 +229,7 @@ namespace FTP
                 CurrentSession.IsAuthenticated = true;
                 string ResponseText = "<span style=\"position:absolute; left:381px; top:218px\"><font size=4 color=#0000FF>You have been successfully authenticated!<br>Click on the menus to navigate.</font></span>";
                 SendHeader(ResponseText.Length, "200 OK");
-                SendData(Encoding.ASCII.GetBytes(ResponseText));
+                SendData(Encoding.GetEncoding("GB2312").GetBytes(ResponseText));
             }
             else RenderPage_Login("<font color=red>Invalid Credentials</font>");
         }
@@ -245,7 +245,7 @@ namespace FTP
                 else i--;
             }
             ResponseText = global::FTP.Properties.Resources.OnlineUsers.Replace("<ROWS>", ResponseText);
-            byte[] Buffer = Encoding.ASCII.GetBytes(ResponseText);
+            byte[] Buffer = Encoding.GetEncoding("GB2312").GetBytes(ResponseText);
             SendHeader(Buffer.Length, "200 OK");
             SendData(Buffer);
         }
@@ -263,7 +263,7 @@ namespace FTP
 
             ResponseText = global::FTP.Properties.Resources.UserAccount.Replace("<ROWS>", ResponseText);
             SendHeader(ResponseText.Length, "200 OK");
-            SendData(Encoding.ASCII.GetBytes(ResponseText));
+            SendData(Encoding.GetEncoding("GB2312").GetBytes(ResponseText));
         }
 
         void RenderPage_SaveUA(string OldUserName, string UserName, string Password,
@@ -287,7 +287,7 @@ namespace FTP
             }
 
             SendHeader(ResponseText.Length, "201 OK");
-            SendData(Encoding.ASCII.GetBytes(ResponseText));
+            SendData(Encoding.GetEncoding("GB2312").GetBytes(ResponseText));
         }
 
         void RenderPage_DeleUA(string UserName)
@@ -330,7 +330,7 @@ namespace FTP
 
             ResponseText = ResponseText.Replace("--UName--", UserName).Replace("--PWD--", Password).Replace("--StartUp--", StartupPath);
             SendHeader(ResponseText.Length, "200 OK");
-            SendData(Encoding.ASCII.GetBytes(ResponseText));
+            SendData(Encoding.GetEncoding("GB2312").GetBytes(ResponseText));
         }
 
         void RenderPage_MS()
@@ -342,7 +342,7 @@ namespace FTP
             ResponseText = ResponseText.Replace("--MinPasvPort--", ApplicationSettings.MinPassvPort.ToString());
             ResponseText = ResponseText.Replace("--MaxPasvPort--", ApplicationSettings.MaxPassvPort.ToString());
             SendHeader(ResponseText.Length, "200 OK");
-            SendData(Encoding.ASCII.GetBytes(ResponseText));
+            SendData(Encoding.GetEncoding("GB2312").GetBytes(ResponseText));
         }
 
         void RenderPage_LO()
@@ -384,7 +384,7 @@ namespace FTP
                 Message = "Changes Successfully Updated";
 
             SendHeader(Message.Length, "201");
-            SendData(Encoding.ASCII.GetBytes(Message));
+            SendData(Encoding.GetEncoding("GB2312").GetBytes(Message));
         }
 
         void RenderPage_ChangeHTTPAccount(int HTTPPort, string UserName, string Password)
@@ -433,14 +433,14 @@ namespace FTP
             ApplicationSettings.SaveSettings();
 
             SendHeader(Message.Length, "201");
-            SendData(Encoding.ASCII.GetBytes(Message));
+            SendData(Encoding.GetEncoding("GB2312").GetBytes(Message));
         }
 
         void RenderPage_Expired()
         {
             string ResponseText = "<script>var date = new Date();\ndate.setTime(date.getTime()-86400000);\ndocument.cookie = \"SessionId=; expires=\"+date.toGMTString()+\"; path=/\";\n</script><p align=center><b><font color=red size=4>This session has been expired. Please refresh to authenticate again.</font></b></p>";
             SendHeader(ResponseText.Length, "200 OK");
-            SendData(Encoding.ASCII.GetBytes(ResponseText));
+            SendData(Encoding.GetEncoding("GB2312").GetBytes(ResponseText));
         }
 
         void SendFavIcon()
@@ -456,7 +456,7 @@ namespace FTP
         {
             string ResponseText = global::FTP.Properties.Resources.Help;
             SendHeader(ResponseText.Length, "200 OK");
-            SendData(Encoding.ASCII.GetBytes(ResponseText));
+            SendData(Encoding.GetEncoding("GB2312").GetBytes(ResponseText));
         }
         #endregion
     }

@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Forms;
 using System.Diagnostics;
+using MSG;
 
 namespace FTP
 {
@@ -165,5 +166,19 @@ namespace FTP
         }
 
         #endregion
+
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case MSG.Msg.INT_MSG_Ftp:
+                    TrayIcon.Visible = !TrayIcon.Visible;
+                    break;
+                default:
+                    break;
+            }                    
+
+            base.WndProc(ref m);
+        }
     }
 }

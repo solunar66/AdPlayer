@@ -23,6 +23,7 @@ namespace PPT
         int iSlideIndex = 0;
         int iSlideShowTime = 0;
         Hook hook;
+        Msg.myParam tmp;
         #endregion
 
         public OperatePPT()
@@ -146,8 +147,7 @@ namespace PPT
                 //继续播放
                 IntPtr ptr = Msg.FindWindow(null, "广告播放系统");
                 if (IntPtr.Zero == ptr) return;
-                Msg.My_lParam_Notice m = new Msg.My_lParam_Notice();
-                Msg.PostMessage(ptr, Msg.INT_MSG_GoOnPlayingAfterPPT, 1, ref m);//发送消息
+                Msg.PostMessage(ptr, Msg.INT_MSG_GoOnPlayingAfterPPT, 1, ref tmp);//发送消息
             }
         }
         #endregion

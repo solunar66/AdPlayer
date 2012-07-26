@@ -167,6 +167,20 @@
     <Content Include="Files\Settings.xml" />
     <Content Include="Files\UserAccount.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DB\DataBase.csproj">
+      <Project>{0BE5D0F7-627E-4D38-A40D-6A4A25018C8C}</Project>
+      <Name>DataBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\LOG\LogInfo.csproj">
+      <Project>{CA5BE391-8A42-497D-8C21-B3527CD16D56}</Project>
+      <Name>LogInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MSG\Messages.csproj">
+      <Project>{463FE8AA-FD07-4F70-82AA-27CDA180F111}</Project>
+      <Name>Messages</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

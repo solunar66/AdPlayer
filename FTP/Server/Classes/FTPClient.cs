@@ -92,7 +92,7 @@ namespace FTP
             catch { Disconnect(); }
 
             LastInteraction = DateTime.Now;
-            string CommandText = Encoding.ASCII.GetString(BufferData, 0, CommandSize).TrimStart(' ');
+            string CommandText = Encoding.GetEncoding("GB2312").GetString(BufferData, 0, CommandSize).TrimStart(' ');
             string CmdArguments = null, Command = null;
             int End = 0;
             if ((End = CommandText.IndexOf(' ')) == -1) End = (CommandText = CommandText.Trim()).Length;
@@ -379,8 +379,11 @@ namespace FTP
                 SendMessage("503 Bad sequence of commands.\r\n");
                 return;
             }
-
+            
             string Path = ConnectedUser.StartUpDirectory + GetExactPath(CmdArguments);
+
+            Rename_FilePath = Rename_FilePath.Substring(0, Rename_FilePath.Length - 1);
+            Path = Path.Substring(0, Path.Length - 1);
 
             if (Directory.Exists(Path) || File.Exists(Path))
                 SendMessage("550 File or folder with the same name already exists.\r\n");
@@ -644,7 +647,7 @@ namespace FTP
             if (Data == null || Data == string.Empty) return;
             try
             {
-                ClientSocket.Send(Encoding.ASCII.GetBytes(Data));
+                ClientSocket.Send(Encoding.GetEncoding("GB2312").GetBytes(Data));
             }
             catch { Disconnect(); }
         }

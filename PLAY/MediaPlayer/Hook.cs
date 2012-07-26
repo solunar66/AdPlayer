@@ -116,8 +116,8 @@ namespace PLAY
                     IntPtr ptr1 = MSG.Msg.FindWindow(null, "广告播放系统");
                     if (IntPtr.Zero != ptr1)
                     {
-                        MSG.Msg.My_lParam_Notice m = new MSG.Msg.My_lParam_Notice();
-                        MSG.Msg.PostMessage(ptr1, MSG.Msg.INT_MSG_Window, 0, ref m);
+                        MSG.Msg.myParam tmp = new MSG.Msg.myParam();
+                        MSG.Msg.PostMessage(ptr1, MSG.Msg.INT_MSG_Window, 0, ref tmp);
                     }
                     return 1;
                 }

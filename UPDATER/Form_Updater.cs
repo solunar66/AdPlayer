@@ -39,6 +39,8 @@ namespace UPD
 
         private LogInfo log = LogInfo.GetInstance;
 
+        private Msg.myParam tmp;
+
         public Form_Updater()
         {
             InitializeComponent();
@@ -63,8 +65,7 @@ namespace UPD
                         IntPtr ptr = Msg.FindWindow(null, "广告播放系统");
                         if (IntPtr.Zero != ptr)
                         {
-                            Msg.My_lParam_Notice m = new Msg.My_lParam_Notice();
-                            Msg.PostMessage(ptr, WM_DESTROY, 0, ref m);
+                            Msg.PostMessage(ptr, WM_DESTROY, 0, ref tmp);
                             LogUpdate("开始升级主程序...");
 
                             Process UnRAR = new Process();

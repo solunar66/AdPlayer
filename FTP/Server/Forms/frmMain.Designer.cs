@@ -66,7 +66,7 @@ namespace FTP
             this.mnuSeparator3,
             this.mnuExit});
             this.TrayContext.Name = "TrayContext";
-            this.TrayContext.Size = new System.Drawing.Size(155, 132);
+            this.TrayContext.Size = new System.Drawing.Size(174, 132);
             this.TrayContext.Text = "Advanced FTP Server";
             this.TrayContext.Opened += new System.EventHandler(this.TrayContext_Opened);
             // 
@@ -76,27 +76,27 @@ namespace FTP
             this.onlineUsersToolStripMenuItem,
             this.errorLogsToolStripMenuItem});
             this.mnuViewShow.Name = "mnuViewShow";
-            this.mnuViewShow.Size = new System.Drawing.Size(154, 22);
+            this.mnuViewShow.Size = new System.Drawing.Size(173, 22);
             this.mnuViewShow.Text = "View / Show";
             // 
             // onlineUsersToolStripMenuItem
             // 
             this.onlineUsersToolStripMenuItem.Name = "onlineUsersToolStripMenuItem";
-            this.onlineUsersToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.onlineUsersToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.onlineUsersToolStripMenuItem.Text = "Online Users";
             this.onlineUsersToolStripMenuItem.Click += new System.EventHandler(this.ViewOnlineUsers_Click);
             // 
             // errorLogsToolStripMenuItem
             // 
             this.errorLogsToolStripMenuItem.Name = "errorLogsToolStripMenuItem";
-            this.errorLogsToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.errorLogsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.errorLogsToolStripMenuItem.Text = "Error Logs";
             this.errorLogsToolStripMenuItem.Click += new System.EventHandler(this.ViewErrorLogs_Click);
             // 
             // mnuSeperator1
             // 
             this.mnuSeperator1.Name = "mnuSeperator1";
-            this.mnuSeperator1.Size = new System.Drawing.Size(151, 6);
+            this.mnuSeperator1.Size = new System.Drawing.Size(170, 6);
             // 
             // mnuConfigSettings
             // 
@@ -105,27 +105,27 @@ namespace FTP
             this.mnuViewService,
             this.mnuCommonSettings});
             this.mnuConfigSettings.Name = "mnuConfigSettings";
-            this.mnuConfigSettings.Size = new System.Drawing.Size(154, 22);
+            this.mnuConfigSettings.Size = new System.Drawing.Size(173, 22);
             this.mnuConfigSettings.Text = "Config / Settings";
             // 
             // mnuUserAccount
             // 
             this.mnuUserAccount.Name = "mnuUserAccount";
-            this.mnuUserAccount.Size = new System.Drawing.Size(157, 22);
+            this.mnuUserAccount.Size = new System.Drawing.Size(179, 22);
             this.mnuUserAccount.Text = "User Account";
             this.mnuUserAccount.Click += new System.EventHandler(this.ViewUserAccount_Click);
             // 
             // mnuViewService
             // 
             this.mnuViewService.Name = "mnuViewService";
-            this.mnuViewService.Size = new System.Drawing.Size(157, 22);
+            this.mnuViewService.Size = new System.Drawing.Size(179, 22);
             this.mnuViewService.Text = "Service";
             this.mnuViewService.Click += new System.EventHandler(this.ViewService_Click);
             // 
             // mnuCommonSettings
             // 
             this.mnuCommonSettings.Name = "mnuCommonSettings";
-            this.mnuCommonSettings.Size = new System.Drawing.Size(157, 22);
+            this.mnuCommonSettings.Size = new System.Drawing.Size(179, 22);
             this.mnuCommonSettings.Text = "Common Settings";
             this.mnuCommonSettings.Click += new System.EventHandler(this.CommonSettings_Click);
             // 
@@ -138,63 +138,63 @@ namespace FTP
             this.mnuEnableHTTPService,
             this.mnuEnableFTPService});
             this.mnuShortcuts.Name = "mnuShortcuts";
-            this.mnuShortcuts.Size = new System.Drawing.Size(154, 22);
+            this.mnuShortcuts.Size = new System.Drawing.Size(173, 22);
             this.mnuShortcuts.Text = "Shortcuts";
             // 
             // mnuOpenHTTP
             // 
             this.mnuOpenHTTP.Name = "mnuOpenHTTP";
-            this.mnuOpenHTTP.Size = new System.Drawing.Size(172, 22);
+            this.mnuOpenHTTP.Size = new System.Drawing.Size(194, 22);
             this.mnuOpenHTTP.Text = "Open HTTP";
             this.mnuOpenHTTP.Click += new System.EventHandler(this.OpenHTTP_Click);
             // 
             // mnuOpenFTP
             // 
             this.mnuOpenFTP.Name = "mnuOpenFTP";
-            this.mnuOpenFTP.Size = new System.Drawing.Size(172, 22);
+            this.mnuOpenFTP.Size = new System.Drawing.Size(194, 22);
             this.mnuOpenFTP.Text = "Open FTP";
             this.mnuOpenFTP.Click += new System.EventHandler(this.OpenFTP_Click);
             // 
             // mnuShortcutSeparator1
             // 
             this.mnuShortcutSeparator1.Name = "mnuShortcutSeparator1";
-            this.mnuShortcutSeparator1.Size = new System.Drawing.Size(169, 6);
+            this.mnuShortcutSeparator1.Size = new System.Drawing.Size(191, 6);
             // 
             // mnuEnableHTTPService
             // 
             this.mnuEnableHTTPService.Name = "mnuEnableHTTPService";
-            this.mnuEnableHTTPService.Size = new System.Drawing.Size(172, 22);
+            this.mnuEnableHTTPService.Size = new System.Drawing.Size(194, 22);
             this.mnuEnableHTTPService.Text = "Enable HTTP Service";
             this.mnuEnableHTTPService.Click += new System.EventHandler(this.EnableHTTPService_Click);
             // 
             // mnuEnableFTPService
             // 
             this.mnuEnableFTPService.Name = "mnuEnableFTPService";
-            this.mnuEnableFTPService.Size = new System.Drawing.Size(172, 22);
+            this.mnuEnableFTPService.Size = new System.Drawing.Size(194, 22);
             this.mnuEnableFTPService.Text = "Enable FTP Service";
             this.mnuEnableFTPService.Click += new System.EventHandler(this.EnableFTPService_Click);
             // 
             // mnuSeparator2
             // 
             this.mnuSeparator2.Name = "mnuSeparator2";
-            this.mnuSeparator2.Size = new System.Drawing.Size(151, 6);
+            this.mnuSeparator2.Size = new System.Drawing.Size(170, 6);
             // 
             // mnuHelpAbout
             // 
             this.mnuHelpAbout.Name = "mnuHelpAbout";
-            this.mnuHelpAbout.Size = new System.Drawing.Size(154, 22);
+            this.mnuHelpAbout.Size = new System.Drawing.Size(173, 22);
             this.mnuHelpAbout.Text = "About";
             this.mnuHelpAbout.Click += new System.EventHandler(this.ShowAbout_Click);
             // 
             // mnuSeparator3
             // 
             this.mnuSeparator3.Name = "mnuSeparator3";
-            this.mnuSeparator3.Size = new System.Drawing.Size(151, 6);
+            this.mnuSeparator3.Size = new System.Drawing.Size(170, 6);
             // 
             // mnuExit
             // 
             this.mnuExit.Name = "mnuExit";
-            this.mnuExit.Size = new System.Drawing.Size(154, 22);
+            this.mnuExit.Size = new System.Drawing.Size(173, 22);
             this.mnuExit.Text = "Exit";
             this.mnuExit.Click += new System.EventHandler(this.ExitApplication_Click);
             // 
@@ -204,7 +204,7 @@ namespace FTP
             this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMessage.Location = new System.Drawing.Point(0, 0);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(226, 43);
+            this.lblMessage.Size = new System.Drawing.Size(226, 40);
             this.lblMessage.TabIndex = 0;
             this.lblMessage.Text = "This is a hidden form and wont be visible at any time.";
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -217,13 +217,12 @@ namespace FTP
             this.TrayIcon.ContextMenuStrip = this.TrayContext;
             this.TrayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("TrayIcon.Icon")));
             this.TrayIcon.Text = "Advanced FTP Server";
-            this.TrayIcon.Visible = true;
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(226, 43);
+            this.ClientSize = new System.Drawing.Size(226, 40);
             this.ControlBox = false;
             this.Controls.Add(this.lblMessage);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

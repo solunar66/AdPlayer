@@ -456,12 +456,12 @@ namespace PLAY
         private void monthCalendar_DateSelected(object sender, DateRangeEventArgs e)
         {
             CalenderCell m = (CalenderCell)sender;
-            DateTime d1, d2;
+            DateTime d1/*, d2*/;
             d1 = m.SelectionStart;
-            d2 = m.SelectionEnd;
-            if (d1.Equals(d2))
+            //d2 = m.SelectionEnd;
+            //if (d1.Equals(d2))
                 m.cell.Value = d1.ToShortDateString();
-            else
+            //else
                 //m.cell.Value = d1.ToLongDateString() + "-" + d2.ToLongDateString();
             dataGridView1.Controls.Remove(m);
             dataGridView1.Refresh();
