@@ -30,7 +30,6 @@ namespace PLAY
         private Config config;
 
         private List<Content> playlist;
-        private List<Content> interlist;
         private Content content;
         private PlayMode mode;
         private Content lastPlay, lastInter;
@@ -227,7 +226,7 @@ namespace PLAY
 
             axWindowsMediaPlayer1.Ctlcontrols.play();
 
-            interlist = config.intermedia.contents;
+            if (config.intermedia.contents.Count == 0) config.intermedia.enable = false;
             CheckPlayList();
             DoPlay();
         }
@@ -284,11 +283,11 @@ namespace PLAY
             int index;
             Msg.ShutMonitor(-1);
 
-            if (interPlay)
+            if (config.intermedia.enable && interPlay)
             {
-                index = interlist.IndexOf(lastInter);
-                if (index == interlist.Count - 1) content = interlist[0];
-                else content = interlist[index + 1];
+                index = config.intermedia.contents.IndexOf(lastInter);
+                if (index == config.intermedia.contents.Count - 1) content = config.intermedia.contents[0];
+                else content = config.intermedia.contents[index + 1];
                 lastInter = content;
             }
             else
