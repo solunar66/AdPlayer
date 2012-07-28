@@ -75,6 +75,7 @@ namespace FtpClient
                     tvFiles.Nodes.Add(filename[3]);
                 }
             }
+            ReNameFilesInSeq();
         }
 
         private void tvFiles_DragDrop(object sender, DragEventArgs e)
@@ -152,9 +153,23 @@ namespace FtpClient
             TreeNode node = tvFiles.GetNodeAt(Position);
             if (node.Index == 0) return;
 
-            tvFiles.Nodes.Remove(node);
-            tvFiles.Nodes.Insert(node.Index - 1, node);
-            tvFiles.SelectedNode = node;
+            //tvFiles.Nodes.Remove(node);
+            //tvFiles.Nodes.Insert(node.Index - 1, node);
+            //tvFiles.SelectedNode = node;
+
+            try
+            {
+                string sIndex = node.Text.Substring(0, 2);
+                string orgName = tvFiles.Nodes[node.Index - 1].Text.Substring(0, 2) + node.Text.Substring(2);
+                ftpClient.RenameFile(tvFiles.Nodes[node.Index].Text, orgName, true);
+                string tarName = sIndex + tvFiles.Nodes[node.Index - 1].Text.Substring(2);
+                ftpClient.RenameFile(tvFiles.Nodes[node.Index - 1].Text, tarName, true);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("\"" + node.Text + "\"下移失败！\r\r" + ex.Message, "文件排序", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            button_login_Click(this, null);
         }
 
         private void 下移ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -260,5 +275,23 @@ namespace FtpClient
             }
         }
 
+        private void ReNameFilesInSeq()
+        {
+            string file, index;
+            int numb;
+            for (int i = 0; i < tvFiles.Nodes.Count; i++)
+            {
+                file = tvFiles.Nodes[i].Text;
+                if (file.Substring(2, 1) == "_" && int.TryParse(file.Substring(0, 2), out numb))
+                    continue;
+                else
+                {
+                    index = i < 10 ? "0" + (i + 1).ToString() : (i + 1).ToString();
+                    ftpClient.RenameFile(file, index + "_" + file, true);
+                    tvFiles.Nodes.RemoveAt(i);
+                    tvFiles.Nodes.Insert(i, index + "_" + file);
+                }
+            }
+        }
     }
 }
