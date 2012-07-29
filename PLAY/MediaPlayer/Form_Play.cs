@@ -85,8 +85,10 @@ namespace PLAY
                 numericUpDown_idle.Value = (decimal)config.idle.duration;
                 label_idle.Text = config.idle.file;
 
-                dateTimePicker_sleepStart.Value = config.sleep.startTime;
-                dateTimePicker_sleepEnd.Value = config.sleep.endTime;
+                dateTimePicker_sleepStart.Value = config.sleep.timespan.startTime;
+                dateTimePicker_sleepEnd.Value = config.sleep.timespan.endTime;
+                checkBox_sleep.Checked = config.sleep.enable;
+                checkBox_sleep_CheckedChanged(this, null);
 
                 checkBox_interval.Checked = config.intermedia.enable;
                 checkBox_interval_CheckedChanged(this, null);
@@ -281,7 +283,7 @@ namespace PLAY
             }
 
             int index;
-            Msg.ShutMonitor(-1);
+            //Msg.ShutMonitor(-1);
 
             if (config.intermedia.enable && interPlay)
             {
@@ -488,16 +490,18 @@ namespace PLAY
 
         private bool CheckSleep()
         {
+            if (!config.sleep.enable) return false;
+
             // in one day
-            if (config.sleep.startTime.TimeOfDay < config.sleep.endTime.TimeOfDay)
+            if (config.sleep.timespan.startTime.TimeOfDay < config.sleep.timespan.endTime.TimeOfDay)
             {
-                if (DateTime.Now.TimeOfDay >= config.sleep.startTime.TimeOfDay && DateTime.Now.TimeOfDay <= config.sleep.endTime.TimeOfDay)
+                if (DateTime.Now.TimeOfDay >= config.sleep.timespan.startTime.TimeOfDay && DateTime.Now.TimeOfDay <= config.sleep.timespan.endTime.TimeOfDay)
                 { return true; }
             }
             // cross night
-            else if (config.sleep.startTime.TimeOfDay > config.sleep.endTime.TimeOfDay)
+            else if (config.sleep.timespan.startTime.TimeOfDay > config.sleep.timespan.endTime.TimeOfDay)
             {
-                if (DateTime.Now.TimeOfDay >= config.sleep.startTime.TimeOfDay && DateTime.Now.TimeOfDay <= config.sleep.endTime.TimeOfDay)
+                if (DateTime.Now.TimeOfDay >= config.sleep.timespan.startTime.TimeOfDay && DateTime.Now.TimeOfDay <= config.sleep.timespan.endTime.TimeOfDay)
                 { return false; }
             }
 
@@ -626,11 +630,6 @@ namespace PLAY
             MessageBox.Show("版权所有: 程漱铭\r\nCopyright © 2012 Samuel.CHENG\nAll rights reserved\r\n\n技术支持: +86 1381***5709", "版权所有", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
-        private void button_interval_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void checkBox_interval_CheckedChanged(object sender, EventArgs e)
         {
             numericUpDown_interval.Enabled = checkBox_interval.CheckState == CheckState.Checked ? true : false;
@@ -657,6 +656,19 @@ namespace PLAY
         private void numericUpDown_duration_ValueChanged(object sender, EventArgs e)
         {
             xml.Update("intermedia", "duration", numericUpDown_duration.Value.ToString());
+        }
+
+        private void checkBox_sleep_CheckedChanged(object sender, EventArgs e)
+        {
+            dateTimePicker_sleepStart.Enabled = checkBox_sleep.CheckState == CheckState.Checked ? true : false;
+            dateTimePicker_sleepEnd.Enabled = dateTimePicker_sleepStart.Enabled;
+
+            label11.ForeColor =
+                (checkBox_sleep.CheckState == CheckState.Checked) ?
+                Color.FromKnownColor(System.Drawing.KnownColor.ControlText) :
+                Color.FromKnownColor(System.Drawing.KnownColor.InactiveCaption);
+
+            xml.Update("sleep", "enable", checkBox_sleep.Checked ? "1" : "0");
         }
     }
 }

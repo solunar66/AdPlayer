@@ -178,9 +178,10 @@ namespace XML
                 config.idle.duration = int.Parse(idle.Attributes["duration"].Value);
 
                 XmlNode sleep = system.SelectSingleNode("sleep");
-                config.sleep = new TimeSheet();
-                config.sleep.startTime = DateTime.Parse(sleep.Attributes["starttime"].Value);
-                config.sleep.endTime = DateTime.Parse(sleep.Attributes["endtime"].Value);
+                config.sleep = new Sleep();
+                config.sleep.timespan.startTime = DateTime.Parse(sleep.Attributes["starttime"].Value);
+                config.sleep.timespan.endTime = DateTime.Parse(sleep.Attributes["endtime"].Value);
+                config.sleep.enable = sleep.Attributes["enable"].Value == "0" ? false : true;
 
                 XmlNode notice = system.SelectSingleNode("notice");
                 config.notice.bold = notice.Attributes["bold"].Value == "0" ? false : true;

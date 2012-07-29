@@ -11,7 +11,7 @@ namespace XML
     {
         public int scr;
         public Content idle;
-        public TimeSheet sleep;
+        public Sleep sleep;
         public Notice notice;
         public InterMedia intermedia;
         public List<DateSheet> datesheets;
@@ -23,6 +23,12 @@ namespace XML
         public int limit;
         public int duration;
         public List<Content> contents;
+    }
+
+    public struct Sleep
+    {
+        public TimeSheet timespan;
+        public bool enable;
     }
 
     public struct Notice
