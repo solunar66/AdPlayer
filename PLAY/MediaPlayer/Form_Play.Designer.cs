@@ -64,6 +64,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
+            this.checkBox_sleep = new System.Windows.Forms.CheckBox();
             this.dateTimePicker_sleepEnd = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker_sleepStart = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
@@ -81,7 +82,6 @@
             this.timer_monitor = new System.Windows.Forms.Timer(this.components);
             this.button_help = new System.Windows.Forms.Button();
             this.button_about = new System.Windows.Forms.Button();
-            this.checkBox_sleep = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_duration)).BeginInit();
@@ -490,6 +490,17 @@
             this.label11.TabIndex = 5;
             this.label11.Text = "到";
             // 
+            // checkBox_sleep
+            // 
+            this.checkBox_sleep.AutoSize = true;
+            this.checkBox_sleep.Location = new System.Drawing.Point(13, 24);
+            this.checkBox_sleep.Name = "checkBox_sleep";
+            this.checkBox_sleep.Size = new System.Drawing.Size(96, 16);
+            this.checkBox_sleep.TabIndex = 8;
+            this.checkBox_sleep.Text = "启用屏幕休眠";
+            this.checkBox_sleep.UseVisualStyleBackColor = true;
+            this.checkBox_sleep.CheckedChanged += new System.EventHandler(this.checkBox_sleep_CheckedChanged);
+            // 
             // dateTimePicker_sleepEnd
             // 
             this.dateTimePicker_sleepEnd.CustomFormat = "HH 时 mm 分 ss 秒";
@@ -623,10 +634,10 @@
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(12, 3);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(3, 3);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(496, 529);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(505, 529);
             this.axWindowsMediaPlayer1.TabIndex = 0;
             this.axWindowsMediaPlayer1.MouseDownEvent += new AxWMPLib._WMPOCXEvents_MouseDownEventHandler(this.axWindowsMediaPlayer1_MouseDownEvent);
             // 
@@ -643,9 +654,9 @@
             // button_help
             // 
             this.button_help.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_help.Location = new System.Drawing.Point(12, 538);
+            this.button_help.Location = new System.Drawing.Point(263, 538);
             this.button_help.Name = "button_help";
-            this.button_help.Size = new System.Drawing.Size(45, 22);
+            this.button_help.Size = new System.Drawing.Size(120, 22);
             this.button_help.TabIndex = 7;
             this.button_help.Text = "帮助";
             this.button_help.UseVisualStyleBackColor = true;
@@ -654,24 +665,13 @@
             // button_about
             // 
             this.button_about.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_about.Location = new System.Drawing.Point(63, 538);
+            this.button_about.Location = new System.Drawing.Point(389, 538);
             this.button_about.Name = "button_about";
-            this.button_about.Size = new System.Drawing.Size(45, 22);
+            this.button_about.Size = new System.Drawing.Size(120, 22);
             this.button_about.TabIndex = 7;
             this.button_about.Text = "关于";
             this.button_about.UseVisualStyleBackColor = true;
             this.button_about.Click += new System.EventHandler(this.button_about_Click);
-            // 
-            // checkBox_sleep
-            // 
-            this.checkBox_sleep.AutoSize = true;
-            this.checkBox_sleep.Location = new System.Drawing.Point(13, 24);
-            this.checkBox_sleep.Name = "checkBox_sleep";
-            this.checkBox_sleep.Size = new System.Drawing.Size(96, 16);
-            this.checkBox_sleep.TabIndex = 8;
-            this.checkBox_sleep.Text = "启用屏幕休眠";
-            this.checkBox_sleep.UseVisualStyleBackColor = true;
-            this.checkBox_sleep.CheckedChanged += new System.EventHandler(this.checkBox_sleep_CheckedChanged);
             // 
             // Form_Play
             // 
@@ -684,6 +684,7 @@
             this.Controls.Add(this.label_title);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form_Play";

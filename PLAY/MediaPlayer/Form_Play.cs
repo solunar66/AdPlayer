@@ -188,7 +188,7 @@ namespace PLAY
                 this.FormBorderStyle = FormBorderStyle.FixedSingle;
                 this.WindowState = FormWindowState.Normal;
                 axWindowsMediaPlayer1.Dock = DockStyle.None;
-                axWindowsMediaPlayer1.Size = new Size(496, 431);
+                axWindowsMediaPlayer1.Size = new Size(505, 529);
                 axWindowsMediaPlayer1.Location = new Point(12, 3);
                 axWindowsMediaPlayer1.Ctlcontrols.stop();
                 panel1.Visible = true;
@@ -627,7 +627,8 @@ namespace PLAY
 
         private void button_about_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("版权所有: 程漱铭\r\nCopyright © 2012 Samuel.CHENG\nAll rights reserved\r\n\n技术支持: +86 1381***5709", "版权所有", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            Form_About about = new Form_About();
+            about.Show();
         }
 
         private void checkBox_interval_CheckedChanged(object sender, EventArgs e)

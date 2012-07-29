@@ -15,56 +15,44 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0400F195D3074996A843BD37F1335527"
+        "MsmKey" = "8:_017C321F018B486689EC3A5F0AC32F45"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_04F1D993F21A4605800D3351168C18A7"
+        "MsmKey" = "8:_0DD4F71FC94747F18F8ED3E2C0771750"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_05E5D18BE4044A7390A9296CACE89B84"
+        "MsmKey" = "8:_1074EB36F2E34A27B1B55C7538E0EA40"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_05EF5860CE414C8595B661738F5FDCB0"
+        "MsmKey" = "8:_1683379CF59D4D8998A0D3A132630076"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_0EEB802CFF10456593184D640D370A82"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_1F0990D263C6D949D2714567557B0857"
+        "OwnerKey" = "8:_E1084DB3B8074AC2ABC3C0242BF0D0AA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_16FF55E52D7B4CB4AF9CCCCA2F894A38"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_1F0990D263C6D949D2714567557B0857"
+        "OwnerKey" = "8:_BFA978CBCAC14B71ABA6FF92505D9FDC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_19D382A42FD346C69CC81DACB2FF884D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1BD9C7159A614A41AF093C18216D82E7"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1CC0A51FBFCA46AD8D9E595788DDC364"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_1F0990D263C6D949D2714567557B0857"
+        "OwnerKey" = "8:_F6FBF1A3DE3743BDB8B2565B6A80A668"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -75,74 +63,92 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_1F0990D263C6D949D2714567557B0857"
-        "OwnerKey" = "8:_C9D0EE54F94249418FBADD49E827FE9B"
+        "MsmKey" = "8:_1F71D42EEB70C0620B2A3E1A2C6E6BD8"
+        "OwnerKey" = "8:_E1084DB3B8074AC2ABC3C0242BF0D0AA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_1F0990D263C6D949D2714567557B0857"
-        "OwnerKey" = "8:_9BFF1654A2CD4DEE8773F9450F0A3670"
+        "MsmKey" = "8:_1F71D42EEB70C0620B2A3E1A2C6E6BD8"
+        "OwnerKey" = "8:_4C015F6B2F3D056A651D5E4303CC08AD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_1F0990D263C6D949D2714567557B0857"
-        "OwnerKey" = "8:_19D382A42FD346C69CC81DACB2FF884D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_21A94EF958E64718BCF5589BDB1E36C8"
+        "MsmKey" = "8:_226BDC2B210A405697A75A58BAFBE114"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_273A07EE66DA4876A384B4CA5870BDA3"
+        "MsmKey" = "8:_25422DE0422F4399819107E9FE044261"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_29B3029C9A7D4F44B4BB5F4379ADFEE8"
+        "MsmKey" = "8:_271A1D5386464888B89EE7A8129EDFB1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_2F7D72F96D7243FFA635FD632ADB3D3C"
+        "MsmKey" = "8:_2EAEE3E2016F45DB967D946821C6235D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3113D3F25FEC4F7EB9F6331A2FC3B369"
+        "MsmKey" = "8:_3219D899FCFD4A819C75491E50F9BDE3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_33CD4BEA525A46B691F20E1D4B026FA5"
+        "MsmKey" = "8:_32CCFE888E844A3281E8A4E7CF7DB9C2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_33E5465C844843E490094A564F909510"
+        "MsmKey" = "8:_33A3C6BE9F654E78BB5BE08FD042DC5A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3B8EB237605A4F12BFD633BF1DC3B9EC"
+        "MsmKey" = "8:_358D2125C1D045ACA0E964354655BE83"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_404229050A944E879C83F160B5553386"
+        "MsmKey" = "8:_36CDD7D94C18422FB2658227F2FFDAB2"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3E2D4F25065F4BD7967E7639DA61CD0A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_410B021E4C67461088BA4B2FEA327013"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_417E8518515D47F39A3C2C9DBDDC7A65"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4564A5DFE16810FC36216F594594D312"
+        "OwnerKey" = "8:_E1084DB3B8074AC2ABC3C0242BF0D0AA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -153,68 +159,62 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_4564A5DFE16810FC36216F594594D312"
-        "OwnerKey" = "8:_C9D0EE54F94249418FBADD49E827FE9B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_458C995A94DB4481B3A1192920F3F440"
+        "MsmKey" = "8:_456F49DE7ED24160B69A9CAB600C3B63"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_4B8911904E984568B77532A687B5C285"
+        "MsmKey" = "8:_47244B03ADC84242AC905CC0540CE7B8"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_4C015F6B2F3D056A651D5E4303CC08AD"
-        "OwnerKey" = "8:_19D382A42FD346C69CC81DACB2FF884D"
+        "OwnerKey" = "8:_F6FBF1A3DE3743BDB8B2565B6A80A668"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_50C0C7B89A114D5AAE38DEE059861530"
+        "MsmKey" = "8:_4C9AC1BAF4FA44D8A9A67E817C285546"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_55C74F64243E4C1F807F599CDE939B77"
+        "MsmKey" = "8:_52CEF8534FD14BFBA02909A317BB239B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_5823940998994C0A99AE21B28F9CC97C"
+        "MsmKey" = "8:_5385E22FE87B4DF685FB4674141A00FB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_5C23639755C94062AA7F2E6399FC4A50"
+        "MsmKey" = "8:_5DBE6EC85F9F40EEA672A9D4330C46D5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_662AAF89CA5E4B439D7FC6C9C5214581"
+        "MsmKey" = "8:_677568B2A9EE4301B6E30EF612422315"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_66B253DB30CC44B59B1E572CC2E6FEE9"
+        "MsmKey" = "8:_6879DC96CD3241E89735BEB065F050E0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_69F65E764E97D77055C3E9E8342CC903"
-        "OwnerKey" = "8:_C9D0EE54F94249418FBADD49E827FE9B"
+        "OwnerKey" = "8:_E1084DB3B8074AC2ABC3C0242BF0D0AA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -225,25 +225,55 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_6F335705C5B64FA181BB01EFA0FF77C5"
+        "MsmKey" = "8:_6B822A5E2EED4C6DA495FF4EA21F81EB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_71BFBB4DAD2B46D5A7A40D77FEDAA5A9"
+        "MsmKey" = "8:_6DA15BD72F1F4C0CB34AF0E87CF8AE4B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_7D57153BAA51417683116A6967FB6DF7"
+        "MsmKey" = "8:_6EFE4C1AD56F4582842D143CC5068205"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_8049282ADD0647C698D5532A318E2AAC"
+        "MsmKey" = "8:_6F111E62A3B24CEEBD2EFD28EB378712"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_731634E986B846FDBD014D06F125642D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7824908362684896989EC8771E351E7B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_78409A8DF08C428A961CE35BD999CD5E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7963654E82A14217A5E3A71CEF4F12AE"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7CC495FE67F84B0689978E56071A383F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -262,7 +292,7 @@
         "Entry"
         {
         "MsmKey" = "8:_82150C27203CD48A86DDBEFF83351938"
-        "OwnerKey" = "8:_C9D0EE54F94249418FBADD49E827FE9B"
+        "OwnerKey" = "8:_E1084DB3B8074AC2ABC3C0242BF0D0AA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -273,50 +303,32 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_831291BA1D9F42459DED537B84FD1A15"
+        "MsmKey" = "8:_8C1DC8B3153843258E8585A3DC36F752"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_856692A356EF4A7EA5AF155EDA14266F"
+        "MsmKey" = "8:_958D70FC521B4996BB93E33860DEF791"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_8690F66298E441159CCC6511EADD193D"
+        "MsmKey" = "8:_97768D8B11A441599B4D3A210893C9BF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9022B0C54C264236968B29C78E8F5F39"
+        "MsmKey" = "8:_9F47E2292F4B46AFB24E1DE5C3405E35"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_95D936DC856E4508ACC17E48FFCD188C"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9BFF1654A2CD4DEE8773F9450F0A3670"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9F4566E2F93849DD94EA7CA97C19759F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_ACA7B3EC49F442D8816845C2E64E1336"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_AF16FFFD601B6AAFACA27FB52A115443"
+        "OwnerKey" = "8:_E1084DB3B8074AC2ABC3C0242BF0D0AA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -327,25 +339,19 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_AF16FFFD601B6AAFACA27FB52A115443"
-        "OwnerKey" = "8:_C9D0EE54F94249418FBADD49E827FE9B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B7D0A885B2F348B8847AF7AB61D75749"
+        "MsmKey" = "8:_BFA978CBCAC14B71ABA6FF92505D9FDC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_BC98DBACA5824396A049673C9B02B415"
+        "MsmKey" = "8:_C04E7937C2404D1F90B20EAB5290AB6F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C487BBF07BBB4101A6B7A79F583DC42E"
+        "MsmKey" = "8:_C4E32210AF8E47A4905658E8349A47A0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -357,20 +363,26 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C9D0EE54F94249418FBADD49E827FE9B"
+        "MsmKey" = "8:_D1212FFD02934445AAA686E33C96D6A9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_CF15AFF2D2274A03AD8A1363DF5DE5F2"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_D1AE70116DE8FE281A6D4E4841D49A3A"
+        "OwnerKey" = "8:_D1CDE966F074468284623640AB185F60"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_CFE18617A7794F76ABDF15F7C40717B6"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_D1AE70116DE8FE281A6D4E4841D49A3A"
+        "OwnerKey" = "8:_4C015F6B2F3D056A651D5E4303CC08AD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D1AE70116DE8FE281A6D4E4841D49A3A"
+        "OwnerKey" = "8:_E1084DB3B8074AC2ABC3C0242BF0D0AA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -381,86 +393,80 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D1AE70116DE8FE281A6D4E4841D49A3A"
-        "OwnerKey" = "8:_EA080711A5964FEEB5330D1E57DBC0E3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D1AE70116DE8FE281A6D4E4841D49A3A"
-        "OwnerKey" = "8:_C9D0EE54F94249418FBADD49E827FE9B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D1AE70116DE8FE281A6D4E4841D49A3A"
-        "OwnerKey" = "8:_4C015F6B2F3D056A651D5E4303CC08AD"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D8B35536D76240D89B3C5184A838C258"
+        "MsmKey" = "8:_D1CDE966F074468284623640AB185F60"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_D92085CB18CB491C96C53D6AA42B3A6A"
+        "MsmKey" = "8:_D341DC9170BE4BA38BF0086603F77374"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E00CE6360822402B836403CD9FE0374D"
+        "MsmKey" = "8:_D9A5DE6D409F4924A3D82668861A83D6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E0593C0D8FE84345A8ACDB49D8A8F270"
+        "MsmKey" = "8:_DB95590948654C79870D7771C22F444A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E12103F5AC754DFDBF4439A90B3BC124"
+        "MsmKey" = "8:_DD39A5F2D52C4F3FA18CB4955058AFB6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E462AA814ECD4FFBA50E851BF7DB1504"
+        "MsmKey" = "8:_DEEE292D51F3418D967A8A22EC697BF9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E78D607790504637B806518A9E270D54"
+        "MsmKey" = "8:_DEEF686B984B476D92B13A008D7F9873"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E1084DB3B8074AC2ABC3C0242BF0D0AA"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E6810E2F71F54E8D860778809034E582"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E79F470A623E6DBB961E6256C8820985"
+        "OwnerKey" = "8:_E1084DB3B8074AC2ABC3C0242BF0D0AA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E79F470A623E6DBB961E6256C8820985"
+        "OwnerKey" = "8:_EBC9C400D2F04E1B93E909E3BE8F141C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E79F470A623E6DBB961E6256C8820985"
+        "OwnerKey" = "8:_BFA978CBCAC14B71ABA6FF92505D9FDC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_E79F470A623E6DBB961E6256C8820985"
         "OwnerKey" = "8:_4C015F6B2F3D056A651D5E4303CC08AD"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E79F470A623E6DBB961E6256C8820985"
-        "OwnerKey" = "8:_C9D0EE54F94249418FBADD49E827FE9B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E79F470A623E6DBB961E6256C8820985"
-        "OwnerKey" = "8:_9BFF1654A2CD4DEE8773F9450F0A3670"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E79F470A623E6DBB961E6256C8820985"
-        "OwnerKey" = "8:_1BD9C7159A614A41AF093C18216D82E7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -471,32 +477,98 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_EA080711A5964FEEB5330D1E57DBC0E3"
+        "MsmKey" = "8:_EA4C181BCA6441EE993E8434387D0A68"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F2564AE0D32B48BA8A7EBF57921FF530"
+        "MsmKey" = "8:_EA99A80BDE784B188AB9CE10D74D3DEF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_FD004BBAB1654E3FB3A2E5449D2717A3"
+        "MsmKey" = "8:_EAE66E8444A742358009FB6145572149"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EBC9C400D2F04E1B93E909E3BE8F141C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F39184641D9641828414D95BC95953AC"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F471B0E254B149A0B1AC2F349FEEBB3C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F57094ACA6584E31B34557DC272BB550"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F6FBF1A3DE3743BDB8B2565B6A80A668"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_FD7281CD493952DC1D5E9D3D6A3DBF18"
-        "OwnerKey" = "8:_662AAF89CA5E4B439D7FC6C9C5214581"
+        "OwnerKey" = "8:_47244B03ADC84242AC905CC0540CE7B8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FE53C968AA1748DE9FC51D0A94A644F4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FF6154FCB42F475C8D8207C0478EF098"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EA080711A5964FEEB5330D1E57DBC0E3"
+        "OwnerKey" = "8:_9F47E2292F4B46AFB24E1DE5C3405E35"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_DD39A5F2D52C4F3FA18CB4955058AFB6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_EBC9C400D2F04E1B93E909E3BE8F141C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BFA978CBCAC14B71ABA6FF92505D9FDC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_47244B03ADC84242AC905CC0540CE7B8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -508,73 +580,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E462AA814ECD4FFBA50E851BF7DB1504"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C9D0EE54F94249418FBADD49E827FE9B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C805F73EBF5D1A394D88E84F467F053F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9BFF1654A2CD4DEE8773F9450F0A3670"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9022B0C54C264236968B29C78E8F5F39"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_82150C27203CD48A86DDBEFF83351938"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_69F65E764E97D77055C3E9E8342CC903"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_662AAF89CA5E4B439D7FC6C9C5214581"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_21A94EF958E64718BCF5589BDB1E36C8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1BD9C7159A614A41AF093C18216D82E7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_19D382A42FD346C69CC81DACB2FF884D"
+        "OwnerKey" = "8:_F6FBF1A3DE3743BDB8B2565B6A80A668"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_4C015F6B2F3D056A651D5E4303CC08AD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0DD4F71FC94747F18F8ED3E2C0771750"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_E1084DB3B8074AC2ABC3C0242BF0D0AA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -598,7 +622,49 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1F71D42EEB70C0620B2A3E1A2C6E6BD8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_AF16FFFD601B6AAFACA27FB52A115443"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_69F65E764E97D77055C3E9E8342CC903"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C805F73EBF5D1A394D88E84F467F053F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_82150C27203CD48A86DDBEFF83351938"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_417E8518515D47F39A3C2C9DBDDC7A65"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_52CEF8534FD14BFBA02909A317BB239B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_D1CDE966F074468284623640AB185F60"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -717,12 +783,12 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0400F195D3074996A843BD37F1335527"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_017C321F018B486689EC3A5F0AC32F45"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\UNACEV2.DLL"
-            "TargetName" = "8:UNACEV2.DLL"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\Router.vshost.exe.manifest"
+            "TargetName" = "8:Router.vshost.exe.manifest"
             "Tag" = "8:"
-            "Folder" = "8:_1CF2BD789B124B3DB7F53014E0B3E3EF"
+            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -737,120 +803,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_04F1D993F21A4605800D3351168C18A7"
-            {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Zip.SFX"
-            "TargetName" = "8:Zip.SFX"
-            "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_05E5D18BE4044A7390A9296CACE89B84"
-            {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\lzh.fmt"
-            "TargetName" = "8:lzh.fmt"
-            "Tag" = "8:"
-            "Folder" = "8:_1CF2BD789B124B3DB7F53014E0B3E3EF"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_05EF5860CE414C8595B661738F5FDCB0"
-            {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\RarExtLoader.exe"
-            "TargetName" = "8:RarExtLoader.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0EEB802CFF10456593184D640D370A82"
-            {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\RarFiles.lst"
-            "TargetName" = "8:RarFiles.lst"
-            "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_16FF55E52D7B4CB4AF9CCCCA2F894A38"
-            {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\uue.fmt"
-            "TargetName" = "8:uue.fmt"
-            "Tag" = "8:"
-            "Folder" = "8:_1CF2BD789B124B3DB7F53014E0B3E3EF"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_19D382A42FD346C69CC81DACB2FF884D"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0DD4F71FC94747F18F8ED3E2C0771750"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Router, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Message, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_19D382A42FD346C69CC81DACB2FF884D"
+                    "_0DD4F71FC94747F18F8ED3E2C0771750"
                     {
-                    "Name" = "8:Router.exe"
+                    "Name" = "8:Message.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\Router.exe"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\Message.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
@@ -868,23 +834,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1BD9C7159A614A41AF093C18216D82E7"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1074EB36F2E34A27B1B55C7538E0EA40"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:XMLInfo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_1BD9C7159A614A41AF093C18216D82E7"
-                    {
-                    "Name" = "8:XMLInfo.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\XMLInfo.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\tar.fmt"
+            "TargetName" = "8:tar.fmt"
             "Tag" = "8:"
-            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
+            "Folder" = "8:_571377EBBE994A69AA120DD3B3EB4F10"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -899,12 +854,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1CC0A51FBFCA46AD8D9E595788DDC364"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1683379CF59D4D8998A0D3A132630076"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\bz2.fmt"
-            "TargetName" = "8:bz2.fmt"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\WinCon.SFX"
+            "TargetName" = "8:WinCon.SFX"
             "Tag" = "8:"
-            "Folder" = "8:_1CF2BD789B124B3DB7F53014E0B3E3EF"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -950,21 +905,81 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_21A94EF958E64718BCF5589BDB1E36C8"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1F71D42EEB70C0620B2A3E1A2C6E6BD8"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:LogInfo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:FTPServer, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_21A94EF958E64718BCF5589BDB1E36C8"
+                    "_1F71D42EEB70C0620B2A3E1A2C6E6BD8"
                     {
-                    "Name" = "8:LogInfo.dll"
+                    "Name" = "8:FTPServer.EXE"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\LogInfo.dll"
+            "SourcePath" = "8:FTPServer.EXE"
             "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_226BDC2B210A405697A75A58BAFBE114"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\media\\readme.txt"
+            "TargetName" = "8:readme.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_6E66B69504EC4D989AEFB7CE73BDDD3C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_25422DE0422F4399819107E9FE044261"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Descript.ion"
+            "TargetName" = "8:Descript.ion"
+            "Tag" = "8:"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_271A1D5386464888B89EE7A8129EDFB1"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\Router.pdb"
+            "TargetName" = "8:Router.pdb"
             "Tag" = "8:"
             "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
             "Condition" = "8:"
@@ -981,12 +996,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_273A07EE66DA4876A384B4CA5870BDA3"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2EAEE3E2016F45DB967D946821C6235D"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Descript.ion"
-            "TargetName" = "8:Descript.ion"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\iso.fmt"
+            "TargetName" = "8:iso.fmt"
             "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
+            "Folder" = "8:_571377EBBE994A69AA120DD3B3EB4F10"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1001,12 +1016,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_29B3029C9A7D4F44B4BB5F4379ADFEE8"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3219D899FCFD4A819C75491E50F9BDE3"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\File_Id.diz"
-            "TargetName" = "8:File_Id.diz"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\RarFiles.lst"
+            "TargetName" = "8:RarFiles.lst"
             "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1021,12 +1036,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2F7D72F96D7243FFA635FD632ADB3D3C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_32CCFE888E844A3281E8A4E7CF7DB9C2"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Uninstall.exe"
-            "TargetName" = "8:Uninstall.exe"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\UnRAR.exe"
+            "TargetName" = "8:UnRAR.exe"
             "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1041,12 +1056,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3113D3F25FEC4F7EB9F6331A2FC3B369"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_33A3C6BE9F654E78BB5BE08FD042DC5A"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\WinCon.SFX"
-            "TargetName" = "8:WinCon.SFX"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\TechNote.txt"
+            "TargetName" = "8:TechNote.txt"
             "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1061,12 +1076,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_33CD4BEA525A46B691F20E1D4B026FA5"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_358D2125C1D045ACA0E964354655BE83"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\License.txt"
-            "TargetName" = "8:License.txt"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\WinRAR.exe"
+            "TargetName" = "8:WinRAR.exe"
             "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1081,12 +1096,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_33E5465C844843E490094A564F909510"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_36CDD7D94C18422FB2658227F2FFDAB2"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\7z.fmt"
-            "TargetName" = "8:7z.fmt"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\UnrarSrc.txt"
+            "TargetName" = "8:UnrarSrc.txt"
             "Tag" = "8:"
-            "Folder" = "8:_1CF2BD789B124B3DB7F53014E0B3E3EF"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1101,12 +1116,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3B8EB237605A4F12BFD633BF1DC3B9EC"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3E2D4F25065F4BD7967E7639DA61CD0A"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\RarExt.dll"
-            "TargetName" = "8:RarExt.dll"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Zip.SFX"
+            "TargetName" = "8:Zip.SFX"
             "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1121,10 +1136,41 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_404229050A944E879C83F160B5553386"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_410B021E4C67461088BA4B2FEA327013"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\Router.pdb"
-            "TargetName" = "8:Router.pdb"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\MediaPlayer.pdb"
+            "TargetName" = "8:MediaPlayer.pdb"
+            "Tag" = "8:"
+            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_417E8518515D47F39A3C2C9DBDDC7A65"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:LogInfo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_417E8518515D47F39A3C2C9DBDDC7A65"
+                    {
+                    "Name" = "8:LogInfo.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\LogInfo.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
             "Condition" = "8:"
@@ -1172,12 +1218,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_458C995A94DB4481B3A1192920F3F440"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_456F49DE7ED24160B69A9CAB600C3B63"
             {
             "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\ReadMe.txt"
             "TargetName" = "8:ReadMe.txt"
             "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1192,12 +1238,23 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4B8911904E984568B77532A687B5C285"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_47244B03ADC84242AC905CC0540CE7B8"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Uninstall.lst"
-            "TargetName" = "8:Uninstall.lst"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:vshost, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_47244B03ADC84242AC905CC0540CE7B8"
+                    {
+                    "Name" = "8:Router.vshost.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\Router.vshost.exe"
+            "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
+            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1243,12 +1300,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_50C0C7B89A114D5AAE38DEE059861530"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4C9AC1BAF4FA44D8A9A67E817C285546"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\WinRAR.chm"
-            "TargetName" = "8:WinRAR.chm"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\License.txt"
+            "TargetName" = "8:License.txt"
             "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1263,80 +1320,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_55C74F64243E4C1F807F599CDE939B77"
-            {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\TechNote.txt"
-            "TargetName" = "8:TechNote.txt"
-            "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5823940998994C0A99AE21B28F9CC97C"
-            {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\Message.pdb"
-            "TargetName" = "8:Message.pdb"
-            "Tag" = "8:"
-            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5C23639755C94062AA7F2E6399FC4A50"
-            {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\rarreg.key"
-            "TargetName" = "8:rarreg.key"
-            "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_662AAF89CA5E4B439D7FC6C9C5214581"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_52CEF8534FD14BFBA02909A317BB239B"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:vshost, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Interop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_662AAF89CA5E4B439D7FC6C9C5214581"
+                    "_52CEF8534FD14BFBA02909A317BB239B"
                     {
-                    "Name" = "8:Router.vshost.exe"
+                    "Name" = "8:Interop.WMPLib.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\Router.vshost.exe"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\Interop.WMPLib.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
@@ -1354,12 +1351,72 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_66B253DB30CC44B59B1E572CC2E6FEE9"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5385E22FE87B4DF685FB4674141A00FB"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\UnRAR.exe"
-            "TargetName" = "8:UnRAR.exe"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\log\\readme.txt"
+            "TargetName" = "8:readme.txt"
             "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
+            "Folder" = "8:_19694E13FC764E32A17E60C11C60F347"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5DBE6EC85F9F40EEA672A9D4330C46D5"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\rarreg.key"
+            "TargetName" = "8:rarreg.key"
+            "Tag" = "8:"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_677568B2A9EE4301B6E30EF612422315"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\LogInfo.pdb"
+            "TargetName" = "8:LogInfo.pdb"
+            "Tag" = "8:"
+            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6879DC96CD3241E89735BEB065F050E0"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\z.fmt"
+            "TargetName" = "8:z.fmt"
+            "Tag" = "8:"
+            "Folder" = "8:_571377EBBE994A69AA120DD3B3EB4F10"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1405,10 +1462,90 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6F335705C5B64FA181BB01EFA0FF77C5"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6B822A5E2EED4C6DA495FF4EA21F81EB"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\Updater.pdb"
-            "TargetName" = "8:Updater.pdb"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\lzh.fmt"
+            "TargetName" = "8:lzh.fmt"
+            "Tag" = "8:"
+            "Folder" = "8:_571377EBBE994A69AA120DD3B3EB4F10"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6DA15BD72F1F4C0CB34AF0E87CF8AE4B"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\uue.fmt"
+            "TargetName" = "8:uue.fmt"
+            "Tag" = "8:"
+            "Folder" = "8:_571377EBBE994A69AA120DD3B3EB4F10"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6EFE4C1AD56F4582842D143CC5068205"
+            {
+            "SourcePath" = "8:..\\..\\CLIENT\\FtpClient\\bin\\Debug\\config.ini"
+            "TargetName" = "8:config.ini"
+            "Tag" = "8:"
+            "Folder" = "8:_1D6FBA5AF6B14876B4A8CF9AF25167C6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6F111E62A3B24CEEBD2EFD28EB378712"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\7zxa.dll"
+            "TargetName" = "8:7zxa.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_571377EBBE994A69AA120DD3B3EB4F10"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_731634E986B846FDBD014D06F125642D"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\Message.pdb"
+            "TargetName" = "8:Message.pdb"
             "Tag" = "8:"
             "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
             "Condition" = "8:"
@@ -1425,12 +1562,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_71BFBB4DAD2B46D5A7A40D77FEDAA5A9"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7824908362684896989EC8771E351E7B"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\UnrarSrc.txt"
-            "TargetName" = "8:UnrarSrc.txt"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\WinRAR.chm"
+            "TargetName" = "8:WinRAR.chm"
             "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1445,12 +1582,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7D57153BAA51417683116A6967FB6DF7"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_78409A8DF08C428A961CE35BD999CD5E"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Order.htm"
-            "TargetName" = "8:Order.htm"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Uninstall.exe"
+            "TargetName" = "8:Uninstall.exe"
             "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1465,12 +1602,32 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8049282ADD0647C698D5532A318E2AAC"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7963654E82A14217A5E3A71CEF4F12AE"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\MediaPlayer.pdb"
-            "TargetName" = "8:MediaPlayer.pdb"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Rar.exe"
+            "TargetName" = "8:Rar.exe"
             "Tag" = "8:"
-            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7CC495FE67F84B0689978E56071A383F"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\cab.fmt"
+            "TargetName" = "8:cab.fmt"
+            "Tag" = "8:"
+            "Folder" = "8:_571377EBBE994A69AA120DD3B3EB4F10"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1516,32 +1673,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_831291BA1D9F42459DED537B84FD1A15"
-            {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\z.fmt"
-            "TargetName" = "8:z.fmt"
-            "Tag" = "8:"
-            "Folder" = "8:_1CF2BD789B124B3DB7F53014E0B3E3EF"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_856692A356EF4A7EA5AF155EDA14266F"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8C1DC8B3153843258E8585A3DC36F752"
             {
             "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\arj.fmt"
             "TargetName" = "8:arj.fmt"
             "Tag" = "8:"
-            "Folder" = "8:_1CF2BD789B124B3DB7F53014E0B3E3EF"
+            "Folder" = "8:_571377EBBE994A69AA120DD3B3EB4F10"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1556,41 +1693,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8690F66298E441159CCC6511EADD193D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_958D70FC521B4996BB93E33860DEF791"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\WinRAR.exe"
-            "TargetName" = "8:WinRAR.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9022B0C54C264236968B29C78E8F5F39"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Interop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_9022B0C54C264236968B29C78E8F5F39"
-                    {
-                    "Name" = "8:Interop.WMPLib.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\Interop.WMPLib.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\ROUTER\\video.ico"
+            "TargetName" = "8:video.ico"
             "Tag" = "8:"
             "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
             "Condition" = "8:"
@@ -1607,12 +1713,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_95D936DC856E4508ACC17E48FFCD188C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_97768D8B11A441599B4D3A210893C9BF"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Rar.txt"
-            "TargetName" = "8:Rar.txt"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\WhatsNew.txt"
+            "TargetName" = "8:WhatsNew.txt"
             "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1627,63 +1733,23 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9BFF1654A2CD4DEE8773F9450F0A3670"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9F47E2292F4B46AFB24E1DE5C3405E35"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Updater, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:FtpClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_9BFF1654A2CD4DEE8773F9450F0A3670"
+                    "_9F47E2292F4B46AFB24E1DE5C3405E35"
                     {
-                    "Name" = "8:Updater.exe"
+                    "Name" = "8:FtpClient.exe"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\Updater.exe"
+            "SourcePath" = "8:..\\..\\CLIENT\\FtpClient\\bin\\Release\\FtpClient.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9F4566E2F93849DD94EA7CA97C19759F"
-            {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\config\\play.xml"
-            "TargetName" = "8:play.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_7318A3C4078A4A88B56CD752E856787D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_ACA7B3EC49F442D8816845C2E64E1336"
-            {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\RarExt64.dll"
-            "TargetName" = "8:RarExt64.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
+            "Folder" = "8:_1D6FBA5AF6B14876B4A8CF9AF25167C6"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1729,30 +1795,21 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B7D0A885B2F348B8847AF7AB61D75749"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BFA978CBCAC14B71ABA6FF92505D9FDC"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\cab.fmt"
-            "TargetName" = "8:cab.fmt"
-            "Tag" = "8:"
-            "Folder" = "8:_1CF2BD789B124B3DB7F53014E0B3E3EF"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BC98DBACA5824396A049673C9B02B415"
-            {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\Router.vshost.exe.manifest"
-            "TargetName" = "8:Router.vshost.exe.manifest"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Updater, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_BFA978CBCAC14B71ABA6FF92505D9FDC"
+                    {
+                    "Name" = "8:Updater.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\Updater.exe"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
             "Condition" = "8:"
@@ -1769,12 +1826,32 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C487BBF07BBB4101A6B7A79F583DC42E"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C04E7937C2404D1F90B20EAB5290AB6F"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\LogInfo.pdb"
-            "TargetName" = "8:LogInfo.pdb"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\File_Id.diz"
+            "TargetName" = "8:File_Id.diz"
             "Tag" = "8:"
-            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C4E32210AF8E47A4905658E8349A47A0"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\media\\logo.jpg"
+            "TargetName" = "8:logo.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_6E66B69504EC4D989AEFB7CE73BDDD3C"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1820,63 +1897,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C9D0EE54F94249418FBADD49E827FE9B"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D1212FFD02934445AAA686E33C96D6A9"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MediaPlayer, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_C9D0EE54F94249418FBADD49E827FE9B"
-                    {
-                    "Name" = "8:MediaPlayer.exe"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\MediaPlayer.exe"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\config\\play.xml"
+            "TargetName" = "8:play.xml"
             "Tag" = "8:"
-            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CF15AFF2D2274A03AD8A1363DF5DE5F2"
-            {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\iso.fmt"
-            "TargetName" = "8:iso.fmt"
-            "Tag" = "8:"
-            "Folder" = "8:_1CF2BD789B124B3DB7F53014E0B3E3EF"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CFE18617A7794F76ABDF15F7C40717B6"
-            {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\WhatsNew.txt"
-            "TargetName" = "8:WhatsNew.txt"
-            "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
+            "Folder" = "8:_512EF36967F040DB861EC546C23AD818"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1922,120 +1948,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D8B35536D76240D89B3C5184A838C258"
-            {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\7zxa.dll"
-            "TargetName" = "8:7zxa.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_1CF2BD789B124B3DB7F53014E0B3E3EF"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D92085CB18CB491C96C53D6AA42B3A6A"
-            {
-            "SourcePath" = "8:..\\ROUTER\\video.ico"
-            "TargetName" = "8:video.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E00CE6360822402B836403CD9FE0374D"
-            {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\XMLInfo.pdb"
-            "TargetName" = "8:XMLInfo.pdb"
-            "Tag" = "8:"
-            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E0593C0D8FE84345A8ACDB49D8A8F270"
-            {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Rar.exe"
-            "TargetName" = "8:Rar.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E12103F5AC754DFDBF4439A90B3BC124"
-            {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\tar.fmt"
-            "TargetName" = "8:tar.fmt"
-            "Tag" = "8:"
-            "Folder" = "8:_1CF2BD789B124B3DB7F53014E0B3E3EF"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E462AA814ECD4FFBA50E851BF7DB1504"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D1CDE966F074468284623640AB185F60"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Message, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_E462AA814ECD4FFBA50E851BF7DB1504"
+                    "_D1CDE966F074468284623640AB185F60"
                     {
-                    "Name" = "8:Message.dll"
+                    "Name" = "8:AxInterop.WMPLib.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\Message.dll"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\AxInterop.WMPLib.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
@@ -2053,12 +1979,174 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E78D607790504637B806518A9E270D54"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D341DC9170BE4BA38BF0086603F77374"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\gz.fmt"
-            "TargetName" = "8:gz.fmt"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Default.SFX"
+            "TargetName" = "8:Default.SFX"
             "Tag" = "8:"
-            "Folder" = "8:_1CF2BD789B124B3DB7F53014E0B3E3EF"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D9A5DE6D409F4924A3D82668861A83D6"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\RarExt64.dll"
+            "TargetName" = "8:RarExt64.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DB95590948654C79870D7771C22F444A"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Uninstall.lst"
+            "TargetName" = "8:Uninstall.lst"
+            "Tag" = "8:"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DD39A5F2D52C4F3FA18CB4955058AFB6"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:FTPServer, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_DD39A5F2D52C4F3FA18CB4955058AFB6"
+                    {
+                    "Name" = "8:FTPServer.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\FTP\\Build\\FTPServer.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DEEE292D51F3418D967A8A22EC697BF9"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\RarExt.dll"
+            "TargetName" = "8:RarExt.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DEEF686B984B476D92B13A008D7F9873"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\7z.fmt"
+            "TargetName" = "8:7z.fmt"
+            "Tag" = "8:"
+            "Folder" = "8:_571377EBBE994A69AA120DD3B3EB4F10"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E1084DB3B8074AC2ABC3C0242BF0D0AA"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MediaPlayer, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_E1084DB3B8074AC2ABC3C0242BF0D0AA"
+                    {
+                    "Name" = "8:MediaPlayer.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\MediaPlayer.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E6810E2F71F54E8D860778809034E582"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\XMLInfo.pdb"
+            "TargetName" = "8:XMLInfo.pdb"
+            "Tag" = "8:"
+            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2104,20 +2192,80 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EA080711A5964FEEB5330D1E57DBC0E3"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EA4C181BCA6441EE993E8434387D0A68"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\UNACEV2.DLL"
+            "TargetName" = "8:UNACEV2.DLL"
+            "Tag" = "8:"
+            "Folder" = "8:_571377EBBE994A69AA120DD3B3EB4F10"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EA99A80BDE784B188AB9CE10D74D3DEF"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\bz2.fmt"
+            "TargetName" = "8:bz2.fmt"
+            "Tag" = "8:"
+            "Folder" = "8:_571377EBBE994A69AA120DD3B3EB4F10"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EAE66E8444A742358009FB6145572149"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\gz.fmt"
+            "TargetName" = "8:gz.fmt"
+            "Tag" = "8:"
+            "Folder" = "8:_571377EBBE994A69AA120DD3B3EB4F10"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EBC9C400D2F04E1B93E909E3BE8F141C"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:XMLInfo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_EA080711A5964FEEB5330D1E57DBC0E3"
+                    "_EBC9C400D2F04E1B93E909E3BE8F141C"
                     {
-                    "Name" = "8:AxInterop.WMPLib.dll"
+                    "Name" = "8:XMLInfo.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\AxInterop.WMPLib.dll"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\XMLInfo.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
@@ -2135,12 +2283,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F2564AE0D32B48BA8A7EBF57921FF530"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F39184641D9641828414D95BC95953AC"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Default.SFX"
-            "TargetName" = "8:Default.SFX"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Rar.txt"
+            "TargetName" = "8:Rar.txt"
             "Tag" = "8:"
-            "Folder" = "8:_6EB6B6BF213E4202863CB9F1C2D36189"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2155,12 +2303,63 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FD004BBAB1654E3FB3A2E5449D2717A3"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F471B0E254B149A0B1AC2F349FEEBB3C"
             {
             "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\ace.fmt"
             "TargetName" = "8:ace.fmt"
             "Tag" = "8:"
-            "Folder" = "8:_1CF2BD789B124B3DB7F53014E0B3E3EF"
+            "Folder" = "8:_571377EBBE994A69AA120DD3B3EB4F10"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F57094ACA6584E31B34557DC272BB550"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\Updater.pdb"
+            "TargetName" = "8:Updater.pdb"
+            "Tag" = "8:"
+            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F6FBF1A3DE3743BDB8B2565B6A80A668"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Router, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_F6FBF1A3DE3743BDB8B2565B6A80A668"
+                    {
+                    "Name" = "8:Router.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\ROUTER\\bin\\Release\\Router.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2206,6 +2405,46 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FE53C968AA1748DE9FC51D0A94A644F4"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Order.htm"
+            "TargetName" = "8:Order.htm"
+            "Tag" = "8:"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FF6154FCB42F475C8D8207C0478EF098"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\RarExtLoader.exe"
+            "TargetName" = "8:RarExtLoader.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -2232,6 +2471,17 @@
             "Property" = "8:DesktopFolder"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_1D6FBA5AF6B14876B4A8CF9AF25167C6"
+                    {
+                    "Name" = "8:媒体文件上传"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_C8DF2CE1BF194E4191DC2E9DAF489CBA"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
@@ -2244,59 +2494,70 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_1EB29B908D7A4931BDAB19B761B72C25"
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_19694E13FC764E32A17E60C11C60F347"
                     {
                     "Name" = "8:log"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
-                    "Property" = "8:_E9E0B186A71F4C439470DFAE445712CC"
+                    "Property" = "8:_5D2D2AB632464CB18135727E1F6EEAF0"
                         "Folders"
                         {
                         }
                     }
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_5C5711CAE79F491F9C46F62B7449E830"
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_512EF36967F040DB861EC546C23AD818"
                     {
-                    "Name" = "8:media"
+                    "Name" = "8:config"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
-                    "Property" = "8:_7D6A3034C72341B5B5DFBAC8F555E1A2"
+                    "Property" = "8:_1EC2C94D7C0646358BD1A95FFF6B4B83"
                         "Folders"
                         {
                         }
                     }
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_6EB6B6BF213E4202863CB9F1C2D36189"
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_6D7310648F8C46638B7A2FF505F70C45"
                     {
                     "Name" = "8:rar"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
-                    "Property" = "8:_86C8E3C1080A45508B6272436188F43B"
+                    "Property" = "8:_80A157C87EB141589A75CE7C06D3995B"
                         "Folders"
                         {
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_1CF2BD789B124B3DB7F53014E0B3E3EF"
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_571377EBBE994A69AA120DD3B3EB4F10"
                             {
                             "Name" = "8:Formats"
                             "AlwaysCreate" = "11:FALSE"
                             "Condition" = "8:"
                             "Transitive" = "11:FALSE"
-                            "Property" = "8:_8751540B02F542D68CBFC22D63397D04"
+                            "Property" = "8:_3EF0665B18B348BB8ACB44FB25F27075"
                                 "Folders"
                                 {
                                 }
                             }
                         }
                     }
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_7318A3C4078A4A88B56CD752E856787D"
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_6E66B69504EC4D989AEFB7CE73BDDD3C"
                     {
-                    "Name" = "8:config"
+                    "Name" = "8:media"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
-                    "Property" = "8:_71ED2A5526474C3D892BFE1DD0EF3231"
+                    "Property" = "8:_7D6DDA755C2142648D46D5ED1C4D1621"
                         "Folders"
                         {
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_46C96F79266C410EB5BB9E2A27FB579F"
+                            {
+                            "Name" = "8:media_files"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_8329335E37DA4080A3017874AC0CC001"
+                                "Folders"
+                                {
+                                }
+                            }
                         }
                     }
                 }
@@ -2437,7 +2698,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_278230417586487394F9D38E70700E42"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_3C2366C545944186AEB45A21671C137F"
             {
             "Name" = "8:AdPlayer"
             "Arguments" = "8:"
@@ -2445,24 +2706,24 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_19D382A42FD346C69CC81DACB2FF884D"
-            "Folder" = "8:_ABDC44E339D74C6C89FF108950B0753B"
-            "WorkingFolder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
-            "Icon" = "8:_D92085CB18CB491C96C53D6AA42B3A6A"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C8469B9F75BF4778A7F1F0A169D2165F"
-            {
-            "Name" = "8:AdPlayer"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_19D382A42FD346C69CC81DACB2FF884D"
+            "Target" = "8:_F6FBF1A3DE3743BDB8B2565B6A80A668"
             "Folder" = "8:_71DA9BD5499540F9A5F326A538A4D2BE"
             "WorkingFolder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
-            "Icon" = "8:_D92085CB18CB491C96C53D6AA42B3A6A"
+            "Icon" = "8:_958D70FC521B4996BB93E33860DEF791"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_49684965EBC1430EB1D9139F66F941B4"
+            {
+            "Name" = "8:AdPlayer"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_F6FBF1A3DE3743BDB8B2565B6A80A668"
+            "Folder" = "8:_ABDC44E339D74C6C89FF108950B0753B"
+            "WorkingFolder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
+            "Icon" = "8:_958D70FC521B4996BB93E33860DEF791"
             "Feature" = "8:"
             }
         }

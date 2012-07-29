@@ -25,10 +25,10 @@ namespace FTP
 
             try
             {
-                if (!Directory.Exists(ApplicationSettings.DataPath + "Logs\\"))
-                    Directory.CreateDirectory(ApplicationSettings.DataPath + "Logs\\");
+                if (!Directory.Exists(ApplicationSettings.DataPath + "log\\"))
+                    Directory.CreateDirectory(ApplicationSettings.DataPath + "log\\");
 
-                LogFilePath = ApplicationSettings.DataPath + "Logs\\LOG." + DateTime.Today.ToString("yyyy-MM-dd") + ".EXCEPTION";
+                LogFilePath = ApplicationSettings.DataPath + "log\\LOG." + DateTime.Today.ToString("yyyy-MM-dd") + ".EXCEPTION";
 
                 LogStream = new FileStream(LogFilePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.Read);
                 Log = new StreamWriter(LogStream, Encoding.UTF8);
