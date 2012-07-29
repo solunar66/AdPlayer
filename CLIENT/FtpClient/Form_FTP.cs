@@ -283,7 +283,16 @@ namespace FtpClient
             {
                 file = tvFiles.Nodes[i].Text;
                 if (file.Substring(2, 1) == "_" && int.TryParse(file.Substring(0, 2), out numb))
-                    continue;
+                {
+                    if (numb == i + 1) continue;
+                    else
+                    {
+                        index = i < 10 ? "0" + (i + 1).ToString() : (i + 1).ToString();
+                        ftpClient.RenameFile(file, index + "_" + file.Substring(3), true);
+                        tvFiles.Nodes.RemoveAt(i);
+                        tvFiles.Nodes.Insert(i, index + "_" + file.Substring(3));
+                    }
+                }
                 else
                 {
                     index = i < 10 ? "0" + (i + 1).ToString() : (i + 1).ToString();

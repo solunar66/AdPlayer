@@ -283,7 +283,7 @@ namespace PLAY
             }
 
             int index;
-            //Msg.ShutMonitor(-1);
+            Msg.ShutMonitor(-1);
 
             if (config.intermedia.enable && interPlay)
             {
