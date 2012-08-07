@@ -57,6 +57,7 @@ namespace FtpClient
             catch (Exception ex)
             {
                 label_status.Text = "FTP服务器连接错误！Error: " + ex.Message;
+                return;
             }
 
             tvFiles.Nodes.Clear();

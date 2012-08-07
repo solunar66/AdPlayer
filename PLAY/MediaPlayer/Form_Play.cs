@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Runtime.InteropServices; 
 using PPT;
 using MSG;
 using XML;
@@ -76,7 +77,7 @@ namespace PLAY
                     {
                         comboBox_scr.Items.Add(scr[i].DeviceName);
                     }
-                    if (config.scr <= scr.Length) comboBox_scr.SelectedIndex = config.scr - 1;
+                    if (config.scr < scr.Length) comboBox_scr.SelectedIndex = config.scr;
                 }
 
                 comboBox_idle.Items.Add(ContentType.video);
@@ -96,7 +97,13 @@ namespace PLAY
                 numericUpDown_duration.Value = config.intermedia.duration;
 
                 hook = new Hook();
+                this.MouseWheel += new MouseEventHandler(Form_Play_MouseWheel);
             }
+        }
+
+        private void Form_Play_MouseWheel(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+
         }
 
         // 字幕滚动
@@ -229,6 +236,7 @@ namespace PLAY
             axWindowsMediaPlayer1.Ctlcontrols.play();
 
             if (config.intermedia.contents.Count == 0) config.intermedia.enable = false;
+            interPlay = false;
             CheckPlayList();
             DoPlay();
         }
@@ -283,7 +291,7 @@ namespace PLAY
             }
 
             int index;
-            Msg.ShutMonitor(-1);
+            //Msg.ShutMonitor(-1);
 
             if (config.intermedia.enable && interPlay)
             {
@@ -346,7 +354,9 @@ namespace PLAY
         private void PlayVideo()
         {
             axWindowsMediaPlayer1.URL = content.file.IndexOf(":") == -1 ? curDir + "\\" + content.file : content.file;
-            axWindowsMediaPlayer1.Ctlcontrols.play();
+            int duration = GetVideoDuration(axWindowsMediaPlayer1.URL);
+            if (interPlay && duration > config.intermedia.limit) axWindowsMediaPlayer1.Ctlcontrols.stop();
+            else axWindowsMediaPlayer1.Ctlcontrols.play();
         }
 
         // 播放PPT
@@ -555,7 +565,7 @@ namespace PLAY
 
         private void comboBox_scr_SelectedIndexChanged(object sender, EventArgs e)
         {
-            xml.Update("screen", "index", (comboBox_scr.SelectedIndex + 1).ToString());
+            xml.Update("screen", "index", comboBox_scr.SelectedIndex.ToString());
         }
 
         private void button_idle_Click(object sender, EventArgs e)
@@ -670,6 +680,64 @@ namespace PLAY
                 Color.FromKnownColor(System.Drawing.KnownColor.InactiveCaption);
 
             xml.Update("sleep", "enable", checkBox_sleep.Checked ? "1" : "0");
+        }
+
+        // return the seconds of duration
+        private int GetVideoDuration(string sourceFile)
+        {
+            using (System.Diagnostics.Process ffmpeg = new System.Diagnostics.Process())
+            {
+                String duration;  // soon will hold our video's duration in the form "HH:MM:SS.UU"
+                String result;  // temp variable holding a string representation of our video's duration
+                StreamReader errorreader;  // StringWriter to hold output from ffmpeg
+
+                // we want to execute the process without opening a shell
+                ffmpeg.StartInfo.UseShellExecute = false;
+                //ffmpeg.StartInfo.ErrorDialog = false;
+                ffmpeg.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                // redirect StandardError so we can parse it
+                // for some reason the output comes through over StandardError
+                ffmpeg.StartInfo.RedirectStandardError = true;
+
+                // set the file name of our process, including the full path
+                // (as well as quotes, as if you were calling it from the command-line)
+                ffmpeg.StartInfo.FileName = @"ffmpeg.exe";
+
+                // set the command-line arguments of our process, including full paths of any files
+                // (as well as quotes, as if you were passing these arguments on the command-line)
+                ffmpeg.StartInfo.Arguments = "-i \"" + sourceFile + "\"";
+
+                // hide the cmd window
+                ffmpeg.StartInfo.CreateNoWindow = true;
+
+                // start the process
+                ffmpeg.Start();
+
+                // now that the process is started, we can redirect output to the StreamReader we defined
+                errorreader = ffmpeg.StandardError;
+
+                // wait until ffmpeg comes back
+                ffmpeg.WaitForExit();
+
+                // read the output from ffmpeg, which for some reason is found in Process.StandardError
+                result = errorreader.ReadToEnd();
+
+                // a little convoluded, this string manipulation...
+                // working from the inside out, it:
+                // takes a substring of result, starting from the end of the "Duration: " label contained within,
+                // (execute "ffmpeg.exe -i somevideofile" on the command-line to verify for yourself that it is there)
+                // and going the full length of the timestamp
+
+                duration = result.Substring(result.IndexOf("Duration: ") + ("Duration: ").Length, ("00:00:00").Length);
+
+                try
+                {
+                    string[] d = duration.Split(':');
+                    return int.Parse(d[0]) * 3600 + int.Parse(d[1]) * 60 + int.Parse(d[2]);
+
+                }
+                catch { return -1; }
+            }
         }
     }
 }

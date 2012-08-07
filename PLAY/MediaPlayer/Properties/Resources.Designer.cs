@@ -60,13 +60,6 @@ namespace PLAY.Properties {
             }
         }
         
-        internal static System.Drawing.Icon video {
-            get {
-                object obj = ResourceManager.GetObject("video", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap 无标题 {
             get {
                 object obj = ResourceManager.GetObject("无标题", resourceCulture);

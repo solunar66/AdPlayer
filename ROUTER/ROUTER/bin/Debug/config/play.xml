@@ -2,9 +2,9 @@
 <system>
   <screen index="1" />
   <idle type="video" src="media\logo.jpg" duration="1" />
-  <sleep enable="0" starttime="3:18:00" endtime="6:00:00" />
+  <sleep enable="0" starttime="0:20:00" endtime="0:21:00" />
   <notice fontname="SimHei" color="Red" bgcolor="Yellow" size="18" bold="1" speed="100" />
-  <intermedia enable="1" limit="300" duration="1" root="C:\interMedia" />
+  <intermedia enable="1" limit="200" duration="1" root="C:\interMedia" />
   <period startdate="2012/1/1" enddate="2012/12/31" mon="1" tue="1" wed="1" thu="1" fri="1" sat="1" sun="1">
     <time starttime="0:00:00" endtime="23:59:59" mode="sequencial">
       <item type="dir" src="media\media_files" duration="1" />
