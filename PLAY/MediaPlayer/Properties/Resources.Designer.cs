@@ -60,9 +60,9 @@ namespace PLAY.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap 无标题 {
+        internal static System.Drawing.Bitmap logo {
             get {
-                object obj = ResourceManager.GetObject("无标题", resourceCulture);
+                object obj = ResourceManager.GetObject("logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -79,7 +79,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::PLAY.Properties.Resources.无标题;
+            this.pictureBox1.BackgroundImage = global::PLAY.Properties.Resources.logo;
+            this.pictureBox1.ErrorImage = global::PLAY.Properties.Resources.logo;
+            this.pictureBox1.InitialImage = global::PLAY.Properties.Resources.logo;
             this.pictureBox1.Location = new System.Drawing.Point(17, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(428, 103);
