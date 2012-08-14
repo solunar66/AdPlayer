@@ -18,7 +18,7 @@ namespace MSG
         private const int POWER_OFF = 2;
         private const int POWER_SAVING = 1;
         private const int POWER_ON = -1;
-        //广播消息，所有顶级窗体都会接收
+        // 广播消息，所有顶级窗体都会接收
         private static readonly IntPtr HWND_BROADCAST = new IntPtr(0xffff);
 
         // WM_USER = 0x0400;
@@ -35,6 +35,10 @@ namespace MSG
         public const int INT_MSG_Window = USER + 5;
 
         public const int INT_MSG_Ftp = USER + 6;
+        
+        // 播放ppt显示隐藏主窗口
+        public const int PPT_ON = USER + 7;
+        public const int PPT_OFF = USER + 8;
 
         public struct myParam
         {

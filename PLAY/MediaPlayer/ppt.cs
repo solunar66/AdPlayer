@@ -69,7 +69,10 @@ namespace PPT
                 
                 hook.Hook_Clear();
                 hook.Hook_Start();
-                
+
+                //IntPtr ptr = Msg.FindWindow(null, "广告播放系统");
+                //if (IntPtr.Zero == ptr) return;
+                //Msg.PostMessage(ptr, Msg.PPT_ON, 1, ref tmp);//发送消息
                 objSSS.Run();
             }
             catch
@@ -138,6 +141,10 @@ namespace PPT
                 System.Threading.Thread.Sleep(iSlideShowTime * 1000);
                 //清零
                 iSlideIndex = 0;
+
+                //IntPtr ptr = Msg.FindWindow(null, "广告播放系统");
+                //if (IntPtr.Zero == ptr) return;
+                //Msg.PostMessage(ptr, Msg.PPT_OFF, 1, ref tmp);//发送消息
 
                 PPTClose();
                 hook.Hook_Clear();

@@ -217,6 +217,7 @@ namespace FTP
             this.TrayIcon.ContextMenuStrip = this.TrayContext;
             this.TrayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("TrayIcon.Icon")));
             this.TrayIcon.Text = "Advanced FTP Server";
+            this.TrayIcon.Visible = true;
             // 
             // frmMain
             // 

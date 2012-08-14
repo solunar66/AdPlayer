@@ -4,9 +4,9 @@
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
 "ProjectName" = "8:AdPlayer"
-"LanguageId" = "3:1033"
-"CodePage" = "3:1252"
-"UILanguageId" = "3:1033"
+"LanguageId" = "3:2052"
+"CodePage" = "3:936"
+"UILanguageId" = "3:2052"
 "SccProjectName" = "8:"
 "SccLocalPath" = "8:"
 "SccAuxPath" = "8:"
@@ -34,6 +34,12 @@
         "Entry"
         {
         "MsmKey" = "8:_1683379CF59D4D8998A0D3A132630076"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1C4B047DE89F4CFEAB169FA4C54FD7FC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -171,6 +177,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_46DB71E263B94CA78B73E85133851E07"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_47244B03ADC84242AC905CC0540CE7B8"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -243,12 +255,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_6EFE4C1AD56F4582842D143CC5068205"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_6F111E62A3B24CEEBD2EFD28EB378712"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -256,6 +262,12 @@
         "Entry"
         {
         "MsmKey" = "8:_731634E986B846FDBD014D06F125642D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_76B4A7B8C1AE414A81D8768AAC9CDC28"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -315,13 +327,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_97768D8B11A441599B4D3A210893C9BF"
+        "MsmKey" = "8:_8E03FF74ADAF4B9799D75FEC4DDD344A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9F47E2292F4B46AFB24E1DE5C3405E35"
+        "MsmKey" = "8:_97768D8B11A441599B4D3A210893C9BF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -418,6 +430,12 @@
         "Entry"
         {
         "MsmKey" = "8:_DD39A5F2D52C4F3FA18CB4955058AFB6"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DEE0D6C9386D4DE7A2CD92C134AE3BBB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -544,12 +562,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9F47E2292F4B46AFB24E1DE5C3405E35"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_FD7281CD493952DC1D5E9D3D6A3DBF18"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -670,6 +682,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1C4B047DE89F4CFEAB169FA4C54FD7FC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_0DD4F71FC94747F18F8ED3E2C0771750"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -775,7 +793,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "Version" = "8:3.5.21022"
+                "Version" = "8:2.0.50727"
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=76617"
                 }
@@ -860,6 +878,37 @@
             "TargetName" = "8:WinCon.SFX"
             "Tag" = "8:"
             "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1C4B047DE89F4CFEAB169FA4C54FD7FC"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:FtpClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_1C4B047DE89F4CFEAB169FA4C54FD7FC"
+                    {
+                    "Name" = "8:FtpClient.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\CLIENT\\FtpClient\\bin\\Release\\FtpClient.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_1D6FBA5AF6B14876B4A8CF9AF25167C6"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1258,6 +1307,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_46DB71E263B94CA78B73E85133851E07"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\ffmpeg.exe"
+            "TargetName" = "8:ffmpeg.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_47244B03ADC84242AC905CC0540CE7B8"
             {
             "AssemblyRegister" = "3:1"
@@ -1522,26 +1591,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6EFE4C1AD56F4582842D143CC5068205"
-            {
-            "SourcePath" = "8:..\\..\\CLIENT\\FtpClient\\bin\\Debug\\config.ini"
-            "TargetName" = "8:config.ini"
-            "Tag" = "8:"
-            "Folder" = "8:_1D6FBA5AF6B14876B4A8CF9AF25167C6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6F111E62A3B24CEEBD2EFD28EB378712"
             {
             "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\Formats\\7zxa.dll"
@@ -1566,6 +1615,26 @@
             {
             "SourcePath" = "8:..\\ROUTER\\bin\\Release\\Message.pdb"
             "TargetName" = "8:Message.pdb"
+            "Tag" = "8:"
+            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_76B4A7B8C1AE414A81D8768AAC9CDC28"
+            {
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\manual.docx"
+            "TargetName" = "8:manual.docx"
             "Tag" = "8:"
             "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
             "Condition" = "8:"
@@ -1713,12 +1782,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_97768D8B11A441599B4D3A210893C9BF"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8E03FF74ADAF4B9799D75FEC4DDD344A"
             {
-            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\WhatsNew.txt"
-            "TargetName" = "8:WhatsNew.txt"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\Settings.dat"
+            "TargetName" = "8:Settings.dat"
             "Tag" = "8:"
-            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
+            "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1733,23 +1802,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9F47E2292F4B46AFB24E1DE5C3405E35"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_97768D8B11A441599B4D3A210893C9BF"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:FtpClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_9F47E2292F4B46AFB24E1DE5C3405E35"
-                    {
-                    "Name" = "8:FtpClient.exe"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\CLIENT\\FtpClient\\bin\\Release\\FtpClient.exe"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\ROUTER\\bin\\Debug\\rar\\WhatsNew.txt"
+            "TargetName" = "8:WhatsNew.txt"
             "Tag" = "8:"
-            "Folder" = "8:_1D6FBA5AF6B14876B4A8CF9AF25167C6"
+            "Folder" = "8:_6D7310648F8C46638B7A2FF505F70C45"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2056,6 +2114,26 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BF90F72E6DDD41B197DCB6E6CD12C6AA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DEE0D6C9386D4DE7A2CD92C134AE3BBB"
+            {
+            "SourcePath" = "8:..\\..\\CLIENT\\FtpClient\\bin\\Debug\\config.ini"
+            "TargetName" = "8:config.ini"
+            "Tag" = "8:"
+            "Folder" = "8:_1D6FBA5AF6B14876B4A8CF9AF25167C6"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2474,7 +2552,7 @@
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_1D6FBA5AF6B14876B4A8CF9AF25167C6"
                     {
                     "Name" = "8:媒体文件上传"
-                    "AlwaysCreate" = "11:FALSE"
+                    "AlwaysCreate" = "11:TRUE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
                     "Property" = "8:_C8DF2CE1BF194E4191DC2E9DAF489CBA"
@@ -2550,7 +2628,7 @@
                             "{9EF0B969-E518-4E46-987F-47570745A589}:_46C96F79266C410EB5BB9E2A27FB579F"
                             {
                             "Name" = "8:media_files"
-                            "AlwaysCreate" = "11:FALSE"
+                            "AlwaysCreate" = "11:TRUE"
                             "Condition" = "8:"
                             "Transitive" = "11:FALSE"
                             "Property" = "8:_8329335E37DA4080A3017874AC0CC001"
@@ -2571,7 +2649,7 @@
         }
         "MsiBootstrapper"
         {
-        "LangId" = "3:1033"
+        "LangId" = "3:2052"
         "RequiresElevation" = "11:FALSE"
         }
         "Product"
@@ -2579,7 +2657,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AdPlayer"
         "ProductCode" = "8:{6B4C2EBF-0B88-4C3E-A019-1772F0448C8C}"
-        "PackageCode" = "8:{E3944BA6-2BF3-422A-A0BF-D6F0DB2F872F}"
+        "PackageCode" = "8:{61414A2B-6D0B-420B-9D2D-15E1F9DD77C9}"
         "UpgradeCode" = "8:{9F783FDD-F50E-4B4C-BA0F-40D62386106F}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"

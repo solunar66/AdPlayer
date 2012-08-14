@@ -24,7 +24,7 @@ namespace PLAY
 
         private string curDir = System.IO.Directory.GetCurrentDirectory().ToString();
 
-        private XMLInfo xml = new XMLInfo(@"config\play.xml");
+        private XMLInfo xml;
 
         private LogInfo log = LogInfo.GetInstance;
 
@@ -51,6 +51,7 @@ namespace PLAY
             InitializeComponent();
 
             this.Text = "广告播放系统";
+            xml = new XMLInfo(Directory.GetCurrentDirectory() + "\\config\\play.xml");
 
             // 读取配置
             if (!xml.ReadPlayConfig(out config))
@@ -172,6 +173,13 @@ namespace PLAY
                         }
                         break;
 
+                    //case Msg.PPT_ON:
+                    //    this.Hide();
+                    //    break;
+                    //case Msg.PPT_OFF:
+                    //    this.Show();
+                    //    break;
+
                     default:
                         break;
                 }
@@ -192,6 +200,7 @@ namespace PLAY
             {
                 hook.Hook_Clear();
                 Cursor.Show();
+                this.Show();
                 this.FormBorderStyle = FormBorderStyle.FixedSingle;
                 this.WindowState = FormWindowState.Normal;
                 axWindowsMediaPlayer1.Dock = DockStyle.None;
@@ -233,7 +242,7 @@ namespace PLAY
                 this.Location = scr[config.scr].WorkingArea.Location;
             }
 
-            axWindowsMediaPlayer1.Ctlcontrols.play();
+            //axWindowsMediaPlayer1.Ctlcontrols.play();
 
             if (config.intermedia.contents.Count == 0) config.intermedia.enable = false;
             interPlay = false;
@@ -711,7 +720,7 @@ namespace PLAY
                 ffmpeg.StartInfo.CreateNoWindow = true;
 
                 // start the process
-                ffmpeg.Start();
+                ffmpeg.Start(); 
 
                 // now that the process is started, we can redirect output to the StreamReader we defined
                 errorreader = ffmpeg.StandardError;
