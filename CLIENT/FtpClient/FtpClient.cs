@@ -55,6 +55,9 @@ namespace FtpClient
 
 		private int timeoutSeconds = 10;
 
+        public delegate void ShowProgressDelegate(int currentStep);
+        public ShowProgressDelegate showProgress = null;
+
 		/// <summary>
 		/// Default contructor
 		/// </summary>
@@ -503,7 +506,7 @@ namespace FtpClient
 		/// <param name="fileName"></param>
 		public void Upload(string fileName)
 		{
-			this.Upload(fileName,false);
+			this.Upload(fileName, false);
 		}
 
 		
@@ -518,6 +521,7 @@ namespace FtpClient
 
 			Socket cSocket = null;
 			long offset = 0;
+            long sent = 0;
 
 			if ( resume )
 			{
@@ -579,8 +583,13 @@ namespace FtpClient
 
 			while ((bytes = input.Read(buffer,0,buffer.Length)) > 0)
 			{
-                cSocket.Send(buffer, bytes, 0);
+                sent += cSocket.Send(buffer, bytes, 0);
+                if (showProgress != null)
+                {
+                    showProgress.Invoke((int)(sent * 100 / input.Length));
+                }
 			}
+            if (showProgress != null) showProgress.Invoke(100);
 			
 			input.Close();
 
