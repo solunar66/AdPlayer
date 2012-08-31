@@ -57,7 +57,7 @@ namespace UPD
                 if (drive.DriveType == DriveType.Removable)
                 {
                     LogUpdate("检测到U盘插入...");
-                    FileInfo file = new FileInfo(drive.Name + @"\update.zip");
+                    FileInfo file = new FileInfo(drive.Name + updatefile);
                     if (file.Exists)
                     {
                         LogUpdate("检测到升级文件: " + drive.Name + updatefile);

@@ -38,6 +38,7 @@ namespace PLAY
         private bool monitorON = true;
         private bool interPlay = false;
 
+        OperatePPT ppt = new OperatePPT();
         private Hook hook;
 
         private WMPLib.WMPPlayState prev_state;
@@ -51,12 +52,13 @@ namespace PLAY
             InitializeComponent();
 
             this.Text = "广告播放系统";
+            this.axFramerControl1.Location = new Point(-500, -500);
             xml = new XMLInfo(Directory.GetCurrentDirectory() + "\\config\\play.xml");
 
             // 读取配置
             if (!xml.ReadPlayConfig(out config))
             {
-                MessageBox.Show("没有检测到配置文件！\n\n请将正确的配置文件\"play.xml\"放入程序目录的\"config\"文件夹下", "启动异常", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("没有检测到正确的配置文件！\n\n请将检查配置文件\"config\\play.xml\"", "启动异常", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 this.Close();
             }
             else
@@ -67,7 +69,7 @@ namespace PLAY
                 axWindowsMediaPlayer1.uiMode = "none";
                 axWindowsMediaPlayer1.stretchToFit = true;
                 axWindowsMediaPlayer1.Ctlenabled = true;
-                axWindowsMediaPlayer1.settings.setMode("loop", true);// 循环
+                axWindowsMediaPlayer1.settings.setMode("loop", false);// 循环
 
                 Screen[] scr = Screen.AllScreens;
                 if (scr.Length > 1)
@@ -246,7 +248,9 @@ namespace PLAY
 
             if (config.intermedia.contents.Count == 0) config.intermedia.enable = false;
             interPlay = false;
-            CheckPlayList();
+            //CheckPlayList();
+
+            lastPlay = new Content();
             DoPlay();
         }
 
@@ -300,9 +304,10 @@ namespace PLAY
             }
 
             int index;
-            //Msg.ShutMonitor(-1);
+            // prevent screen powersave
+            Msg.ShutMonitor(-1);
 
-            if (config.intermedia.enable && interPlay)
+            if (config.intermedia.enable && interPlay && config.intermedia.contents != null && config.intermedia.contents.Count > 0)
             {
                 index = config.intermedia.contents.IndexOf(lastInter);
                 if (index == config.intermedia.contents.Count - 1) content = config.intermedia.contents[0];
@@ -326,8 +331,8 @@ namespace PLAY
                         break;
                     case PlayMode.sequencial:
                         index = playlist.IndexOf(lastPlay);
-                        if (index == playlist.Count - 1) content = playlist[0];
-                        else content = playlist[index + 1];
+                        if (index == playlist.Count - 1) { content = playlist[0]; }
+                        else { content = playlist[index + 1]; }
                         break;
                     default:
                         break;
@@ -364,22 +369,24 @@ namespace PLAY
         {
             axWindowsMediaPlayer1.URL = content.file.IndexOf(":") == -1 ? curDir + "\\" + content.file : content.file;
             int duration = GetVideoDuration(axWindowsMediaPlayer1.URL);
-            if (interPlay && duration > config.intermedia.limit) axWindowsMediaPlayer1.Ctlcontrols.stop();
+            // 启用插播，并且当前内容为插播内容时，检测时长限制
+            if (interPlay && config.intermedia.contents.IndexOf(content) != -1 && (duration > config.intermedia.limit)) axWindowsMediaPlayer1.Ctlcontrols.stop();
             else axWindowsMediaPlayer1.Ctlcontrols.play();
         }
 
         // 播放PPT
         private void PlayPPT()
         {
-            OperatePPT ppt = new OperatePPT();
             string pathfile = content.file.IndexOf(":") == -1 ? curDir + "\\" + content.file : content.file;
+            axFramerControl1.Open(pathfile);
+            axFramerControl1.BringToFront();
             if (numericUpDown1.Enabled)
             {
-                ppt.PPTAuto(pathfile, int.Parse(numericUpDown1.Value.ToString()));
+                ppt.PPTAuto(axFramerControl1.ActiveDocument, int.Parse(numericUpDown1.Value.ToString()));
             }
             else
             {
-                ppt.PPTAuto(pathfile, content.duration);
+                ppt.PPTAuto(axFramerControl1.ActiveDocument, content.duration);
             }
             LogPlay("当前文件:\"" + pathfile + "\"" + ", 播放状态:PowerPoint放映中");
         }

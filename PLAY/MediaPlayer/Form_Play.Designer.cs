@@ -76,12 +76,13 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.button_Exit = new System.Windows.Forms.Button();
             this.button_Play = new System.Windows.Forms.Button();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.timer_monitor = new System.Windows.Forms.Timer(this.components);
             this.button_help = new System.Windows.Forms.Button();
             this.button_about = new System.Windows.Forms.Button();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.axFramerControl1 = new AxDSOFramer.AxFramerControl();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_duration)).BeginInit();
@@ -96,6 +97,7 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axFramerControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // label_title
@@ -631,16 +633,6 @@
             this.button_Play.UseVisualStyleBackColor = true;
             this.button_Play.Click += new System.EventHandler(this.Play_Click);
             // 
-            // axWindowsMediaPlayer1
-            // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(3, 3);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(505, 529);
-            this.axWindowsMediaPlayer1.TabIndex = 0;
-            this.axWindowsMediaPlayer1.MouseDownEvent += new AxWMPLib._WMPOCXEvents_MouseDownEventHandler(this.axWindowsMediaPlayer1_MouseDownEvent);
-            // 
             // fontDialog1
             // 
             this.fontDialog1.ShowColor = true;
@@ -658,7 +650,7 @@
             this.button_help.Name = "button_help";
             this.button_help.Size = new System.Drawing.Size(120, 22);
             this.button_help.TabIndex = 7;
-            this.button_help.Text = "帮助";
+            this.button_help.Text = "帮 助";
             this.button_help.UseVisualStyleBackColor = true;
             this.button_help.Click += new System.EventHandler(this.button_help_Click);
             // 
@@ -669,20 +661,40 @@
             this.button_about.Name = "button_about";
             this.button_about.Size = new System.Drawing.Size(120, 22);
             this.button_about.TabIndex = 7;
-            this.button_about.Text = "关于";
+            this.button_about.Text = "关 于";
             this.button_about.UseVisualStyleBackColor = true;
             this.button_about.Click += new System.EventHandler(this.button_about_Click);
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(12, 3);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(496, 529);
+            this.axWindowsMediaPlayer1.TabIndex = 8;
+            this.axWindowsMediaPlayer1.MouseDownEvent += new AxWMPLib._WMPOCXEvents_MouseDownEventHandler(this.axWindowsMediaPlayer1_MouseDownEvent);
+            // 
+            // axFramerControl1
+            // 
+            this.axFramerControl1.Enabled = true;
+            this.axFramerControl1.Location = new System.Drawing.Point(0, 0);
+            this.axFramerControl1.Name = "axFramerControl1";
+            this.axFramerControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axFramerControl1.OcxState")));
+            this.axFramerControl1.Size = new System.Drawing.Size(75, 23);
+            this.axFramerControl1.TabIndex = 9;
             // 
             // Form_Play
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 572);
+            this.Controls.Add(this.axFramerControl1);
+            this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.button_about);
             this.Controls.Add(this.button_help);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label_title);
-            this.Controls.Add(this.axWindowsMediaPlayer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -708,6 +720,7 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axFramerControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -715,7 +728,6 @@
 
         #endregion
 
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.Timer timer_title;
         private System.Windows.Forms.Label label_title;
         private System.Windows.Forms.Panel panel1;
@@ -767,6 +779,8 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.NumericUpDown numericUpDown_duration;
         private System.Windows.Forms.CheckBox checkBox_sleep;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+        private AxDSOFramer.AxFramerControl axFramerControl1;
     }
 }
 

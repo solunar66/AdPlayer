@@ -14,12 +14,10 @@ namespace PPT
         #region=========基本的参数信息=======
         POWERPOINT.Application objApp = null;
         POWERPOINT.Presentation objPresSet = null;
-        //POWERPOINT.SlideShowWindows objSSWs;
         POWERPOINT.SlideShowTransition objSST;
         POWERPOINT.SlideShowSettings objSSS;
         POWERPOINT.SlideRange objSldRng;
 
-        bool bAssistantOn;
         int iSlideIndex = 0;
         int iSlideShowTime = 0;
         Hook hook;
@@ -36,31 +34,29 @@ namespace PPT
         /// <summary>
         /// 自动播放PPT文档.
         /// </summary>
-        /// <param name="filePath">PPTy文件路径.</param>
+        /// <param name="filePath">PPT文件路径.</param>
         /// <param name="playTime">翻页的时间间隔.【以秒为单位】</param>
-        public void PPTAuto(string filePath, int playTime)
+        public void PPTAuto(object presSet, int playTime)
         {
             iSlideShowTime = playTime;
+            objPresSet = (POWERPOINT.Presentation)presSet;
+            objApp = objPresSet.Application;
             try
             {
-                //防止连续打开多个PPT程序.
-                if (this.objApp != null) return;
-                objApp = new POWERPOINT.Application();
-                objPresSet = objApp.Presentations.Open(filePath, OFFICECORE.MsoTriState.msoCTrue, OFFICECORE.MsoTriState.msoFalse, OFFICECORE.MsoTriState.msoFalse);
                 // 自动播放的代码（开始）
                 int Slides = objPresSet.Slides.Count;
                 int[] SlideIdx = new int[Slides];
                 for (int i = 0; i < Slides; i++) { SlideIdx[i] = i + 1; };
                 objSldRng = objPresSet.Slides.Range(SlideIdx);
                 objSST = objSldRng.SlideShowTransition;
+                //关闭助手显示
+                objApp.Assistant.On = false;
+                objApp.Assistant.Visible = false;
                 //设置翻页的时间.
                 objSST.AdvanceOnTime = OFFICECORE.MsoTriState.msoCTrue;
                 objSST.AdvanceTime = playTime;
                 //翻页时的特效!
                 objSST.EntryEffect = POWERPOINT.PpEntryEffect.ppEffectCircleOut;
-                //Prevent Office Assistant from displaying alert messages:
-                bAssistantOn = objApp.Assistant.On;
-                objApp.Assistant.On = false;
                 //Run the Slide show from slides 1 thru 3.
                 objSSS = objPresSet.SlideShowSettings;
                 objSSS.StartingSlide = 1;
@@ -70,15 +66,11 @@ namespace PPT
                 hook.Hook_Clear();
                 hook.Hook_Start();
 
-                //IntPtr ptr = Msg.FindWindow(null, "广告播放系统");
-                //if (IntPtr.Zero == ptr) return;
-                //Msg.PostMessage(ptr, Msg.PPT_ON, 1, ref tmp);//发送消息
                 objSSS.Run();
             }
             catch
             {
                 hook.Hook_Clear();
-                this.objApp.Quit();
             }
         }
 
@@ -90,19 +82,10 @@ namespace PPT
             //装备PPT程序。
             if (this.objPresSet != null)
             {
-                //判断是否退出程序,可以不使用。
-                //objSSWs = objApp.SlideShowWindows;
-                //if (objSSWs.Count >= 1)
-                //{
-                //if (MessageBox.Show("是否保存修改的笔迹!", "提示", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
-                //    this.objPresSet.Save();
-                //}
                 this.objPresSet.Close();
             }
             if (this.objApp != null)
-                //    this.objApp.Quit();
-                //GC.Collect();
-
+            {
                 try
                 {
                     Process[] thisproc = Process.GetProcessesByName("POWERPNT");
@@ -126,6 +109,7 @@ namespace PPT
                 {
                     //Console.WriteLine("结束进程{0}出错！", processName);
                 }
+            }
         }
 
         /// <summary>
@@ -135,6 +119,8 @@ namespace PPT
         private void objApp_SlideShowNextSlide(POWERPOINT.SlideShowWindow Wn)
         {
             iSlideIndex++;
+            objApp.Assistant.Visible = false;
+            
             if (iSlideIndex == Wn.Presentation.Slides.Count)
             {
                 //等待最后一页播放完成
@@ -148,8 +134,6 @@ namespace PPT
 
                 PPTClose();
                 hook.Hook_Clear();
-                //等待进程退出
-                System.Threading.Thread.Sleep(500);
 
                 //继续播放
                 IntPtr ptr = Msg.FindWindow(null, "广告播放系统");
