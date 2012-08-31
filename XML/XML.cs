@@ -146,17 +146,19 @@ namespace XML
         }
         #endregion
 
-        public bool ReadPlayConfig(out Config config)
+        public bool ReadPlayConfig(out Config config, ref string error)
         {
-            return ReadPlayConfig(out config, true);
+            return ReadPlayConfig(out config, true, ref error);
         }
 
         /// <summary>
         /// 读取播放配置
         /// </summary>
         /// <returns></returns>
-        public bool ReadPlayConfig(out Config config, bool expendDir)
+        public bool ReadPlayConfig(out Config config, bool expendDir, ref string error)
         {
+            error = string.Empty;
+
             config = new Config();
 
             try
@@ -279,6 +281,7 @@ namespace XML
             catch (Exception e) 
             {
                 LogXML(e.Message);
+                error = e.Message;
                 return false;
             }
         }

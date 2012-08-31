@@ -44,6 +44,7 @@ namespace PLAY
         private WMPLib.WMPPlayState prev_state;
 
         private string interMediaPath;
+        private string error;
 
         private Msg.myParam tmp;
 
@@ -56,9 +57,9 @@ namespace PLAY
             xml = new XMLInfo(Directory.GetCurrentDirectory() + "\\config\\play.xml");
 
             // 读取配置
-            if (!xml.ReadPlayConfig(out config))
+            if (!xml.ReadPlayConfig(out config, ref error))
             {
-                MessageBox.Show("没有检测到正确的配置文件！\n\n请将检查配置文件\"config\\play.xml\"", "启动异常", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("没有检测到正确的配置文件！\n\n请将检查配置文件\"config\\play.xml\"\n\n错误信息: " + error, "启动异常", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 this.Close();
             }
             else
@@ -220,22 +221,11 @@ namespace PLAY
         public void Play_Click(object sender, EventArgs e)
         {
             // 读取配置
-            xml.ReadPlayConfig(out config);
+            xml.ReadPlayConfig(out config, ref error);
             string pwd, pmt; bool ebl;
             FTP.ApplicationSettings._DataPath = Directory.GetCurrentDirectory();
             FTP.ApplicationSettings.ReadSettings();
             FTP.ApplicationSettings.GetUser("ADPLAYER", out pwd, out interMediaPath, out pmt, out ebl);
-
-            Cursor.Hide();
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
-            axWindowsMediaPlayer1.Dock = DockStyle.Fill;
-            panel1.Visible = false;
-            button_about.Visible = false;
-            button_help.Visible = false;
-
-            hook.Hook_Clear();
-            hook.Hook_Start();
 
             // 多屏显示
             Screen[] scr = Screen.AllScreens;
@@ -244,14 +234,22 @@ namespace PLAY
                 this.Location = scr[config.scr].WorkingArea.Location;
             }
 
-            //axWindowsMediaPlayer1.Ctlcontrols.play();
-
             if (config.intermedia.contents.Count == 0) config.intermedia.enable = false;
             interPlay = false;
-            //CheckPlayList();
 
             lastPlay = new Content();
             DoPlay();
+
+            Cursor.Hide();
+            panel1.Visible = false;
+            button_about.Visible = false;
+            button_help.Visible = false;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            axWindowsMediaPlayer1.Dock = DockStyle.Fill;
+
+            hook.Hook_Clear();
+            hook.Hook_Start();
         }
 
         private void CheckPlayList()
@@ -441,7 +439,7 @@ namespace PLAY
 
         private void button_Font_Click(object sender, EventArgs e)
         {
-            xml.ReadPlayConfig(out config);
+            xml.ReadPlayConfig(out config, ref error);
 
             Font font = new Font(config.notice.font, 
                                 config.notice.size, 
@@ -473,7 +471,7 @@ namespace PLAY
 
         private void button_Config_Click(object sender, EventArgs e)
         {
-            xml.ReadPlayConfig(out config);
+            xml.ReadPlayConfig(out config, ref error);
 
             Form_Config cfg = new Form_Config(xml);
             cfg.ShowDialog();
@@ -701,6 +699,9 @@ namespace PLAY
         // return the seconds of duration
         private int GetVideoDuration(string sourceFile)
         {
+            FileInfo ffmpegexe = new FileInfo(@"ffmpeg.exe");
+            if (!ffmpegexe.Exists) return int.MaxValue;
+
             using (System.Diagnostics.Process ffmpeg = new System.Diagnostics.Process())
             {
                 String duration;  // soon will hold our video's duration in the form "HH:MM:SS.UU"

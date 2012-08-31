@@ -23,6 +23,8 @@ namespace PLAY
 
         private TreeNode cur_node;
 
+        private string error;
+
 #endregion
 
 #region constructor
@@ -32,7 +34,7 @@ namespace PLAY
             InitializeComponent();
 
             xml = x;
-            xml.ReadPlayConfig(out config, false);
+            xml.ReadPlayConfig(out config, false, ref error);
 
             dp = new DateTimePicker();
             dp.Format = DateTimePickerFormat.Custom;
