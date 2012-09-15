@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Sockets;
 using MSG;
 
 namespace ROUTER
@@ -12,6 +14,10 @@ namespace ROUTER
     public partial class Form_Router : Form
     {
         private bool forceQuit = false;
+
+        private Socket sock;
+        private IPEndPoint ipEndPoint;
+        private byte[] ipAddr;
 
         public Form_Router()
         {
@@ -35,6 +41,14 @@ namespace ROUTER
             }
             //UPD.Form_Updater updater = new UPD.Form_Updater();
             //updater.Show();
+
+            sock = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            sock.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.Broadcast, 1);
+            ipEndPoint = new IPEndPoint(IPAddress.Broadcast, 9050);
+            foreach (IPAddress addr in Dns.GetHostEntry(Dns.GetHostName()).AddressList)
+            {
+                if (addr.AddressFamily == AddressFamily.InterNetwork) ipAddr = Encoding.ASCII.GetBytes(addr.ToString());
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -83,6 +97,14 @@ namespace ROUTER
         private void button_hide_Click(object sender, EventArgs e)
         {
             this.Visible = false;
+        }
+
+        private void timer1_broadcast_Tick(object sender, EventArgs e)
+        {
+            if (sock != null)
+            {
+                sock.SendTo(ipAddr, ipEndPoint);
+            }
         }
     }
 }

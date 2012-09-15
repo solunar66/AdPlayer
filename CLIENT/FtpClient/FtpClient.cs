@@ -53,7 +53,7 @@ namespace FtpClient
 		private Byte[] buffer = new Byte[BUFFER_SIZE];
 		private Socket clientSocket = null;
 
-		private int timeoutSeconds = 10;
+		private int timeoutSeconds = 3;
 
         public delegate void ShowProgressDelegate(int currentStep);
         public ShowProgressDelegate showProgress = null;

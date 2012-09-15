@@ -39,6 +39,7 @@
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkBox_ftp = new System.Windows.Forms.CheckBox();
             this.button_hide = new System.Windows.Forms.Button();
+            this.timer_broadcast = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,6 +119,12 @@
             this.button_hide.UseVisualStyleBackColor = true;
             this.button_hide.Click += new System.EventHandler(this.button_hide_Click);
             // 
+            // timer_broadcast
+            // 
+            this.timer_broadcast.Enabled = true;
+            this.timer_broadcast.Interval = 1000;
+            this.timer_broadcast.Tick += new System.EventHandler(this.timer1_broadcast_Tick);
+            // 
             // Form_Router
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -152,6 +159,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.CheckBox checkBox_ftp;
         private System.Windows.Forms.Button button_hide;
+        private System.Windows.Forms.Timer timer_broadcast;
     }
 }
 

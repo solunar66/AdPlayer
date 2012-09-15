@@ -6,7 +6,9 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using System.Runtime.InteropServices; 
+using System.Runtime.InteropServices;
+using System.Net;
+using System.Net.Sockets;
 
 namespace FtpClient
 {
@@ -98,7 +100,8 @@ namespace FtpClient
 
         private void button_login_Click(object sender, EventArgs e)
         {
-            IP = "";
+            IP = string.Empty;
+
             StringBuilder temp = new StringBuilder(255);
             GetPrivateProfileString("FTP server", "IP", "", temp, 255, Config);
             IP = temp.ToString();
@@ -106,10 +109,30 @@ namespace FtpClient
             User = temp.ToString();
             GetPrivateProfileString("FTP server", "Passwd", "", temp, 255, Config);
             Passwd = temp.ToString();
-            if (IP.Equals(string.Empty) || User.Equals(string.Empty) || Passwd.Equals(string.Empty))
+            if (User.Equals(string.Empty) || Passwd.Equals(string.Empty))
             {
                 MessageBox.Show("配置文件读取错误！", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+
+            if (IP.Equals(string.Empty))
+            {
+                Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+                sock.ReceiveTimeout = 3000;
+                IPEndPoint iep = new IPEndPoint(IPAddress.Any, 9050);
+                sock.Bind(iep);
+                EndPoint ep = (EndPoint)iep;
+                byte[] data = new byte[1024];
+                try
+                {
+                    int recv = sock.ReceiveFrom(data, ref ep);
+                    IP = Encoding.ASCII.GetString(data, 0, recv);
+                }
+                catch
+                {
+                    MessageBox.Show("服务器未找到！请尝试手动配置IP地址。", "服务器探测失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                sock.Close();
             }
 
             ftpClient.Server = IP;
