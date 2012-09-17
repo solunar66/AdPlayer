@@ -238,7 +238,6 @@ namespace PLAY
             interPlay = false;
 
             lastPlay = new Content();
-            DoPlay();
 
             Cursor.Hide();
             panel1.Visible = false;
@@ -250,6 +249,7 @@ namespace PLAY
 
             hook.Hook_Clear();
             hook.Hook_Start();
+            DoPlay();
         }
 
         private void CheckPlayList()

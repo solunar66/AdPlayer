@@ -41,6 +41,7 @@ namespace PPT
             iSlideShowTime = playTime;
             objPresSet = (POWERPOINT.Presentation)presSet;
             objApp = objPresSet.Application;
+            iSlideIndex = 0;
             try
             {
                 // 自动播放的代码（开始）
