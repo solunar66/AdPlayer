@@ -212,6 +212,10 @@ namespace XML
                     }
                 }
 
+                XmlNode syscfg = system.SelectSingleNode("syscfg");
+                config.syscfg.sysDuration = syscfg.Attributes["sysduration"].Value == "0" ? false : true;
+                config.syscfg.duration = int.Parse(syscfg.Attributes["duration"].Value);
+
                 XmlNodeList root = system.SelectNodes("period");
                 config.datesheets = new List<DateSheet>();
                 foreach (XmlNode period in root)

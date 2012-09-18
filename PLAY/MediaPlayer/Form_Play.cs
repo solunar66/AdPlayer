@@ -100,6 +100,9 @@ namespace PLAY
                 numericUpDown_interval.Value = config.intermedia.limit;
                 numericUpDown_duration.Value = config.intermedia.duration;
 
+                checkBox1.Checked = config.syscfg.sysDuration;
+                numericUpDown1.Value = config.syscfg.duration;
+
                 hook = new Hook();
                 this.MouseWheel += new MouseEventHandler(Form_Play_MouseWheel);
             }
@@ -435,6 +438,13 @@ namespace PLAY
                 Color.FromKnownColor(System.Drawing.KnownColor.ControlText) :
                 Color.FromKnownColor(System.Drawing.KnownColor.InactiveCaption);
             label3.ForeColor = label2.ForeColor;
+
+            xml.Update("syscfg", "sysduration", checkBox1.Checked ? "1" : "0");
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            xml.Update("syscfg", "duration", numericUpDown1.Value.ToString());
         }
 
         private void button_Font_Click(object sender, EventArgs e)

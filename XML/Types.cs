@@ -14,7 +14,14 @@ namespace XML
         public Sleep sleep;
         public Notice notice;
         public InterMedia intermedia;
+        public SysCfg syscfg;
         public List<DateSheet> datesheets;
+    }
+
+    public struct SysCfg
+    {
+        public bool sysDuration;
+        public int duration;
     }
 
     public struct InterMedia
