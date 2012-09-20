@@ -80,15 +80,18 @@ namespace PPT
         /// </summary>
         public void PPTClose()
         {
+            //Console.WriteLine("PPTClose()");
             //装备PPT程序。
             if (this.objPresSet != null)
             {
-                this.objPresSet.Close();
+                this.objPresSet.Close(); //Console.WriteLine("objPresSet 关闭成功");
             }
-            if (this.objApp != null)
+            //if (this.objApp != null)
             {
                 try
                 {
+                    Form_Play.RunCmd("taskkill /im POWERPNT /f");
+                    /*
                     Process[] thisproc = Process.GetProcessesByName("POWERPNT");
                     if (thisproc.Length > 0)
                     {
@@ -96,19 +99,20 @@ namespace PPT
                         {
                             if (!thisproc[i].CloseMainWindow()) //尝试关闭进程 释放资源
                             {
-                                thisproc[i].Kill(); //强制关闭
+                                thisproc[i].Kill(); Console.WriteLine("进程 kill成功"); //强制关闭
                             }
-                            //Console.WriteLine("进程 {0}关闭成功", processName);
+                            Console.WriteLine("进程 关闭成功");
                         }
                     }
                     else
                     {
-                        //Console.WriteLine("进程 {0} 关闭失败!", processName);
+                        Console.WriteLine("进程 关闭失败!");
                     }
+                    */
                 }
                 catch //出现异常，表明 kill 进程失败
                 {
-                    //Console.WriteLine("结束进程{0}出错！", processName);
+                    Console.WriteLine("结束进程 出错！");
                 }
             }
         }
@@ -125,7 +129,7 @@ namespace PPT
             if (iSlideIndex == Wn.Presentation.Slides.Count)
             {
                 //等待最后一页播放完成
-                System.Threading.Thread.Sleep(iSlideShowTime * 1000);
+                System.Threading.Thread.Sleep(iSlideShowTime * 1000); //System.Console.WriteLine("ppt end: "+iSlideShowTime);
                 //清零
                 iSlideIndex = 0;
 
