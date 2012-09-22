@@ -31,15 +31,28 @@ namespace PPT
 
         #region===========操作方法==============
 
+        public void PPTAuto(object presSet, int playTime)
+        {
+            PPTAuto(presSet, playTime, -1);
+        }
+
         /// <summary>
         /// 自动播放PPT文档.
         /// </summary>
         /// <param name="filePath">PPT文件路径.</param>
         /// <param name="playTime">翻页的时间间隔.【以秒为单位】</param>
-        public void PPTAuto(object presSet, int playTime)
+        /// <param name="timeout">超时限制【以秒为单位】</param>
+        public void PPTAuto(object presSet, int playTime, int timeout)
         {
             iSlideShowTime = playTime;
             objPresSet = (POWERPOINT.Presentation)presSet;
+
+            if (timeout > 0 && objPresSet.Slides.Count * playTime > timeout)
+            {
+                objApp_SlideShowNextSlide(null);
+                return;
+            }
+
             objApp = objPresSet.Application;
             iSlideIndex = 0;
             try
@@ -90,7 +103,7 @@ namespace PPT
             {
                 try
                 {
-                    Form_Play.RunCmd("taskkill /im POWERPNT /f");
+                    Form_Play.RunCmd("taskkill /f /im POWERPNT.EXE");
                     /*
                     Process[] thisproc = Process.GetProcessesByName("POWERPNT");
                     if (thisproc.Length > 0)
@@ -123,17 +136,25 @@ namespace PPT
         /// <param name="Wn">播放窗口状态</param>
         private void objApp_SlideShowNextSlide(POWERPOINT.SlideShowWindow Wn)
         {
+            if (Wn == null)
+            {
+                IntPtr ptr = Msg.FindWindow(null, "宣传播放系统");
+                if (IntPtr.Zero == ptr) return;
+                Msg.PostMessage(ptr, Msg.INT_MSG_GoOnPlayingAfterPPT, 1, ref tmp);//发送消息
+                return;
+            }
+
             iSlideIndex++;
             objApp.Assistant.Visible = false;
             
             if (iSlideIndex == Wn.Presentation.Slides.Count)
             {
                 //等待最后一页播放完成
-                System.Threading.Thread.Sleep(iSlideShowTime * 1000); //System.Console.WriteLine("ppt end: "+iSlideShowTime);
+                System.Threading.Thread.Sleep(iSlideShowTime * 1000); System.Console.WriteLine("ppt end: "+iSlideShowTime);
                 //清零
                 iSlideIndex = 0;
 
-                //IntPtr ptr = Msg.FindWindow(null, "广告播放系统");
+                //IntPtr ptr = Msg.FindWindow(null, "宣传播放系统");
                 //if (IntPtr.Zero == ptr) return;
                 //Msg.PostMessage(ptr, Msg.PPT_OFF, 1, ref tmp);//发送消息
 
@@ -141,10 +162,46 @@ namespace PPT
                 hook.Hook_Clear();
 
                 //继续播放
-                IntPtr ptr = Msg.FindWindow(null, "广告播放系统");
+                IntPtr ptr = Msg.FindWindow(null, "宣传播放系统");
                 if (IntPtr.Zero == ptr) return;
                 Msg.PostMessage(ptr, Msg.INT_MSG_GoOnPlayingAfterPPT, 1, ref tmp);//发送消息
             }
+        }
+
+        /// <summary>
+        /// Check and duplicate the single slide ppt
+        /// Copy to the destination
+        /// </summary>
+        /// <param name="origin"></param>
+        /// <param name="target"></param>
+        public void CheckCopySlides(string origin, string target)
+        {
+            POWERPOINT.ApplicationClass ppt = new POWERPOINT.ApplicationClass();
+            POWERPOINT.Presentation pres = ppt.Presentations.Open(
+                    origin,
+                    Microsoft.Office.Core.MsoTriState.msoTrue,
+                    Microsoft.Office.Core.MsoTriState.msoTrue,
+                    Microsoft.Office.Core.MsoTriState.msoFalse);
+
+            if (pres.Slides.Count == 1)
+            {
+                pres.SaveAs(
+                    target,
+                    POWERPOINT.PpSaveAsFileType.ppSaveAsDefault,
+                    Microsoft.Office.Core.MsoTriState.msoCTrue);
+
+                pres.Slides[1].Copy();
+                pres.Slides.Paste(2);
+                pres.Save();
+            }
+            else
+            {
+                System.IO.FileInfo file = new System.IO.FileInfo(origin);
+                file.CopyTo(target, true);
+            }
+
+            pres.Close();
+            ppt.Quit();
         }
         #endregion
     }

@@ -45,19 +45,34 @@ namespace PLAY
 
         private string interMediaPath;
         private string error;
+        private string rootPath;
 
         private Msg.myParam tmp;
+
+        private BackgroundWorker bgWorker_RunTask;
+
+        private DateTime scheduleDate = DateTime.Now;
+        private int scheduleHour = 0;
+        private int scheduleMin = 0;
 
         public Form_Play()
         {
             InitializeComponent();
 
-            this.Text = "广告播放系统";
+            ClearProcesses();
+
+            this.Text = "宣传播放系统";
             this.axFramerControl1.Location = new Point(-500, -500);
-            xml = new XMLInfo(Directory.GetCurrentDirectory() + "\\config\\play.xml");
+            this.rootPath = Directory.GetCurrentDirectory();
+            xml = new XMLInfo(rootPath + "\\config\\play.xml");
+
+            string pwd, pmt; bool ebl;
+            FTP.ApplicationSettings._DataPath = rootPath;
+            FTP.ApplicationSettings.ReadSettings();
+            FTP.ApplicationSettings.GetUser("ADPLAYER", out pwd, out interMediaPath, out pmt, out ebl);
 
             // 读取配置
-            if (!xml.ReadPlayConfig(out config, ref error))
+            if (!xml.ReadPlayConfig(ref config, ref error))
             {
                 MessageBox.Show("没有检测到正确的配置文件！\n\n请将检查配置文件\"config\\play.xml\"\n\n错误信息: " + error, "启动异常", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 this.Close();
@@ -104,13 +119,30 @@ namespace PLAY
                 numericUpDown1.Value = config.syscfg.duration;
 
                 hook = new Hook();
-                this.MouseWheel += new MouseEventHandler(Form_Play_MouseWheel);
             }
+
+            bgWorker_RunTask = new BackgroundWorker();
+            bgWorker_RunTask.WorkerReportsProgress = false;
+            bgWorker_RunTask.DoWork += new DoWorkEventHandler(bgWorker_RunTask_DoWork);
+            bgWorker_RunTask.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bgWorker_RunTask_RunWorkerCompleted);
+            bgWorker_RunTask.RunWorkerAsync();
+
+            Form_Start start = new Form_Start();
+            start.ShowDialog();
         }
 
-        private void Form_Play_MouseWheel(object sender, System.Windows.Forms.MouseEventArgs e)
+        private void bgWorker_RunTask_DoWork(object sender, DoWorkEventArgs e)
         {
+            RunTask();
+        }
 
+        private void bgWorker_RunTask_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            IntPtr ptr = Msg.FindWindow(null, "Form_Start");
+            if (IntPtr.Zero == ptr) return;
+
+            Msg.myParam tmp = new Msg.myParam();
+            Msg.PostMessage(ptr, 0x10, 0, ref tmp);
         }
 
         // 字幕滚动
@@ -146,7 +178,7 @@ namespace PLAY
                         //Type t = param.GetType();
                         //param = (Msg.My_lParam)m.GetLParam(t);
                         //MessageBox.Show("收到命令: " + param.s);
-                        if (axWindowsMediaPlayer1.Dock == DockStyle.Fill) DoPlay();
+                        if (axWindowsMediaPlayer1.Dock == DockStyle.Fill && monitorON) DoPlay();
                         break;
 
                     case Msg.EXT_MSG_PlayNotice:
@@ -224,9 +256,9 @@ namespace PLAY
         public void Play_Click(object sender, EventArgs e)
         {
             // 读取配置
-            xml.ReadPlayConfig(out config, ref error);
+            xml.ReadPlayConfig(ref config, ref error);
             string pwd, pmt; bool ebl;
-            FTP.ApplicationSettings._DataPath = Directory.GetCurrentDirectory();
+            FTP.ApplicationSettings._DataPath = rootPath;
             FTP.ApplicationSettings.ReadSettings();
             FTP.ApplicationSettings.GetUser("ADPLAYER", out pwd, out interMediaPath, out pmt, out ebl);
 
@@ -371,8 +403,15 @@ namespace PLAY
             axWindowsMediaPlayer1.URL = content.file.IndexOf(":") == -1 ? curDir + "\\" + content.file : content.file;
             int duration = GetVideoDuration(axWindowsMediaPlayer1.URL);
             // 启用插播，并且当前内容为插播内容时，检测时长限制
-            if (interPlay && config.intermedia.contents.IndexOf(content) != -1 && (duration > config.intermedia.limit)) axWindowsMediaPlayer1.Ctlcontrols.stop();
-            else axWindowsMediaPlayer1.Ctlcontrols.play();
+            if (interPlay && config.intermedia.contents.IndexOf(content) != -1 && (duration > config.intermedia.limit))
+            {
+                axWindowsMediaPlayer1.Ctlcontrols.stop();
+                LogPlay("当前文件:\"" + content.file + "\", 插播视频文件时间超限(" + config.intermedia.limit + "秒), 跳过");
+            }
+            else
+            {
+                axWindowsMediaPlayer1.Ctlcontrols.play();
+            }
         }
 
         // 播放PPT
@@ -381,19 +420,23 @@ namespace PLAY
             string pathfile = content.file.IndexOf(":") == -1 ? curDir + "\\" + content.file : content.file;
             axFramerControl1.Open(pathfile);
             axFramerControl1.BringToFront();
+
+            int timeout = -1;
+            if (interPlay && config.intermedia.contents.IndexOf(content) != -1) timeout = config.intermedia.limit;
+
             if (numericUpDown1.Enabled)
             {
-                ppt.PPTAuto(axFramerControl1.ActiveDocument, int.Parse(numericUpDown1.Value.ToString()));
+                ppt.PPTAuto(axFramerControl1.ActiveDocument, int.Parse(numericUpDown1.Value.ToString()), timeout);
             }
             else
             {
-                ppt.PPTAuto(axFramerControl1.ActiveDocument, content.duration);
+                ppt.PPTAuto(axFramerControl1.ActiveDocument, content.duration, timeout);
             }
             LogPlay("当前文件:\"" + pathfile + "\"" + ", 播放状态:PowerPoint放映中");
         }
 
-        // 退出
-        private void Exit_Click(object sender, EventArgs e)
+        // 
+        private void ClearProcesses()
         {
             IntPtr ptr1 = Msg.FindWindow(null, "系统服务");
 
@@ -415,6 +458,12 @@ namespace PLAY
             {
                 Msg.PostMessage(ptr3, WM_DESTROY, 0, ref tmp);
             }
+        }
+
+        // 退出
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            ClearProcesses();
 
             this.Dispose();
         }
@@ -449,7 +498,7 @@ namespace PLAY
 
         private void button_Font_Click(object sender, EventArgs e)
         {
-            xml.ReadPlayConfig(out config, ref error);
+            xml.ReadPlayConfig(ref config, ref error);
 
             Font font = new Font(config.notice.font, 
                                 config.notice.size, 
@@ -481,7 +530,7 @@ namespace PLAY
 
         private void button_Config_Click(object sender, EventArgs e)
         {
-            xml.ReadPlayConfig(out config, ref error);
+            xml.ReadPlayConfig(ref config, ref error);
 
             Form_Config cfg = new Form_Config(xml);
             cfg.ShowDialog();
@@ -505,15 +554,28 @@ namespace PLAY
                         Msg.ShutMonitor(2);
                         LogPlay("关闭显示器");
                     }
+                    // scan uploaded files and update config info
+                    DateTime now = DateTime.Now;
+                    if (now.Date == scheduleDate.Date && now.Hour == scheduleHour && now.Minute == scheduleMin)
+                    {
+                        RunTask();
+                    }
                 }
                 else
                 {
-                    if (axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPaused)
-                    {
-                        axWindowsMediaPlayer1.Ctlcontrols.play();
-                    }
                     if (!monitorON)
                     {
+                        xml.ReadPlayConfig(ref config, ref error);
+
+                        if (axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPaused)
+                        {
+                            axWindowsMediaPlayer1.Ctlcontrols.play();
+                        }
+                        else
+                        {
+                            DoPlay();
+                        }
+
                         monitorON = true;
                         Msg.ShutMonitor(-1);
                         LogPlay("打开显示器");
@@ -581,7 +643,7 @@ namespace PLAY
 
             LogPlay("当前文件:\"" + cur_media + "\", 播放状态:" + state);
 
-            if (goon && axWindowsMediaPlayer1.Dock == DockStyle.Fill)
+            if (goon && axWindowsMediaPlayer1.Dock == DockStyle.Fill && monitorON)
             {
                 DoPlay();
             }
@@ -790,5 +852,72 @@ namespace PLAY
             p.StandardInput.WriteLine("exit");        //不過要記得加上Exit要不然下一行程式執行的時候會當機
             return p.StandardOutput.ReadToEnd();        //從輸出流取得命令執行結果
         }
+
+        private void RunTask()
+        {
+            //update next scheduleTime
+            scheduleDate = scheduleDate.Date.AddDays(1);
+
+            // check the local intermedia directory
+            DirectoryInfo imDir = new DirectoryInfo(rootPath + "\\media\\inter_media");
+            if (!imDir.Exists) imDir.Create();
+            // try to clear the contents
+            DirectoryInfo[] dirs = imDir.GetDirectories();
+            foreach (DirectoryInfo dir in dirs)
+            {
+                try { dir.Delete(true); }
+                catch { }
+            }
+            // create the dir of today
+            DirectoryInfo newDir = new DirectoryInfo(imDir.FullName + "\\" + DateTime.Now.ToString("yyyyMMdd_HHmm"));
+            if (newDir.Exists)
+            {
+                try { newDir.Delete(true); }
+                catch { }
+            }
+            newDir.Create();
+            // scan and copy the uploaded files
+            // update config filepath
+            config.intermedia.contents.Clear();
+            DirectoryInfo ftpDir = new DirectoryInfo(interMediaPath);
+            foreach (FileInfo file in ftpDir.GetFiles())
+            {
+                Content content = new Content();
+                if (file.Extension.Contains("ppt"))
+                {
+                    content.type = ContentType.powerpoint;
+                    ppt.CheckCopySlides(file.FullName, newDir + "\\" + file.Name);
+                }
+                else 
+                {
+                    content.type = ContentType.video;
+                    file.CopyTo(newDir + "\\" + file.Name, true);
+                }
+                content.duration = config.intermedia.duration;
+                content.file = newDir + "\\" + file.Name;
+                config.intermedia.contents.Add(content);
+            }
+        }
     }
+
+    
+
+    //启动窗体类(继承自启动窗体虚基类),启动画面会停留一段时间，该时间是设定的时间和主窗体构造所需时间两个的最大值 
+    public class mycontext : SplashScreenApplicationContext
+    {
+        protected override void OnCreateSplashScreenForm()
+        {
+            this.SplashScreenForm = new Form_Start();//启动窗体 
+        }
+
+        protected override void OnCreateMainForm()
+        {
+            this.PrimaryForm = new Form_Play();//主窗体 
+        }
+
+        protected override void SetSeconds()
+        {
+            this.SecondsShow = 2;//启动窗体显示的时间(秒) 
+        }
+    } 
 }

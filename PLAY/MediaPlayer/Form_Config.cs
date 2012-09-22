@@ -34,7 +34,7 @@ namespace PLAY
             InitializeComponent();
 
             xml = x;
-            xml.ReadPlayConfig(out config, false, ref error);
+            xml.ReadPlayConfig(ref config, false, ref error);
 
             dp = new DateTimePicker();
             dp.Format = DateTimePickerFormat.Custom;

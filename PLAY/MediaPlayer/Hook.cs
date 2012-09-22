@@ -113,7 +113,7 @@ namespace PLAY
 
                 if (kbh.vkCode == (int)Keys.Escape)// 截获Esc
                 {
-                    IntPtr ptr1 = MSG.Msg.FindWindow(null, "广告播放系统");
+                    IntPtr ptr1 = MSG.Msg.FindWindow(null, "宣传播放系统");
                     if (IntPtr.Zero != ptr1)
                     {
                         MSG.Msg.myParam tmp = new MSG.Msg.myParam();

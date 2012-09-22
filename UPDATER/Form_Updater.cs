@@ -62,7 +62,7 @@ namespace UPD
                     {
                         LogUpdate("检测到升级文件: " + drive.Name + updatefile);
 
-                        IntPtr ptr = Msg.FindWindow(null, "广告播放系统");
+                        IntPtr ptr = Msg.FindWindow(null, "宣传播放系统");
                         if (IntPtr.Zero != ptr)
                         {
                             Msg.PostMessage(ptr, WM_DESTROY, 0, ref tmp);

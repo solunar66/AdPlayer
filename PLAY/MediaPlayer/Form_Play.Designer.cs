@@ -628,7 +628,7 @@
             this.button_Play.Name = "button_Play";
             this.button_Play.Size = new System.Drawing.Size(260, 46);
             this.button_Play.TabIndex = 0;
-            this.button_Play.Text = "播放广告";
+            this.button_Play.Text = "开 始 播 放";
             this.button_Play.UseVisualStyleBackColor = true;
             this.button_Play.Click += new System.EventHandler(this.Play_Click);
             // 
@@ -700,7 +700,7 @@
             this.MinimizeBox = false;
             this.Name = "Form_Play";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "广告播放系统";
+            this.Text = "宣传播放系统";
             this.panel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();

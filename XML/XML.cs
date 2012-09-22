@@ -146,20 +146,18 @@ namespace XML
         }
         #endregion
 
-        public bool ReadPlayConfig(out Config config, ref string error)
+        public bool ReadPlayConfig(ref Config config, ref string error)
         {
-            return ReadPlayConfig(out config, true, ref error);
+            return ReadPlayConfig(ref config, true, ref error);
         }
 
         /// <summary>
         /// 读取播放配置
         /// </summary>
         /// <returns></returns>
-        public bool ReadPlayConfig(out Config config, bool expendDir, ref string error)
+        public bool ReadPlayConfig(ref Config config, bool expendDir, ref string error)
         {
             error = string.Empty;
-
-            config = new Config();
 
             try
             {
@@ -197,8 +195,8 @@ namespace XML
                 config.intermedia.enable = intermedia.Attributes["enable"].Value == "0" ? false : true;
                 config.intermedia.limit = int.Parse(intermedia.Attributes["limit"].Value);
                 config.intermedia.duration = int.Parse(intermedia.Attributes["duration"].Value);
-                config.intermedia.contents = new List<Content>();
-                DirectoryInfo d = new DirectoryInfo(intermedia.Attributes["root"].Value);
+                if(config.intermedia.contents == null) config.intermedia.contents = new List<Content>();
+                /*DirectoryInfo d = new DirectoryInfo(intermedia.Attributes["root"].Value);
                 if (d.Exists)
                 {
                     foreach (FileInfo file in d.GetFiles())
@@ -210,7 +208,7 @@ namespace XML
                         content.file = file.FullName;
                         config.intermedia.contents.Add(content);
                     }
-                }
+                }*/
 
                 XmlNode syscfg = system.SelectSingleNode("syscfg");
                 config.syscfg.sysDuration = syscfg.Attributes["sysduration"].Value == "0" ? false : true;

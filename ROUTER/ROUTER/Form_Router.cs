@@ -53,7 +53,7 @@ namespace ROUTER
 
         private void button1_Click(object sender, EventArgs e)
         {
-            IntPtr ptr = Msg.FindWindow(null, "广告播放系统");
+            IntPtr ptr = Msg.FindWindow(null, "宣传播放系统");
 
             if (IntPtr.Zero == ptr) return;
 
