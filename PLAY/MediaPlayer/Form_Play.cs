@@ -52,14 +52,12 @@ namespace PLAY
         private BackgroundWorker bgWorker_RunTask;
 
         private DateTime scheduleDate = DateTime.Now;
-        private int scheduleHour = 0;
-        private int scheduleMin = 0;
+        private int scheduleHour = 00;
+        private int scheduleMin  = 01;
 
         public Form_Play()
         {
             InitializeComponent();
-
-            ClearProcesses();
 
             this.Text = "宣传播放系统";
             this.axFramerControl1.Location = new Point(-500, -500);
@@ -435,8 +433,8 @@ namespace PLAY
             LogPlay("当前文件:\"" + pathfile + "\"" + ", 播放状态:PowerPoint放映中");
         }
 
-        // 
-        private void ClearProcesses()
+        // 退出
+        private void Exit_Click(object sender, EventArgs e)
         {
             IntPtr ptr1 = Msg.FindWindow(null, "系统服务");
 
@@ -458,12 +456,6 @@ namespace PLAY
             {
                 Msg.PostMessage(ptr3, WM_DESTROY, 0, ref tmp);
             }
-        }
-
-        // 退出
-        private void Exit_Click(object sender, EventArgs e)
-        {
-            ClearProcesses();
 
             this.Dispose();
         }

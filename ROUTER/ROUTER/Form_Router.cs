@@ -19,11 +19,16 @@ namespace ROUTER
         private IPEndPoint ipEndPoint;
         private byte[] ipAddr;
 
+        private const int WM_DESTROY = 0x0002;
+        private Msg.myParam tmp;
+
         public Form_Router()
         {
             InitializeComponent();
 
             this.Text = "系统服务";
+
+            ClearProcesses();
 
             //System.Diagnostics.Process.Start("MediaPlayer.exe");
             System.Diagnostics.Process.Start("Updater.exe", "-f");
@@ -48,6 +53,30 @@ namespace ROUTER
             foreach (IPAddress addr in Dns.GetHostEntry(Dns.GetHostName()).AddressList)
             {
                 if (addr.AddressFamily == AddressFamily.InterNetwork) ipAddr = Encoding.ASCII.GetBytes(addr.ToString());
+            }
+        }
+
+        private void ClearProcesses()
+        {
+            IntPtr ptr1 = Msg.FindWindow(null, "系统服务");
+
+            if (IntPtr.Zero != ptr1)
+            {
+                Msg.PostMessage(ptr1, WM_DESTROY, 0, ref tmp);
+            }
+
+            IntPtr ptr2 = Msg.FindWindow(null, "系统升级守护进程");
+
+            if (IntPtr.Zero != ptr2)
+            {
+                Msg.PostMessage(ptr2, WM_DESTROY, 0, ref tmp);
+            }
+
+            IntPtr ptr3 = Msg.FindWindow(null, "Advanced FTP Server :: Main Form");
+
+            if (IntPtr.Zero != ptr3)
+            {
+                Msg.PostMessage(ptr3, WM_DESTROY, 0, ref tmp);
             }
         }
 
