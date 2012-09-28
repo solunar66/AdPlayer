@@ -338,7 +338,7 @@ namespace FtpClient
             }
             catch (Exception ex)
             {
-                MessageBox.Show("\"" + node.Text + "\"下移失败！\r\r" + ex.Message, "文件排序", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("\"" + node.Text + "\"上移失败！\r\r" + ex.Message, "文件排序", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             button_login_Click(this, null);
         }
