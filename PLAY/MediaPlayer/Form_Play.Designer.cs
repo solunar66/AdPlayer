@@ -688,6 +688,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 572);
+            this.ControlBox = false;
             this.Controls.Add(this.axFramerControl1);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.button_about);

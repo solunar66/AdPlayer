@@ -540,7 +540,7 @@ namespace PLAY
                     {
                         axWindowsMediaPlayer1.Ctlcontrols.pause();
                     }
-                    if (monitorON)
+                    //if (monitorON)
                     {
                         monitorON = false;
                         Msg.ShutMonitor(2);
@@ -589,10 +589,10 @@ namespace PLAY
             // cross night
             else if (config.sleep.timespan.startTime.TimeOfDay > config.sleep.timespan.endTime.TimeOfDay)
             {
-                if (DateTime.Now.TimeOfDay >= config.sleep.timespan.startTime.TimeOfDay && DateTime.Now.TimeOfDay <= config.sleep.timespan.endTime.TimeOfDay)
-                { return false; }
+                if (DateTime.Now.TimeOfDay >= config.sleep.timespan.startTime.TimeOfDay || DateTime.Now.TimeOfDay <= config.sleep.timespan.endTime.TimeOfDay)
+                { return true; }
             }
-
+            
             return false;
         }
 

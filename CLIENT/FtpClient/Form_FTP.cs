@@ -9,6 +9,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Net;
 using System.Net.Sockets;
+using MSG;
 
 namespace FtpClient
 {
@@ -16,11 +17,15 @@ namespace FtpClient
     {
         private string Config = @"config.ini";
         private string IP, User, Passwd;
+        private string[] filelist;
 
         private Point Position = new Point(0, 0);
 
         private FtpClient ftpClient = new FtpClient();
-        private BackgroundWorker backGroundWorker;
+        private BackgroundWorker backGroundWorker_upload;
+        private BackgroundWorker backGroundWorker_refresh;
+
+        Msg.myParam tmpParam = new Msg.myParam();
 
         [System.Runtime.InteropServices.DllImport("kernel32")]
         private static extern int GetPrivateProfileString(string section, string key, string def, System.Text.StringBuilder retVal, int size, string filePath);
@@ -29,76 +34,24 @@ namespace FtpClient
         {
             InitializeComponent();
 
+            this.Text = "宣传播放系统 媒体文件上传工具";
+
             Config = System.IO.Directory.GetCurrentDirectory() + "\\" + Config;
 
             ftpClient.showProgress = new FtpClient.ShowProgressDelegate(ShowProgress);
 
-            backGroundWorker = new BackgroundWorker();
-            backGroundWorker.WorkerReportsProgress = true;
-            backGroundWorker.DoWork += new DoWorkEventHandler(backGroundWorker_DoWork);
-            backGroundWorker.ProgressChanged += new ProgressChangedEventHandler(backGroundWorker_ProgressChanged);
-            backGroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backGroundWorker_RunWorkerCompleted);
+            backGroundWorker_upload = new BackgroundWorker();
+            backGroundWorker_upload.WorkerReportsProgress = true;
+            backGroundWorker_upload.DoWork += new DoWorkEventHandler(backGroundWorker_upload_DoWork);
+            backGroundWorker_upload.ProgressChanged += new ProgressChangedEventHandler(backGroundWorker_upload_ProgressChanged);
+            backGroundWorker_upload.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backGroundWorker_upload_RunWorkerCompleted);
+
+            backGroundWorker_refresh = new BackgroundWorker();
+            backGroundWorker_refresh.WorkerReportsProgress = false;
+            backGroundWorker_refresh.DoWork += new DoWorkEventHandler(backGroundWorker_refresh_DoWork);
         }
 
-        void backGroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            label_file.Text = "";
-            button_login_Click(this, null);
-        }
-
-        public void ShowProgress(int currentStep)
-        {
-            if (currentStep <= progressBar1.Maximum)
-                backGroundWorker.ReportProgress(currentStep);
-        }
-
-        void backGroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            if (e.ProgressPercentage <= progressBar1.Maximum)
-                progressBar1.Value = e.ProgressPercentage;
-        }
-
-        void backGroundWorker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            if (label_file.Text == "")
-            {
-                MessageBox.Show("请先选择要上传的文件！", "上传文件", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (!ftpClient.loggedin)
-            {
-                MessageBox.Show("请先连接服务器！", "上传文件", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            FileInfo file = new FileInfo(label_file.Text);
-            if (!file.Exists)
-            {
-                MessageBox.Show("上传失败！\r\r文件不存在:" + label_file.Text, "上传文件", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            try
-            {
-                ftpClient.Upload(file.FullName);
-
-                int iIndex = 1;
-                if (tvFiles.Nodes.Count > 0)
-                {
-                    iIndex = int.Parse(tvFiles.Nodes[tvFiles.Nodes.Count - 1].Text.Substring(0, 2)) + 1;
-                }
-                string sIndex = iIndex.ToString();
-                if (iIndex < 10) sIndex = "0" + sIndex;
-                ftpClient.RenameFile(file.Name, sIndex + "_" + file.Name, true);
-
-                MessageBox.Show("文件:" + file.Name + "\r\r上传成功！", "上传文件", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("上传失败！\r\rError:" + ex.Message, "上传文件", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void button_login_Click(object sender, EventArgs e)
+        void backGroundWorker_refresh_DoWork(object sender, DoWorkEventArgs e)
         {
             IP = string.Empty;
 
@@ -138,35 +91,162 @@ namespace FtpClient
             ftpClient.Server = IP;
             ftpClient.Username = User;
             ftpClient.Password = Passwd;
-
+                        
+            IntPtr ptr = Msg.FindWindow(null, this.Text);
             try
             {
                 ftpClient.Login();
-                label_status.Text = "FTP服务器已连接.";
+                filelist = ftpClient.GetFileList();
+                Msg.PostMessage(ptr, Msg.WAIT_CONNECTED, 0, ref tmpParam);
+                Msg.PostMessage(ptr, Msg.WAIT_REFRESHGUI, 0, ref tmpParam);
             }
-            catch (Exception ex)
+            catch
             {
-                label_status.Text = "FTP服务器连接错误！Error: " + ex.Message;
+                Msg.PostMessage(ptr, Msg.WAIT_DISCONNECTED, 0, ref tmpParam);
+            }
+            finally
+            {
+                IntPtr wait_ptr = Msg.FindWindow(null, "Form_Wait");
+                Msg.PostMessage(wait_ptr, 0x10, 0, ref tmpParam);
+            }
+        }
+
+        void backGroundWorker_upload_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            label_file.Text = "";
+
+            IntPtr wait_ptr = Msg.FindWindow(null, "Form_Wait");
+            Msg.PostMessage(wait_ptr, 0x10, 0, ref tmpParam);
+
+            if (!e.Cancelled)
+            {
+                button_login_Click(this, null);
+            }            
+        }
+
+        void ShowProgress(int currentStep)
+        {
+            if (currentStep <= progressBar1.Maximum)
+                backGroundWorker_upload.ReportProgress(currentStep);
+        }
+
+        void backGroundWorker_upload_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            if (e.ProgressPercentage <= progressBar1.Maximum)
+                progressBar1.Value = e.ProgressPercentage;
+        }
+
+        void backGroundWorker_upload_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (label_file.Text == "")
+            {
+                MessageBox.Show("请先选择要上传的文件！", "上传文件", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = true;
+                return;
+            }
+            if (!ftpClient.loggedin)
+            {
+                MessageBox.Show("请先连接服务器！", "上传文件", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = true;
+                return;
+            }
+            FileInfo file = new FileInfo(label_file.Text);
+            if (!file.Exists)
+            {
+                MessageBox.Show("上传失败！\r\r文件不存在:" + label_file.Text, "上传文件", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = true;
                 return;
             }
 
-            tvFiles.Nodes.Clear();
+            IntPtr ptr = MSG.Msg.FindWindow(null, this.Text);
 
-            string[] filelist = ftpClient.GetFileList();
-            string[] filename;
-            foreach (string file in filelist)
+            try
             {
-                if (file != "" && file.IndexOf("<DIR>") == -1)
+                Msg.PostMessage(ptr, MSG.Msg.WAIT_DISABLEGUI, 0, ref tmpParam);
+
+                ftpClient.Upload(file.FullName);
+
+                int iIndex = 1;
+                if (tvFiles.Nodes.Count > 0)
                 {
-                    filename = file.Split(' ');
-                    for (int i=4; i<filename.Length; i++)
-                    {
-                        filename[3] += " "+filename[i];
-                    }
-                    tvFiles.Nodes.Add(filename[3]);
+                    iIndex = int.Parse(tvFiles.Nodes[tvFiles.Nodes.Count - 1].Text.Substring(0, 2)) + 1;
                 }
+                string sIndex = iIndex.ToString();
+                if (iIndex < 10) sIndex = "0" + sIndex;
+                ftpClient.RenameFile(file.Name, sIndex + "_" + file.Name, true);
+
+                MessageBox.Show("文件:" + file.Name + "\r\r上传成功！", "上传文件", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            ReNameFilesInSeq();
+            catch (Exception ex)
+            {
+                MessageBox.Show("上传失败！\r\rError:" + ex.Message, "上传文件", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Msg.PostMessage(ptr, MSG.Msg.WAIT_ENABLEGUI, 0, ref tmpParam);
+            }
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case Msg.WAIT_DISABLEGUI:
+                    button_login.Enabled = false;
+                    button_file.Enabled = false;
+                    button_upload.Enabled = false;
+                    button_quit.Enabled = false;
+                    label_status.Enabled = false;
+                    label_file.Enabled = false;
+                    tvFiles.Enabled = false;
+                    break;
+
+                case Msg.WAIT_ENABLEGUI:
+                    button_login.Enabled = true;
+                    button_file.Enabled = true;
+                    button_upload.Enabled = true;
+                    button_quit.Enabled = true;
+                    label_status.Enabled = true;
+                    label_file.Enabled = true;
+                    tvFiles.Enabled = true;
+                    break;
+
+                case Msg.WAIT_REFRESHGUI:
+                    tvFiles.Nodes.Clear();
+                    string[] filename;
+                    foreach (string file in filelist)
+                    {
+                        if (file != "" && file.IndexOf("<DIR>") == -1)
+                        {
+                            filename = file.Split(' ');
+                            for (int i = 4; i < filename.Length; i++)
+                            {
+                                filename[3] += " " + filename[i];
+                            }
+                            tvFiles.Nodes.Add(filename[3]);
+                        }
+                    }
+                    ReNameFilesInSeq();
+                    break;
+
+                case Msg.WAIT_CONNECTED:
+                    label_status.Text = "FTP服务器已连接.";                    
+                    break;
+
+                case Msg.WAIT_DISCONNECTED:
+                    label_status.Text = "FTP服务器连接错误！";
+                    break;
+            }
+
+            base.WndProc(ref m);
+        }
+
+        private void button_login_Click(object sender, EventArgs e)
+        {
+            backGroundWorker_refresh.RunWorkerAsync();
+
+            Form_Wait wait = new Form_Wait();
+            wait.ShowDialog();
         }
 
         private void tvFiles_DragDrop(object sender, DragEventArgs e)
@@ -326,7 +406,10 @@ namespace FtpClient
 
         private void button_upload_Click(object sender, EventArgs e)
         {
-            backGroundWorker.RunWorkerAsync();
+            backGroundWorker_upload.RunWorkerAsync();
+
+            Form_Wait wait = new Form_Wait();
+            wait.ShowDialog();
         }
 
         private void ReNameFilesInSeq()

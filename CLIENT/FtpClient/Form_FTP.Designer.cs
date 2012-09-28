@@ -158,6 +158,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(492, 265);
+            this.ControlBox = false;
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.button_quit);
             this.Controls.Add(this.label_file);
@@ -170,7 +171,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form_FTP";
-            this.Text = "AdPlayer FTP Client";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "宣传播放系统 媒体文件上传工具";
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 

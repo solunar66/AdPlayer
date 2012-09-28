@@ -45,11 +45,21 @@
     <Compile Include="Form_FTP.Designer.cs">
       <DependentUpon>Form_FTP.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Wait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Wait.Designer.cs">
+      <DependentUpon>Form_Wait.cs</DependentUpon>
+    </Compile>
     <Compile Include="FtpClient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form_FTP.resx">
       <DependentUpon>Form_FTP.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Wait.resx">
+      <DependentUpon>Form_Wait.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -70,6 +80,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MSG\Messages.csproj">
+      <Project>{463FE8AA-FD07-4F70-82AA-27CDA180F111}</Project>
+      <Name>Messages</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -40,6 +40,12 @@ namespace MSG
         public const int PPT_ON = USER + 7;
         public const int PPT_OFF = USER + 8;
 
+        public const int WAIT_DISABLEGUI = USER + 9;
+        public const int WAIT_ENABLEGUI = USER + 10;
+        public const int WAIT_REFRESHGUI = USER + 11;
+        public const int WAIT_CONNECTED = USER + 12;
+        public const int WAIT_DISCONNECTED = USER + 13;
+
         public struct myParam
         {
             public string param;
