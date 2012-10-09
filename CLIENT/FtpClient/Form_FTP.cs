@@ -384,7 +384,7 @@ namespace FtpClient
                         iIndex = int.Parse(tvFiles.Nodes[i].Text.Substring(0, 2)) - 1;
                         sIndex = iIndex.ToString();
                         if (iIndex < 10) sIndex = "0" + sIndex;
-                        ftpClient.RenameFile(tvFiles.Nodes[i].Text, sIndex, true);
+                        ftpClient.RenameFile(tvFiles.Nodes[i].Text, sIndex + tvFiles.Nodes[i].Text.Substring(2), true);
                     }
                 }
                 catch (Exception ex)
@@ -398,6 +398,7 @@ namespace FtpClient
         private void button_file_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "PowerPoint演示文件|*.ppt;*.pptx";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 label_file.Text = @ofd.FileName;
